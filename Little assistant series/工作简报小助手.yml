@@ -1,0 +1,2422 @@
+app:
+  description: 撰写工作方案
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 工作简报小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1727159899881-source-1727159954446-target
+      selected: false
+      source: '1727159899881'
+      sourceHandle: source
+      target: '1727159954446'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1727159954446-source-1727160085247-target
+      selected: false
+      source: '1727159954446'
+      sourceHandle: source
+      target: '1727160085247'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160200591-source-1727160258716-target
+      source: '1727160200591'
+      sourceHandle: source
+      target: '1727160258716'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160197295-source-1727160252261-target
+      source: '1727160197295'
+      sourceHandle: source
+      target: '1727160252261'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160193793-source-1727160246669-target
+      source: '1727160193793'
+      sourceHandle: source
+      target: '1727160246669'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160246669-source-1727160277877-target
+      source: '1727160246669'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160252261-source-1727160277877-target
+      source: '1727160252261'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160258716-source-1727160277877-target
+      source: '1727160258716'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1727160277877-source-1727160381775-target
+      source: '1727160277877'
+      sourceHandle: source
+      target: '1727160381775'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: if-else
+      id: 1727160085247-source-1727525615633-target
+      source: '1727160085247'
+      sourceHandle: source
+      target: '1727525615633'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727525615633-true-1727439961032-target
+      source: '1727525615633'
+      sourceHandle: 'true'
+      target: '1727439961032'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727525615633-8440ca06-e3ad-45bf-89d5-ddec5f55e9cc-1727439963591-target
+      selected: false
+      source: '1727525615633'
+      sourceHandle: 8440ca06-e3ad-45bf-89d5-ddec5f55e9cc
+      target: '1727439963591'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727525615633-4053fe29-7049-439a-9919-80f9490e37ea-1727439968564-target
+      selected: false
+      source: '1727525615633'
+      sourceHandle: 4053fe29-7049-439a-9919-80f9490e37ea
+      target: '1727439968564'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727525615633-efa6efe5-6a57-47d8-a4d1-44c238e5b769-1727439973402-target
+      selected: false
+      source: '1727525615633'
+      sourceHandle: efa6efe5-6a57-47d8-a4d1-44c238e5b769
+      target: '1727439973402'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727525615633-false-1727439961032-target
+      source: '1727525615633'
+      sourceHandle: 'false'
+      target: '1727439961032'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439961032-source-1727160193793-target
+      source: '1727439961032'
+      sourceHandle: source
+      target: '1727160193793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439961032-source-1727160197295-target
+      source: '1727439961032'
+      sourceHandle: source
+      target: '1727160197295'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439961032-source-1727160200591-target
+      source: '1727439961032'
+      sourceHandle: source
+      target: '1727160200591'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1727160193793-source-1727525977557-target
+      source: '1727160193793'
+      sourceHandle: source
+      target: '1727525977557'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727525977557-source-1727160252261-target
+      source: '1727525977557'
+      sourceHandle: source
+      target: '1727160252261'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439963591-source-17275271806540-target
+      selected: false
+      source: '1727439963591'
+      sourceHandle: source
+      target: '17275271806540'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439963591-source-17275271854810-target
+      selected: false
+      source: '1727439963591'
+      sourceHandle: source
+      target: '17275271854810'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439963591-source-17275271888600-target
+      selected: false
+      source: '1727439963591'
+      sourceHandle: source
+      target: '17275271888600'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439968564-source-17275272100770-target
+      selected: false
+      source: '1727439968564'
+      sourceHandle: source
+      target: '17275272100770'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439968564-source-17275272228560-target
+      selected: false
+      source: '1727439968564'
+      sourceHandle: source
+      target: '17275272228560'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439968564-source-17275272367550-target
+      selected: false
+      source: '1727439968564'
+      sourceHandle: source
+      target: '17275272367550'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439973402-source-17275272498170-target
+      selected: false
+      source: '1727439973402'
+      sourceHandle: source
+      target: '17275272498170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439973402-source-17275272639360-target
+      selected: false
+      source: '1727439973402'
+      sourceHandle: source
+      target: '17275272639360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439973402-source-17275272738150-target
+      selected: false
+      source: '1727439973402'
+      sourceHandle: source
+      target: '17275272738150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17275271806540-source-17275273887810-target
+      source: '17275271806540'
+      sourceHandle: source
+      target: '17275273887810'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275271806540-source-17275273486920-target
+      source: '17275271806540'
+      sourceHandle: source
+      target: '17275273486920'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275271854810-source-17275273518440-target
+      source: '17275271854810'
+      sourceHandle: source
+      target: '17275273518440'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275271888600-source-17275273554070-target
+      source: '17275271888600'
+      sourceHandle: source
+      target: '17275273554070'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275273887810-source-17275273518440-target
+      source: '17275273887810'
+      sourceHandle: source
+      target: '17275273518440'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275273486920-source-17275274120010-target
+      source: '17275273486920'
+      sourceHandle: source
+      target: '17275274120010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275273518440-source-17275274120010-target
+      source: '17275273518440'
+      sourceHandle: source
+      target: '17275274120010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275273554070-source-17275274120010-target
+      source: '17275273554070'
+      sourceHandle: source
+      target: '17275274120010'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 17275274120010-source-17275274321070-target
+      source: '17275274120010'
+      sourceHandle: source
+      target: '17275274321070'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17275272100770-source-17275275642170-target
+      source: '17275272100770'
+      sourceHandle: source
+      target: '17275275642170'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275272100770-source-17275275853120-target
+      source: '17275272100770'
+      sourceHandle: source
+      target: '17275275853120'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275272228560-source-17275275888140-target
+      source: '17275272228560'
+      sourceHandle: source
+      target: '17275275888140'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275272367550-source-17275275924620-target
+      source: '17275272367550'
+      sourceHandle: source
+      target: '17275275924620'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275275642170-source-17275275888140-target
+      source: '17275275642170'
+      sourceHandle: source
+      target: '17275275888140'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275275853120-source-17275276337690-target
+      source: '17275275853120'
+      sourceHandle: source
+      target: '17275276337690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275275888140-source-17275276337690-target
+      source: '17275275888140'
+      sourceHandle: source
+      target: '17275276337690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275275924620-source-17275276337690-target
+      source: '17275275924620'
+      sourceHandle: source
+      target: '17275276337690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 17275276337690-source-17275276383430-target
+      source: '17275276337690'
+      sourceHandle: source
+      target: '17275276383430'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275272498170-source-17275277275570-target
+      source: '17275272498170'
+      sourceHandle: source
+      target: '17275277275570'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275272639360-source-17275277443450-target
+      source: '17275272639360'
+      sourceHandle: source
+      target: '17275277443450'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275272738150-source-17275277473260-target
+      source: '17275272738150'
+      sourceHandle: source
+      target: '17275277473260'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17275272498170-source-17275277192650-target
+      source: '17275272498170'
+      sourceHandle: source
+      target: '17275277192650'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17275277192650-source-17275277443450-target
+      source: '17275277192650'
+      sourceHandle: source
+      target: '17275277443450'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275277275570-source-17275277702740-target
+      source: '17275277275570'
+      sourceHandle: source
+      target: '17275277702740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275277443450-source-17275277702740-target
+      source: '17275277443450'
+      sourceHandle: source
+      target: '17275277702740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17275277473260-source-17275277702740-target
+      source: '17275277473260'
+      sourceHandle: source
+      target: '17275277702740'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 17275277702740-source-17275277791100-target
+      source: '17275277702740'
+      sourceHandle: source
+      target: '17275277791100'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 分类
+          max_length: 64
+          options:
+          - 工作简报
+          - 专题简报
+          - 会议简报
+          - 动态简报
+          required: false
+          type: select
+          variable: classification
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 170
+      id: '1727159899881'
+      position:
+        x: -571.6447854943608
+        y: 290.9758234916579
+      positionAbsolute:
+        x: -571.6447854943608
+        y: 290.9758234916579
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727159899881'
+          - text
+          variable: arg2
+      height: 82
+      id: '1727159954446'
+      position:
+        x: -571.6447854943608
+        y: 483.0584462131363
+      positionAbsolute:
+        x: -571.6447854943608
+        y: 483.0584462131363
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - e5231e5c-5cb1-4484-a846-773226e9fbe1
+        - 0f23908f-82ea-4f31-ad0f-3d044f492ad2
+        - f4aa72f7-79a1-4781-a096-972ca60c3ffe
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1727159954446'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 176
+      id: '1727160085247'
+      position:
+        x: -571.6447854943608
+        y: 602.1903485754082
+      positionAbsolute:
+        x: -571.6447854943608
+        y: 602.1903485754082
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(beginning_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(beginning_input)\n\
+          \        \n        # Extract the \"beginning\" content\n        beginning_result\
+          \ = data.get(\"beginning\", \"\")\n        \n        # Return the extracted\
+          \ beginning content\n        return {\"beginning_result\": beginning_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          beginning_result:
+            children: null
+            type: string
+        selected: false
+        title: 开头提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439961032'
+          - text
+          variable: beginning_input
+      height: 82
+      id: '1727160193793'
+      position:
+        x: 446.269931707202
+        y: 80.94155378686389
+      positionAbsolute:
+        x: 446.269931707202
+        y: 80.94155378686389
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439961032'
+          - text
+          variable: principal_input
+      height: 82
+      id: '1727160197295'
+      position:
+        x: 446.269931707202
+        y: 233.53055314504752
+      positionAbsolute:
+        x: 446.269931707202
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439961032'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1727160200591'
+      position:
+        x: 446.269931707202
+        y: 389.3613175866527
+      positionAbsolute:
+        x: 446.269931707202
+        y: 389.3613175866527
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
+          role: system
+          text: '根据提供的信息<{{#1727160193793.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 用概括性的语言撰写简报的开头，介绍时间的主要内容和基本背景。
+
+            3. 确保开头部分简洁明了，能够快速传达核心信息。
+
+            4. 避免使用任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 开头撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160246669'
+      position:
+        x: 775.4022374838441
+        y: 80.94155378686389
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 80.94155378686389
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 73a62160-ef1b-423c-9577-e977d34a28f2
+          role: system
+          text: '根据提供的信息<{{#1727160197295.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#1727525977557.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 首先，仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 根据提供的信息，撰写工作简报的主体部分。确保内容紧扣开头进行阐述。
+
+            3. 按照逻辑顺序组织内容，确保条理清晰。
+
+            4. 避免在文章的开头和结尾撰写任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后，直接输出内容，不要进行额外的总结或解释。
+
+            6. 输出的内容不应包含任何XML标签。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160252261'
+      position:
+        x: 775.4022374838441
+        y: 233.53055314504752
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
+          role: system
+          text: '根据提供的信息<{{#1727160200591.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，理解其核心内容和背景。
+
+            2. 根据信息，撰写一个简短的结尾段落，长度约为3-5句话。
+
+            3. 结尾段落应强调时间的意义或未来的发展趋势。
+
+            4. 确保结尾段落与提供的信息紧密相关，逻辑清晰。
+
+            5. 不要在结尾段落中使用任何称谓、总结性或致谢性的内容。
+
+            6. 撰写完成后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160258716'
+      position:
+        x: 775.4022374838441
+        y: 389.3613175866527
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 389.3613175866527
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727160246669'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1727160252261'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1727160258716'
+          - text
+          variable: arg4
+      height: 82
+      id: '1727160277877'
+      position:
+        x: 1109.9200373554804
+        y: 233.53055314504752
+      positionAbsolute:
+        x: 1109.9200373554804
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1727160277877'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1727160381775'
+      position:
+        x: 1406.1222125801903
+        y: 233.53055314504752
+      positionAbsolute:
+        x: 1406.1222125801903
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM｜工作简报
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 80108fb1-fc5a-461c-b886-8a03258d5149
+          role: system
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个工作简报的提纲。提纲应包含开头、主体、结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+
+            1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            2. 工作简报是内容比较简略的报道，是机关内部向上级机关汇报工作的一种文字形式，也可把它发送到下属机构或平行机关，用于指导工作、交流经验、互通情报。工作简报具有新闻性、专业性和简短性的特点。
+
+            3. 首先，阅读提供的标题和内容，确保理解其背景和核心信息。
+
+            4. 根据标题，撰写简报的开头部分，简要介绍背景和目的。
+
+            5. 根据内容，撰写简报的主体部分，详细列出工作进展、经验、问题和对策。
+
+            6. 撰写简报的结尾部分，总结主要内容，提出下一步工作计划或建议。
+
+            7. 确保提纲内容集中、简明扼要，符合工作简报的特点。
+
+            8. 输出的提纲不应包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727439961032'
+      position:
+        x: 106.51912991011613
+        y: 233.53055314504752
+      positionAbsolute:
+        x: 106.51912991011613
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM｜专题简报
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 9ec8116e-1bef-480f-98b0-ce145a792acf
+          role: system
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个专题简报的提纲。提纲应包含开头、主体、结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+
+            1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            2. 专题简报是针对某项工作、任务、活动而写的，目标单一，有较强的针对性。专题简报的编写是伴随这某项工作、任务、活动的开展而进行的，工作、任务、活动宣告结束，简报的编写也就停止了，因而，它比工作简报更看重时效性。
+
+            3. 首先，阅读提供的标题和内容，确保理解任务的背景和目的。
+
+            4. 根据标题，撰写简报的开头部分，简要介绍任务的背景、目的和重要性。
+
+            5. 根据内容，撰写简报的主体部分，详细列出任务的主要内容、进展、成果和存在的问题。
+
+            6. 撰写简报的结尾部分，总结任务的总体情况，提出下一步的工作计划或建议。
+
+            7. 确保提纲结构清晰，逻辑严谨，语言简洁明了。
+
+            8. 输出的提纲不应包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727439963591'
+      position:
+        x: 106.51912991011613
+        y: 933.1901390388222
+      positionAbsolute:
+        x: 106.51912991011613
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM｜会议简报
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 2d0c0493-90f6-47d5-b31e-58266aaf8a8d
+          role: system
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个会议简报的提纲。提纲应包含开头，主体，结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+
+            1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            2. 首先，阅读提供的标题和内容，确保理解会议的主要议题和讨论点。
+
+            3. 根据标题和内容，撰写会议简报的开头部分，简要介绍会议的背景和目的。
+
+            4. 撰写会议简报的主体部分，详细列出会议的主要报告、讲话、会议决议、讨论发言、会议动态及其他重要状况。
+
+            5. 撰写会议简报的结尾部分，总结会议的主要成果和后续行动计划。
+
+            6. 确保输出中不包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727439968564'
+      position:
+        x: 106.51912991011613
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: 106.51912991011613
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM｜动态简报
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 971888e1-b689-4423-ac33-ba0e73ebed6f
+          role: system
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个动态简报的提纲。提纲应包含开头，主体，结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+
+            1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            2. 首先，阅读提供的标题和内容，确保理解其核心信息和背景。
+
+            3. 根据标题和内容，撰写简报的开头部分，简要介绍背景和目的。
+
+            4. 撰写简报的主体部分，详细描述内容中的关键信息，包括新情况、新动向、新问题等。
+
+            5. 撰写简报的结尾部分，总结简报内容，提出建议或展望。
+
+            6. 确保输出的JSON对象中不包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727439973402'
+      position:
+        x: 106.51912991011613
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: 106.51912991011613
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: ebabf540-0bbc-430c-bbed-0ee0246f8684
+            value: 工作简报
+            varType: string
+            variable_selector:
+            - '1727159899881'
+            - classification
+          id: 'true'
+          logical_operator: and
+        - case_id: 8440ca06-e3ad-45bf-89d5-ddec5f55e9cc
+          conditions:
+          - comparison_operator: contains
+            id: 6e47110a-6a55-4555-8d50-0822f169f7e6
+            value: 专题简报
+            varType: string
+            variable_selector:
+            - '1727159899881'
+            - classification
+          id: 8440ca06-e3ad-45bf-89d5-ddec5f55e9cc
+          logical_operator: and
+        - case_id: 4053fe29-7049-439a-9919-80f9490e37ea
+          conditions:
+          - comparison_operator: contains
+            id: 22706f5b-8fc2-4db5-8f44-f8bdf89c1c42
+            value: 会议简报
+            varType: string
+            variable_selector:
+            - '1727159899881'
+            - classification
+          id: 4053fe29-7049-439a-9919-80f9490e37ea
+          logical_operator: and
+        - case_id: efa6efe5-6a57-47d8-a4d1-44c238e5b769
+          conditions:
+          - comparison_operator: contains
+            id: b125316c-272d-4aff-ace9-913a218dab75
+            value: 动态简报
+            varType: string
+            variable_selector:
+            - '1727159899881'
+            - classification
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 270
+      id: '1727525615633'
+      position:
+        x: -267.00441248314814
+        y: 290.9758234916579
+      positionAbsolute:
+        x: -267.00441248314814
+        y: 290.9758234916579
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1,\n\
+          \    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 首尾呼应
+        type: code
+        variables:
+        - value_selector:
+          - '1727160193793'
+          - beginning_result
+          variable: arg1
+      height: 82
+      id: '1727525977557'
+      position:
+        x: 775.4022374838441
+        y: -45.972845710297264
+      positionAbsolute:
+        x: 775.4022374838441
+        y: -45.972845710297264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(beginning_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(beginning_input)\n\
+          \        \n        # Extract the \"beginning\" content\n        beginning_result\
+          \ = data.get(\"beginning\", \"\")\n        \n        # Return the extracted\
+          \ beginning content\n        return {\"beginning_result\": beginning_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          beginning_result:
+            children: null
+            type: string
+        selected: false
+        title: 开头提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439963591'
+          - text
+          variable: beginning_input
+      height: 82
+      id: '17275271806540'
+      position:
+        x: 446.269931707202
+        y: 769.1390715528144
+      positionAbsolute:
+        x: 446.269931707202
+        y: 769.1390715528144
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439963591'
+          - text
+          variable: principal_input
+      height: 82
+      id: '17275271854810'
+      position:
+        x: 446.269931707202
+        y: 933.1901390388222
+      positionAbsolute:
+        x: 446.269931707202
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439963591'
+          - text
+          variable: ending_input
+      height: 82
+      id: '17275271888600'
+      position:
+        x: 446.269931707202
+        y: 1102.0662379214773
+      positionAbsolute:
+        x: 446.269931707202
+        y: 1102.0662379214773
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(beginning_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(beginning_input)\n\
+          \        \n        # Extract the \"beginning\" content\n        beginning_result\
+          \ = data.get(\"beginning\", \"\")\n        \n        # Return the extracted\
+          \ beginning content\n        return {\"beginning_result\": beginning_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          beginning_result:
+            children: null
+            type: string
+        selected: false
+        title: 开头提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439968564'
+          - text
+          variable: beginning_input
+      height: 82
+      id: '17275272100770'
+      position:
+        x: 454.269931707202
+        y: 1476.1842858847347
+      positionAbsolute:
+        x: 454.269931707202
+        y: 1476.1842858847347
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439968564'
+          - text
+          variable: principal_input
+      height: 82
+      id: '17275272228560'
+      position:
+        x: 454.269931707202
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: 454.269931707202
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439968564'
+          - text
+          variable: ending_input
+      height: 82
+      id: '17275272367550'
+      position:
+        x: 454.269931707202
+        y: 1827.1562035967636
+      positionAbsolute:
+        x: 454.269931707202
+        y: 1827.1562035967636
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(beginning_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(beginning_input)\n\
+          \        \n        # Extract the \"beginning\" content\n        beginning_result\
+          \ = data.get(\"beginning\", \"\")\n        \n        # Return the extracted\
+          \ beginning content\n        return {\"beginning_result\": beginning_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          beginning_result:
+            children: null
+            type: string
+        selected: false
+        title: 开头提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439973402'
+          - text
+          variable: beginning_input
+      height: 82
+      id: '17275272498170'
+      position:
+        x: 454.269931707202
+        y: 2194.9402478860425
+      positionAbsolute:
+        x: 454.269931707202
+        y: 2194.9402478860425
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439973402'
+          - text
+          variable: principal_input
+      height: 82
+      id: '17275272639360'
+      position:
+        x: 454.269931707202
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: 454.269931707202
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727439973402'
+          - text
+          variable: ending_input
+      height: 82
+      id: '17275272738150'
+      position:
+        x: 454.269931707202
+        y: 2555.0808234739034
+      positionAbsolute:
+        x: 454.269931707202
+        y: 2555.0808234739034
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
+          role: system
+          text: '根据提供的信息<{{#17275271806540.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 用概括性的语言撰写简报的开头，介绍时间的主要内容和基本背景。
+
+            3. 确保开头部分简洁明了，能够快速传达核心信息。
+
+            4. 避免使用任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 开头撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275273486920'
+      position:
+        x: 775.4022374838441
+        y: 769.1390715528144
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 769.1390715528144
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 73a62160-ef1b-423c-9577-e977d34a28f2
+          role: system
+          text: '根据提供的信息<{{#17275271854810.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275273887810.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 首先，仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 根据提供的信息，撰写工作简报的主体部分。确保内容紧扣开头进行阐述。
+
+            3. 按照逻辑顺序组织内容，确保条理清晰。
+
+            4. 避免在文章的开头和结尾撰写任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后，直接输出内容，不要进行额外的总结或解释。
+
+            6. 输出的内容不应包含任何XML标签。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275273518440'
+      position:
+        x: 775.4022374838441
+        y: 933.1901390388222
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
+          role: system
+          text: '根据提供的信息<{{#17275271888600.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，理解其核心内容和背景。
+
+            2. 根据信息，撰写一个简短的结尾段落，长度约为3-5句话。
+
+            3. 结尾段落应强调时间的意义或未来的发展趋势。
+
+            4. 确保结尾段落与提供的信息紧密相关，逻辑清晰。
+
+            5. 不要在结尾段落中使用任何称谓、总结性或致谢性的内容。
+
+            6. 撰写完成后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275273554070'
+      position:
+        x: 775.4022374838441
+        y: 1102.0662379214773
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 1102.0662379214773
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1,\n\
+          \    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 首尾呼应
+        type: code
+        variables:
+        - value_selector:
+          - '17275271806540'
+          - beginning_result
+          variable: arg1
+      height: 82
+      id: '17275273887810'
+      position:
+        x: 775.4022374838441
+        y: 632.2963944878655
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 632.2963944878655
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '17275273486920'
+          - text
+          variable: arg2
+        - value_selector:
+          - '17275273518440'
+          - text
+          variable: arg3
+        - value_selector:
+          - '17275273554070'
+          - text
+          variable: arg4
+      height: 82
+      id: '17275274120010'
+      position:
+        x: 1109.9200373554804
+        y: 933.1901390388222
+      positionAbsolute:
+        x: 1109.9200373554804
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '17275274120010'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '17275274321070'
+      position:
+        x: 1406.1222125801903
+        y: 933.1901390388222
+      positionAbsolute:
+        x: 1406.1222125801903
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1,\n\
+          \    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 首尾呼应
+        type: code
+        variables:
+        - value_selector:
+          - '17275272100770'
+          - beginning_result
+          variable: arg1
+      height: 82
+      id: '17275275642170'
+      position:
+        x: 775.4022374838441
+        y: 1340.3693905589143
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 1340.3693905589143
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
+          role: system
+          text: '根据提供的信息<{{#17275272100770.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 用概括性的语言撰写简报的开头，介绍时间的主要内容和基本背景。
+
+            3. 确保开头部分简洁明了，能够快速传达核心信息。
+
+            4. 避免使用任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 开头撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275275853120'
+      position:
+        x: 775.4022374838441
+        y: 1476.1842858847347
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 1476.1842858847347
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 73a62160-ef1b-423c-9577-e977d34a28f2
+          role: system
+          text: '根据提供的信息<{{#17275272228560.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275275642170.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 首先，仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 根据提供的信息，撰写工作简报的主体部分。确保内容紧扣开头进行阐述。
+
+            3. 按照逻辑顺序组织内容，确保条理清晰。
+
+            4. 避免在文章的开头和结尾撰写任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后，直接输出内容，不要进行额外的总结或解释。
+
+            6. 输出的内容不应包含任何XML标签。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275275888140'
+      position:
+        x: 775.4022374838441
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
+          role: system
+          text: '根据提供的信息<{{#17275272367550.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，理解其核心内容和背景。
+
+            2. 根据信息，撰写一个简短的结尾段落，长度约为3-5句话。
+
+            3. 结尾段落应强调时间的意义或未来的发展趋势。
+
+            4. 确保结尾段落与提供的信息紧密相关，逻辑清晰。
+
+            5. 不要在结尾段落中使用任何称谓、总结性或致谢性的内容。
+
+            6. 撰写完成后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275275924620'
+      position:
+        x: 775.4022374838441
+        y: 1827.1562035967636
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 1827.1562035967636
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '17275275853120'
+          - text
+          variable: arg2
+        - value_selector:
+          - '17275275888140'
+          - text
+          variable: arg3
+        - value_selector:
+          - '17275275924620'
+          - text
+          variable: arg4
+      height: 82
+      id: '17275276337690'
+      position:
+        x: 1109.9200373554804
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: 1109.9200373554804
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '17275276337690'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '17275276383430'
+      position:
+        x: 1406.1222125801903
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: 1406.1222125801903
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1,\n\
+          \    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 首尾呼应
+        type: code
+        variables:
+        - value_selector:
+          - '17275272498170'
+          - beginning_result
+          variable: arg1
+      height: 82
+      id: '17275277192650'
+      position:
+        x: 775.4022374838441
+        y: 2056.5811566997454
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 2056.5811566997454
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
+          role: system
+          text: '根据提供的信息<{{#17275272498170.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 用概括性的语言撰写简报的开头，介绍时间的主要内容和基本背景。
+
+            3. 确保开头部分简洁明了，能够快速传达核心信息。
+
+            4. 避免使用任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 开头撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275277275570'
+      position:
+        x: 775.4022374838441
+        y: 2194.9402478860425
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 2194.9402478860425
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 73a62160-ef1b-423c-9577-e977d34a28f2
+          role: system
+          text: '根据提供的信息<{{#17275272639360.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275277192650.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 首先，仔细阅读提供的信息，确保理解所有关键点。
+
+            2. 根据提供的信息，撰写工作简报的主体部分。确保内容紧扣开头进行阐述。
+
+            3. 按照逻辑顺序组织内容，确保条理清晰。
+
+            4. 避免在文章的开头和结尾撰写任何称谓、总结性、致谢性的内容。
+
+            5. 完成撰写后，直接输出内容，不要进行额外的总结或解释。
+
+            6. 输出的内容不应包含任何XML标签。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275277443450'
+      position:
+        x: 775.4022374838441
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
+          role: system
+          text: '根据提供的信息<{{#17275272738150.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+
+            1. 仔细阅读提供的信息，理解其核心内容和背景。
+
+            2. 根据信息，撰写一个简短的结尾段落，长度约为3-5句话。
+
+            3. 结尾段落应强调时间的意义或未来的发展趋势。
+
+            4. 确保结尾段落与提供的信息紧密相关，逻辑清晰。
+
+            5. 不要在结尾段落中使用任何称谓、总结性或致谢性的内容。
+
+            6. 撰写完成后直接输出，不要添加任何额外的内容或总结。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17275277473260'
+      position:
+        x: 775.4022374838441
+        y: 2555.0808234739034
+      positionAbsolute:
+        x: 775.4022374838441
+        y: 2555.0808234739034
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '17275277275570'
+          - text
+          variable: arg2
+        - value_selector:
+          - '17275277443450'
+          - text
+          variable: arg3
+        - value_selector:
+          - '17275277473260'
+          - text
+          variable: arg4
+      height: 82
+      id: '17275277702740'
+      position:
+        x: 1109.9200373554804
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: 1109.9200373554804
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '17275277702740'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '17275277791100'
+      position:
+        x: 1406.1222125801903
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: 1406.1222125801903
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -77.25165103657304
+      y: -451.6807850865368
+      zoom: 0.3433963898414545

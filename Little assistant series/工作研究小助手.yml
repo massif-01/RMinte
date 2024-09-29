@@ -1,0 +1,799 @@
+app:
+  description: 撰写工作研究
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 工作研究小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726333124328-source-1726852964699-target
+      selected: false
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303820317-source-1726852964699-target
+      selected: false
+      source: '1726303820317'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1726852964699-source-1726305994457-target
+      selected: false
+      source: '1726852964699'
+      sourceHandle: source
+      target: '1726305994457'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339882193-source-1726333124328-target
+      selected: false
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726333124328'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726851931907-source-1726303820317-target
+      selected: false
+      source: '1726851931907'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1726291761984-source-1726906586993-target
+      selected: false
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1726906586993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1726906586993-source-1726905923843-target
+      selected: false
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1726905923843'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1726339723075-source-1727531352166-target
+      source: '1726339723075'
+      sourceHandle: source
+      target: '1727531352166'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727531352166-source-1726303820317-target
+      source: '1727531352166'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339723075-source-1726303818433-target
+      source: '1726339723075'
+      sourceHandle: source
+      target: '1726303818433'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303818433-source-1726852964699-target
+      source: '1726303818433'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1726291761984-source-1727599031634-target
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1727599031634'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1726905923843-source-1726904528623-target
+      source: '1726905923843'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1727599031634-source-1726904528623-target
+      source: '1727599031634'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339882193-target
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339882193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339723075-target
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339723075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726851931907-target
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726851931907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 144
+      id: '1726291761984'
+      position:
+        x: 612.4424632780157
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 612.4424632780157
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
+          role: system
+          text: '根据提供的信息<{{#1726339723075.principal_result#}}>，撰写工作研究的正文部分，要求如下：
+
+            1. 文章的开头和结尾不要有任何称谓、致谢、总结类的内容。
+
+            2. 输出的内容不应包含任何XML标签。输出完成后立即结束，不要总结自身工作。
+
+            3. 正文的第一目的是分析问题：探究问题产生的原因，应按照由表及里的方式进行研究，注意挖掘表象背后的深层次原因。
+
+            4. 分析问题这部分内容可采用重视结构表述，既按照由远及近、由此及彼、从过去到现在的时间进行也可以采用横式结构，将材料分为若干类别，逐一进行介绍，如经济原因、政治原因、文化原因等。根据提供的信息判断使用什么结构来撰写。
+
+            5. 正文的第二目的是解决问题：对于产生问题的原因，逐一提出解决对策，这是工作研究的最终目的和意义所在，要提出切实可行的解决办法，避免空谈阔论。
+
+            6. 要详细的撰写，字数不少于2000字。'
+        selected: false
+        title: 正文撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303818433'
+      position:
+        x: 2131.2377868464027
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 2131.2377868464027
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 3a86607f-16a0-4124-b650-76d94beb1a35
+          role: system
+          text: '根据提供的信息<{{#1726851931907.ending_result#}}>，撰写工作研究的结尾部分，要求如下：
+
+            1. 仔细阅读提供的信息，理解研究的背景、过程和主要发现。
+
+            2. 对全文<{{#1727531352166.result#}}>进行总结，使用简洁的语言，概述研究过程，包括主要的研究方法和步骤。
+
+            3. 基于研究结果，得出明确的研究结论。
+
+            4. 如果可能，对研究对象的未来发展趋势做出合理的预测。
+
+            5. 确保文章的开头和结尾没有称谓、致谢或总结类的内容。
+
+            6. 输出的内容不应包含任何XML标签。'
+        selected: true
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303820317'
+      position:
+        x: 2131.2377868464027
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 2131.2377868464027
+        y: 371.71425592464584
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1726852964699'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1726305994457'
+      position:
+        x: 2454.4111377779127
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 2454.4111377779127
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
+          role: system
+          text: '1. 根据提供的信息<{{#1726339882193.introduction_result#}}>，撰写工作研究的导言部分。
+
+            2. 导言部分应包括以下内容：
+
+            - 研究的背景
+
+            - 选题来源
+
+            - 研究问题本身
+
+            - 研究的意义
+
+            - 研究的内容
+
+            - 研究方法
+
+            - 研究目标
+
+            3. 导言部分的开头和结尾不要有任何称谓、致谢、总结类的内容。
+
+            4. 输出的内容不应包含任何XML标签。
+
+            5. 导言部分用来提出问题，确保内容清晰、逻辑连贯。'
+        selected: false
+        title: 导语撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726333124328'
+      position:
+        x: 2131.2377868464027
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2131.2377868464027
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 正文提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: principal_input
+      height: 82
+      id: '1726339723075'
+      position:
+        x: 1829.4882847054373
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1829.4882847054373
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(introduction_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(introduction_input)\n\
+          \        \n        # Extract the \"introduction\" content\n        introduction_result\
+          \ = data.get(\"introduction\", \"\")\n        \n        # Return the extracted\
+          \ introduction content\n        return {\"introduction_result\": introduction_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          introduction_result:
+            children: null
+            type: string
+        selected: false
+        title: 导言提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: introduction_input
+      height: 82
+      id: '1726339882193'
+      position:
+        x: 1829.4882847054373
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1829.4882847054373
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1726851931907'
+      position:
+        x: 1829.4882847054373
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1829.4882847054373
+        y: 371.71425592464584
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726303818433'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1726303820317'
+          - text
+          variable: arg4
+      height: 82
+      id: '1726852964699'
+      position:
+        x: 2454.4111377779127
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2454.4111377779127
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '根据提供的标题<{{#1726291761984.title#}}>、内容<{{#1726291761984.text#}}>和工作研究的类型<{{#1727599031634.text#}}>，撰写一个工作研究的提纲。
+
+            1. 提纲应包含三个部分：导言、正文和结尾，每个部分作为一个独立的键值对，键分别为“introduction”、“principal”和“ending”。
+
+            2. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            3. 导言部分应简要介绍研究的背景、目的和意义。
+
+            4. 正文部分应详细分析研究的问题，包括但不限于问题的重要性、问题的现状、原因分析、解决措施和建议等。
+
+            5. 结尾部分应总结研究的主要发现和建议，强调研究的实用价值。
+
+            6. 在撰写过程中，确保语言简练、观点明确，科学严谨，客观真实。
+
+            7. 输出不应包含任何XML标签。
+
+            '
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726904528623'
+      position:
+        x: 1527.0877140243667
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1527.0877140243667
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 0f23908f-82ea-4f31-ad0f-3d044f492ad2
+        - 61ecf93b-fe06-4a65-8845-ef67a97713ac
+        - 5c5c3c22-e292-43f4-9a7d-e20b293efe81
+        - 94711705-54a7-46d0-96e4-625f89cdc9cf
+        - 3507d0c3-cf42-43e3-91a5-a2c10261d242
+        - 8c1682b5-9497-46c7-8547-192484de2a4f
+        - 8dcf42fa-b86b-4009-9912-847c710ebc21
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1726906586993'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 288
+      id: '1726905923843'
+      position:
+        x: 1238.0050854268025
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1238.0050854268025
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726291761984'
+          - text
+          variable: arg2
+      height: 82
+      id: '1726906586993'
+      position:
+        x: 943.8218897929455
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 943.8218897929455
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str) -> dict:\n    return {\n        \"result\": arg1,\n\
+          \    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 首尾呼应
+        type: code
+        variables:
+        - value_selector:
+          - '1726339723075'
+          - principal_result
+          variable: arg1
+      height: 82
+      id: '1727531352166'
+      position:
+        x: 1829.4882847054373
+        y: 509.4398749394069
+      positionAbsolute:
+        x: 1829.4882847054373
+        y: 509.4398749394069
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 0ab9ff86-4231-4e92-a33b-5e8015c3626b
+          role: system
+          text: '1. 首先，阅读提供的标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>，理解研究的主要目的和内容。
+
+            2. 根据以下类型定义，判断该研究属于哪一种类型：
+
+            - 描述性工作研究：如果研究主要是对事物、问题、局势进行全面的介绍，目的在于对研究对象进行目的性的调查了解，解决“是什么”的问题。
+
+            - 解释性工作研究：如果研究在明确事物基本情况的基础上，做进一步的探索研究，发掘存在的问题和难点，解释造成现状的原因，总结某项工作成功的经验或失败的教训，解决“为什么”的问题。
+
+            - 探索性工作研究：如果研究旨在预测未来趋势或提出建议，分为预测性工作研究和建议性工作研究两种。
+
+            - 评价性工作研究：如果研究针对出现的问题和状况，考察事物发展的情况、前期工作的实施效果等，并做出客观公正的评价，解决“怎么样”的问题。
+
+            3. 根据上述判断，输出研究的类型名称，不包含任何XML标签。'
+        selected: false
+        title: 类型判断
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727599031634'
+      position:
+        x: 943.8218897929455
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 943.8218897929455
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -201.68224396592495
+      y: 252.62949505037193
+      zoom: 0.48886559344896857

@@ -1,0 +1,356 @@
+app:
+  description: Qwen 2 72B Int4 + WebSearch
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: AI长文章生成器 - Beta 0.5.3
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: true
+        iteration_id: '1716786291494'
+        sourceType: llm
+        targetType: answer
+      id: 1716805725916-source-1719909382418-target
+      source: '1716805725916'
+      sourceHandle: source
+      target: '1719909382418'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1716783205923-source-1721408889926-target
+      source: '1716783205923'
+      sourceHandle: source
+      target: '1721408889926'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1721408889926-source-1716786291494-target
+      source: '1721408889926'
+      sourceHandle: source
+      target: '1716786291494'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1716783101349-source-1716783205923-target
+      source: '1716783101349'
+      sourceHandle: source
+      target: '1716783205923'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1716786291494'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1716786291494start0-source-1716805725916-target
+      source: 1716786291494start0
+      sourceHandle: source
+      target: '1716805725916'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 文章标题
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: article_title
+        - label: 文章内容
+          max_length: 2048
+          options: []
+          required: false
+          type: paragraph
+          variable: article_content
+      height: 116
+      id: '1716783101349'
+      position:
+        x: 275.25171425641946
+        y: 330.5
+      positionAbsolute:
+        x: 275.25171425641946
+        y: 330.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1722784998484'
+          - text
+        desc: LLM
+        model:
+          completion_params:
+            max_tokens: 3072
+            temperature: 0.7
+          mode: chat
+          name: Qwen-3B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 872364eb-6859-4011-b830-e9d547b2a2b4
+          role: system
+          text: "- Role: 长文大纲创作专家\n- Background: 用户需要你根据给定的标题“{{#1716783101349.article_title#}}”和内容“{{#1716783101349.article_content#}}”创作一份详细的大纲。\n\
+            - Profile: 你是一位资深的写手，擅长创作结构清晰、内容详实的大纲，能够确保每个部分都包含充分的信息、解释、例子以及任何其他相关内容。\n\
+            - Skills: 大纲结构设计、信息提炼与组织、确保内容连贯性和逻辑性、使用Markdown语法进行排版、限制大纲深度不超过2级标题。\n\
+            - Goals: 根据用户需求，创作一份至少10个篇章的详细大纲。\n- Constrains: 大纲不能超过2级标题，确保各部分之间的排版格式正确清晰，过渡顺畅。\n\
+            - OutputFormat: 使用Markdown语法创建的大纲，包含至少10个篇章，每个篇章内容详实，结构清晰，不超过2级标题。\n-\
+            \ Workflow:\n  1. 仔细阅读标题“{{#1716783101349.article_title#}}”和内容“{{#1716783101349.article_content#}}”，理解核心主题.。\n\
+            \  2. 设计大纲结构，确保每个部分都有详细的信息、解释、例子和相关内容。\n  3. 使用Markdown语法创建大纲，注意各部分之间的排版格式正确，过渡自然，确保内容的连贯性和逻辑性。\n\
+            \  4. 控制大纲深度，不超过2级标题，以保持清晰度和可读性。\n  5. 输出完成后立即停止，无需自我总结或评论。"
+        selected: false
+        title: 提纲撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1716783205923'
+      position:
+        x: 609.7639302794885
+        y: 330.5
+      positionAbsolute:
+        x: 609.7639302794885
+        y: 330.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 迭代
+        height: 261
+        iterator_selector:
+        - '1721408889926'
+        - result
+        output_selector:
+        - '1716805725916'
+        - text
+        output_type: array[string]
+        selected: false
+        startNodeType: llm
+        start_node_id: 1716786291494start0
+        title: 文章优化
+        type: iteration
+        width: 673
+      height: 261
+      id: '1716786291494'
+      position:
+        x: 1270.6816224374738
+        y: 330.5
+      positionAbsolute:
+        x: 1270.6816224374738
+        y: 330.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 673
+      zIndex: 1
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: 'LLM '
+        isInIteration: true
+        isIterationStart: true
+        iteration_id: '1716786291494'
+        memory:
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            max_tokens: 5120
+            temperature: 0.7
+          mode: chat
+          name: Qwen-3B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 0c84c8c2-bcde-43be-a392-87cd04b40674
+          role: system
+          text: '1.你是一名长文撰写专家，专长于创作吸引人且逻辑清晰的文章。撰写时，避免过度使用标题，以保持文章的连贯性和阅读流畅性。
+
+            2.使用Markdown语法结构化你的回复，确保每一步都清晰明确，以便我们能够逐步推进，达成精准的结果。
+
+            3.完成输出后，立即终止，无需额外总结或评论，以保持文本的纯粹性和目的性。
+
+            4.本文将采用迭代工作流生成，每次迭代应严格依据提供的数组进行，确保每次迭代的内容与数组中对应的大纲标题、序号相匹配，以实现内容与结构的一致性。'
+        - id: a661230f-2367-4f35-98d8-d9d608745354
+          role: assistant
+          text: 创作一篇标题为 "{{#1716783101349.article_title#}}" 的长文，内容需紧密围绕 "{{#1716783205923.text#}}"
+            展开，确保文章逻辑连贯，无重复信息，同时，每部分内容需与迭代数组中的大纲标题和序号保持精准对应。
+        - id: 4260084d-d166-42c0-ad02-5ddc6b33cab4
+          role: user
+          text: 你的写作将依据{{#1716786291494.item#}} 进行，务必保证文章内容与核心信息紧密相关，遵循迭代工作流的指导原则。
+        selected: false
+        title: 文章生成
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      extent: parent
+      height: 126
+      id: '1716805725916'
+      parentId: '1716786291494'
+      position:
+        x: 85
+        y: 85
+      positionAbsolute:
+        x: 1355.6816224374738
+        y: 415.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1001
+    - data:
+        answer: '
+
+          {{#1716805725916.text#}}
+
+          '
+        desc: 直接回复
+        isInIteration: true
+        iteration_id: '1716786291494'
+        selected: false
+        title: 文章输出
+        type: answer
+        variables: []
+      extent: parent
+      height: 135
+      id: '1719909382418'
+      parentId: '1716786291494'
+      position:
+        x: 411.5995749145018
+        y: 85
+      positionAbsolute:
+        x: 1682.2811973519756
+        y: 415.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1002
+    - data:
+        code: "import re\n\ndef main(arg1: str) -> dict:\n    # 找到所有标题行\n    title_lines\
+          \ = re.findall(r'^(#+) .+', arg1, re.MULTILINE)\n    \n    # 确定最大标题级别\n\
+          \    if not title_lines:\n        return {\"result\": []}\n    max_title_level\
+          \ = min(len(title) for title in title_lines)\n    \n    # 确定第二大标题级别\n  \
+          \  second_title_level = max_title_level + 1\n    second_title_pattern =\
+          \ f'^{\"#\" * second_title_level} '\n    \n    # 初始化一个空数组存储结果\n    result\
+          \ = []\n    \n    # 逐行处理输入文本\n    for line in arg1.split('\\n'):\n     \
+          \   # 使用正则表达式匹配第二大标题级别的行\n        if re.match(second_title_pattern, line):\n\
+          \            # 将匹配的行添加到结果数组中\n            result.append(line)\n    \n  \
+          \  # 将结果数组封装在字典中并返回\n    return {\"result\": result}\n\n# 示例输入\nmarkdown_text\
+          \ = \"\"\"\n# Title\n## Subtitle\n### Sub-Subtitle\n#### Header 1\nSome\
+          \ text\n## Another Subtitle\nMore text\n#### Header 2\n\"\"\"\n\n# 调用函数并打印结果\n\
+          result = main(markdown_text)\nprint(result)"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: array[string]
+        selected: true
+        title: 数据提取
+        type: code
+        variables:
+        - value_selector:
+          - '1716783205923'
+          - text
+          variable: arg1
+      height: 82
+      id: '1721408889926'
+      position:
+        x: 938
+        y: 330.5
+      positionAbsolute:
+        x: 938
+        y: 330.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 44
+      id: 1716786291494start0
+      parentId: '1716786291494'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 1294.6816224374738
+        y: 398.5
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    viewport:
+      x: 160.5024586240586
+      y: 167.24523682232524
+      zoom: 0.544741231519012

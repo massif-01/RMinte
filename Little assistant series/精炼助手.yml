@@ -1,0 +1,427 @@
+app:
+  description: 将长文章精简成短文，同时保持文章的完整性和准确性
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 精炼助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1724922086513-source-1724922136362-target
+      source: '1724922086513'
+      sourceHandle: source
+      target: '1724922136362'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: iteration
+      id: 1724922136362-source-1724922161492-target
+      source: '1724922136362'
+      sourceHandle: source
+      target: '1724922161492'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: true
+        iteration_id: '1724922161492'
+        sourceType: iteration-start
+        targetType: llm
+      id: 1724922161492start0-source-1724922393662-target
+      source: 1724922161492start0
+      sourceHandle: source
+      target: '1724922393662'
+      targetHandle: target
+      type: custom
+      zIndex: 1002
+    - data:
+        isInIteration: false
+        sourceType: iteration
+        targetType: code
+      id: 1724922161492-source-1726206610663-target
+      source: '1724922161492'
+      sourceHandle: source
+      target: '1726206610663'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1726206610663-source-1727434798293-target
+      source: '1726206610663'
+      sourceHandle: source
+      target: '1727434798293'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727434798293-source-1727418818022-target
+      source: '1727434798293'
+      sourceHandle: source
+      target: '1727418818022'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1727418818022-source-1724922428979-target
+      source: '1727418818022'
+      sourceHandle: source
+      target: '1724922428979'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 文本输入
+          max_length: 10000
+          options: []
+          required: true
+          type: paragraph
+          variable: input_text
+        - label: 期待字（词）数
+          max_length: 48
+          options: []
+          required: false
+          type: number
+          variable: number
+      height: 116
+      id: '1724922086513'
+      position:
+        x: 262.4832564634505
+        y: 286.6131463914308
+      positionAbsolute:
+        x: 262.4832564634505
+        y: 286.6131463914308
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(input_text: str) -> dict:\n    max_chunk_length = 1500  #\
+          \ 限制每个块的最大长度为1500字符\n    overlap = 100\n    chunk_size = max_chunk_length\n\
+          \n    # 初始化变量\n    chunks = []\n    start_index = 0\n    text_length = len(input_text)\n\
+          \n    # 循环直到文本结束\n    while start_index < text_length:\n        # 如果不是在开头，调整start_index以确保重叠\n\
+          \        if start_index > 0:\n            start_index -= overlap\n\n   \
+          \     # 计算当前块的结束索引\n        end_index = start_index + chunk_size\n     \
+          \   if end_index > text_length:\n            end_index = text_length\n\n\
+          \        # 获取当前块\n        chunk = input_text[start_index:end_index]\n\n\
+          \        # 将当前块添加到列表中\n        chunks.append(chunk)\n\n        # 更新下一个块的start_index\n\
+          \        start_index += chunk_size\n\n    return {\n        \"chunks\":\
+          \ chunks,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          chunks:
+            children: null
+            type: array[string]
+        selected: false
+        title: 文章拆分
+        type: code
+        variables:
+        - value_selector:
+          - '1724922086513'
+          - input_text
+          variable: input_text
+      height: 82
+      id: '1724922136362'
+      position:
+        x: 262.4832564634505
+        y: 425.1891474115405
+      positionAbsolute:
+        x: 262.4832564634505
+        y: 425.1891474115405
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 迭代
+        height: 237
+        iterator_selector:
+        - '1724922136362'
+        - chunks
+        output_selector:
+        - '1724922393662'
+        - text
+        output_type: array[string]
+        selected: false
+        startNodeType: llm
+        start_node_id: 1724922161492start0
+        title: 精炼迭代
+        type: iteration
+        width: 378
+      height: 237
+      id: '1724922161492'
+      position:
+        x: 572.6226672746633
+        y: 286.6131463914308
+      positionAbsolute:
+        x: 572.6226672746633
+        y: 286.6131463914308
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 378
+      zIndex: 1
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        isInIteration: true
+        isIterationStart: true
+        iteration_id: '1724922161492'
+        model:
+          completion_params:
+            temperature: 0.6
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: a45e0477-e726-49d1-8286-04db83eecfbc
+          role: system
+          text: "- Role: 专业精炼专家\n- Background: 你需要将一篇长文章{{#1724922161492.item#}}提炼成一篇精炼的短文，确保信息的准确性和文章的完整性。\n\
+            - Profile: 你一名精炼专家，拥有丰富的经验，擅长捕捉文章的核心信息，确保精炼后的短文保留关键点，保持文章的逻辑结构。\n- Skills:\
+            \ 信息提炼、内容总结、语言精炼、逻辑重构。\n- Goals: 在不改变原文意图和观点的前提下，精炼文章，确保所有关键信息都被准确传达。\n\
+            - Constrains: 精炼过程中不添加新信息，不改变原文的事实和立场，确保精炼后的短文忠实于原文。\n- OutputFormat:\
+            \ 提供精炼后的短文，保持原有文章的逻辑结构和核心信息，确保信息的连贯性和完整性。\n- Workflow:\n  1. 深入理解长文章，把握其主旨和观点。\n\
+            \  2. 识别并提取文章中的关键信息点。\n  3. 使用精准、简洁的语言重构信息点，形成连贯的短文。\n  4. 完成精炼后，立即停止，避免过度分析或添加个人解读。\n\
+            - Examples:\n  长文章段落：\"随着全球化的不断深入，国际贸易已成为各国经济发展的重要组成部分。它不仅促进了商品和服务的流动，还加强了国家间的经济联系，为全球经济增长提供了动力。然而，国际贸易也带来了一系列挑战，如竞争加剧、就业结构变化和文化冲突等。\"\
+            \n  精炼后短文：\"全球化加速，国际贸易成经济增长关键，促进商品与服务流通，加强国家间经济联系，但面临竞争、就业和文化挑战。\""
+        - id: 341e3fb3-8bcb-4cf5-b3bd-f93541e56ba4
+          role: user
+          text: 你的精炼将依据{{#1724922161492.item#}} 进行，遵循迭代工作流的指导原则。输出完成后立刻停止，不要总结自身的工作。
+        selected: false
+        title: 文章精炼
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      extent: parent
+      height: 126
+      id: '1724922393662'
+      parentId: '1724922161492'
+      position:
+        x: 117
+        y: 85
+      positionAbsolute:
+        x: 689.6226672746633
+        y: 371.6131463914308
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+      zIndex: 1001
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1727418818022'
+          - text
+          variable: output
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1724922428979'
+      position:
+        x: 1658.3814264609211
+        y: 286.6131463914308
+      positionAbsolute:
+        x: 1658.3814264609211
+        y: 286.6131463914308
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        isInIteration: true
+        selected: false
+        title: ''
+        type: iteration-start
+      draggable: false
+      height: 44
+      id: 1724922161492start0
+      parentId: '1724922161492'
+      position:
+        x: 24
+        y: 68
+      positionAbsolute:
+        x: 596.6226672746633
+        y: 354.6131463914308
+      selectable: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-iteration-start
+      width: 44
+      zIndex: 1002
+    - data:
+        code: "\ndef main(articleSections: list):\n    data = articleSections\n  \
+          \  return {\n        \"result\": \"\\n\".join(data)\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 文本提取
+        type: code
+        variables:
+        - value_selector:
+          - '1724922161492'
+          - output
+          variable: articleSections
+      height: 82
+      id: '1726206610663'
+      position:
+        x: 1029.0806869926023
+        y: 286.6131463914308
+      positionAbsolute:
+        x: 1029.0806869926023
+        y: 286.6131463914308
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22e5ec05-3b2f-431f-bc2b-9824e6ac515b
+          role: system
+          text: '你的任务是对给定的文章进行精简，精简后的字数必须小于{{#1727434798293.result#}}个字。具体要求如下：
+
+            1. 理解原文内容<{{#1726206610663.result#}}>，确保不遗漏文章的要点。
+
+            2. 理解文章的类型，确保精简后的文章与原文的类型保持一致。
+
+            3. 保证不改动原文的专有名词。
+
+            4. 精简后的文章应保持流畅，逻辑清晰。
+
+            5. 输出不应包含任何 XML 标签。
+
+            请按照以下步骤完成任务：
+
+            - 首先，仔细阅读并理解原文内容，确保你完全掌握了文章的要点和类型。
+
+            - 其次，根据字数要求，对文章进行精简，确保不遗漏要点，同时保持文章的类型一致。
+
+            - 最后，检查精简后的文章，确保专有名词未被改动，文章流畅且逻辑清晰。'
+        selected: false
+        title: 二次精简
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727418818022'
+      position:
+        x: 1343.0651129972784
+        y: 286.6131463914308
+      positionAbsolute:
+        x: 1343.0651129972784
+        y: 286.6131463914308
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(number: str) -> dict:\n    # 将输入的字符串转换为浮点数\n    num = float(number)\n\
+          \    # 计算结果\n    result = num / 2\n    # 返回结果字典\n    return {\n        \"\
+          result\": result,\n    }"
+        code_language: python3
+        desc: LLM
+        outputs:
+          result:
+            children: null
+            type: number
+        selected: false
+        title: 字数执行
+        type: code
+        variables:
+        - value_selector:
+          - '1724922086513'
+          - number
+          variable: number
+      height: 82
+      id: '1727434798293'
+      position:
+        x: 1029.0806869926023
+        y: 383.83510105970504
+      positionAbsolute:
+        x: 1029.0806869926023
+        y: 383.83510105970504
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -40.9888501869508
+      y: 91.05061379263856
+      zoom: 0.6519941423708134

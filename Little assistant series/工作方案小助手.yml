@@ -1,0 +1,913 @@
+app:
+  description: 撰写工作方案
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 工作方案小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1727159899881-source-1727159954446-target
+      source: '1727159899881'
+      sourceHandle: source
+      target: '1727159954446'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1727159954446-source-1727160085247-target
+      source: '1727159954446'
+      sourceHandle: source
+      target: '1727160085247'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1727160085247-source-1727160091346-target
+      source: '1727160085247'
+      sourceHandle: source
+      target: '1727160091346'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160091346-source-1727160193793-target
+      source: '1727160091346'
+      sourceHandle: source
+      target: '1727160193793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160091346-source-1727160197295-target
+      source: '1727160091346'
+      sourceHandle: source
+      target: '1727160197295'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160091346-source-1727160200591-target
+      source: '1727160091346'
+      sourceHandle: source
+      target: '1727160200591'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160091346-source-1727160206773-target
+      source: '1727160091346'
+      sourceHandle: source
+      target: '1727160206773'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160091346-source-1727160235819-target
+      source: '1727160091346'
+      sourceHandle: source
+      target: '1727160235819'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160193793-source-1727160246669-target
+      source: '1727160193793'
+      sourceHandle: source
+      target: '1727160246669'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160197295-source-1727160252261-target
+      source: '1727160197295'
+      sourceHandle: source
+      target: '1727160252261'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160200591-source-1727160258716-target
+      source: '1727160200591'
+      sourceHandle: source
+      target: '1727160258716'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160206773-source-1727160264667-target
+      source: '1727160206773'
+      sourceHandle: source
+      target: '1727160264667'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727160235819-source-1727160267060-target
+      source: '1727160235819'
+      sourceHandle: source
+      target: '1727160267060'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160246669-source-1727160277877-target
+      source: '1727160246669'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160252261-source-1727160277877-target
+      source: '1727160252261'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160258716-source-1727160277877-target
+      source: '1727160258716'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160264667-source-1727160277877-target
+      source: '1727160264667'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727160267060-source-1727160277877-target
+      source: '1727160267060'
+      sourceHandle: source
+      target: '1727160277877'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1727160277877-source-1727160381775-target
+      source: '1727160277877'
+      sourceHandle: source
+      target: '1727160381775'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 144
+      id: '1727159899881'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727159899881'
+          - text
+          variable: arg2
+      height: 82
+      id: '1727159954446'
+      position:
+        x: 80
+        y: 454.335811039831
+      positionAbsolute:
+        x: 80
+        y: 454.335811039831
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - e5231e5c-5cb1-4484-a846-773226e9fbe1
+        - 0f23908f-82ea-4f31-ad0f-3d044f492ad2
+        - f4aa72f7-79a1-4781-a096-972ca60c3ffe
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1727159954446'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 176
+      id: '1727160085247'
+      position:
+        x: 382.20483530166837
+        y: 282
+      positionAbsolute:
+        x: 382.20483530166837
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: b1bf3f93-352c-436a-847b-26adaace93f0
+          role: system
+          text: '为了完成撰写工作方案的提纲的任务，请遵循以下步骤：
+
+            1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            2. 根据提供的任务主题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个工作方案的提纲。
+
+            3. 提纲应包含以下部分，每一个部分是一个单独的键值对：前言——key为“foreword”、指导思想——key为“guiding”、主要目标——key为“goal”、实施步骤——key为“process”、工作要求——key为“requirement”。
+
+            4. 在写作时，应写清组织领导，明确工作方案的工作机构、参与单位和参与人员，这部分应简洁明了。
+
+            5. 在撰写“工作任务和责任分工”时，详细说明工作任务、工作标准和工作责任，确保任务明确、责任分明。
+
+            6. “主要目标”部分应分为总体目标和具体目标，确保目标清晰具体。
+
+            7. “实施步骤”部分应详细说明具体实施方法，突出重点工作项目，采用分条列项的形式，确保内容逻辑清晰、条理分明，便于理解和执行。
+
+            8. “工作要求”一般有三个部分：领导重视、明确责任、加强督查。
+
+            9. 输出不应包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160091346'
+      position:
+        x: 686.2048353016684
+        y: 282
+      positionAbsolute:
+        x: 686.2048353016684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(foreword_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(foreword_input)\n\
+          \        \n        # Extract the \"foreword\" content\n        foreword_result\
+          \ = data.get(\"foreword\", \"\")\n        \n        # Return the extracted\
+          \ foreword content\n        return {\"foreword_result\": foreword_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          foreword_result:
+            children: null
+            type: string
+        selected: false
+        title: 前言提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727160091346'
+          - text
+          variable: foreword_input
+      height: 82
+      id: '1727160193793'
+      position:
+        x: 990.2048353016684
+        y: 282
+      positionAbsolute:
+        x: 990.2048353016684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(guiding_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(guiding_input)\n\
+          \        \n        # Extract the \"guiding\" content\n        guiding_result\
+          \ = data.get(\"guiding\", \"\")\n        \n        # Return the extracted\
+          \ guiding content\n        return {\"guiding_result\": guiding_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          guiding_result:
+            children: null
+            type: string
+        selected: false
+        title: 指导思想提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727160091346'
+          - text
+          variable: guiding_input
+      height: 82
+      id: '1727160197295'
+      position:
+        x: 990.2048353016684
+        y: 445.0114232349314
+      positionAbsolute:
+        x: 990.2048353016684
+        y: 445.0114232349314
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(goal_input: str) -> dict:\n    import json\n    try:\n   \
+          \     # Parse the input JSON string\n        data = json.loads(goal_input)\n\
+          \        \n        # Extract the \"goal\" content\n        goal_result =\
+          \ data.get(\"goal\", \"\")\n        \n        # Return the extracted goal\
+          \ content\n        return {\"goal_result\": goal_result}\n    \n    except\
+          \ json.JSONDecodeError as e:\n        # Return error message if JSON is\
+          \ invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          goal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主要目标提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727160091346'
+          - text
+          variable: goal_input
+      height: 82
+      id: '1727160200591'
+      position:
+        x: 990.2048353016684
+        y: 608.0228464698627
+      positionAbsolute:
+        x: 990.2048353016684
+        y: 608.0228464698627
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(process_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(process_input)\n\
+          \        \n        # Extract the \"process\" content\n        process_result\
+          \ = data.get(\"process\", \"\")\n        \n        # Return the extracted\
+          \ process content\n        return {\"process_result\": process_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          process_result:
+            children: null
+            type: string
+        selected: false
+        title: 实施步骤提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727160091346'
+          - text
+          variable: process_input
+      height: 82
+      id: '1727160206773'
+      position:
+        x: 990.2048353016684
+        y: 763.8536109114677
+      positionAbsolute:
+        x: 990.2048353016684
+        y: 763.8536109114677
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(requirement_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(requirement_input)\n\
+          \        \n        # Extract the \"requirement\" content\n        requirement_result\
+          \ = data.get(\"requirement\", \"\")\n        \n        # Return the extracted\
+          \ requirement content\n        return {\"requirement_result\": requirement_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          requirement_result:
+            children: null
+            type: string
+        selected: false
+        title: 工作要求提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727160091346'
+          - text
+          variable: requirement_input
+      height: 82
+      id: '1727160235819'
+      position:
+        x: 990.2048353016684
+        y: 921.4795400514042
+      positionAbsolute:
+        x: 990.2048353016684
+        y: 921.4795400514042
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
+          role: system
+          text: '根据提供的背景信息<{{#1727160193793.foreword_result#}}>，撰写工作方案的前言部分。前言部分需要明确说明定制工作方案的缘由、背景以及行文的根据、目标、意义和要求等，内容要求准确且概括。
+
+            操作步骤：
+
+            1. 结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            2. 阅读用户提供的背景信息，理解工作方案的背景和目的。
+
+            3. 根据背景信息，撰写前言部分，确保内容包括：
+
+            - 工作方案定制的缘由和背景。
+
+            - 行文的根据，如政策、法规、公司要求等。
+
+            - 工作方案的目标和意义。
+
+            - 对实施过程的具体要求。
+
+            4. 确保前言部分语言准确、逻辑清晰、内容概括。
+
+            5. 输出内容不应包含任何XML标签。'
+        selected: false
+        title: 前言撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160246669'
+      position:
+        x: 1294.2048353016685
+        y: 282
+      positionAbsolute:
+        x: 1294.2048353016685
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 73a62160-ef1b-423c-9577-e977d34a28f2
+          role: system
+          text: '1. 首先，提供的写作依据<{{#1727160197295.guiding_result#}}>，根据依据，撰写工作方案的指导思想部分。
+
+            2. 文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            3. 指导思想部分应包括以下内容：
+
+            - 依据哪些思想、理论
+
+            - 概述要做哪些工作
+
+            4. 确保语言清晰、简洁，逻辑结构合理。
+
+            5. 输出的内容不应包含任何XML标签。'
+        selected: false
+        title: 指导思想撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160252261'
+      position:
+        x: 1294.2048353016685
+        y: 445.0114232349314
+      positionAbsolute:
+        x: 1294.2048353016685
+        y: 445.0114232349314
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
+          role: system
+          text: '你的任务是根据提供的信息<{{#1727160200591.goal_result#}}>，撰写一个工作方案的主要目标部分。请遵循以下步骤：
+
+            1. 开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            2. 主要目标分为总体目标和具体目标。
+
+            3. 总体目标应概述整个工作方案的最终目的，具体目标则应详细列出为了实现总体目标需要完成的具体任务和要求。
+
+            4. 每个目标都应具体明确，包括任务的具体内容、预期达到的要求、数量、质量和时间要求等。
+
+            5. 确保输出内容不包含任何XML标签。'
+        selected: false
+        title: 主要目标撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160258716'
+      position:
+        x: 1294.2048353016685
+        y: 608.0228464698627
+      positionAbsolute:
+        x: 1294.2048353016685
+        y: 608.0228464698627
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: c64a4bee-347b-4cbf-a600-5b28e7854a23
+          role: system
+          text: '1. 根据提供的内容<{{#1727160206773.process_result#}}>，撰写一个详细的工作方案的实施步骤部分，确保字数不少于1500字。
+
+            2. 开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            3. 实施步骤要具体明确，突出重点工作项目，确保每一步骤都清晰具体，便于理解和执行。
+
+            4. 采用分条列项的形式，确保内容的逻辑性和条理性，重点突出。
+
+            5. 在实施方案中，明确每个阶段的时间安排和目标，例如：
+
+            - 第一阶段：发动宣传
+
+            - 第二阶段：学习讨论（理论性、政治性工作）或摸底排查
+
+            - 第三阶段：整改提高
+
+            - 第四阶段：总结验收
+
+            6. 根据实际工作情况，具体设定每个阶段的时间安排和目标。
+
+            7. 输出内容中不得包含任何XML标签。'
+        selected: false
+        title: 实时步骤撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160264667'
+      position:
+        x: 1294.2048353016685
+        y: 763.8536109114677
+      positionAbsolute:
+        x: 1294.2048353016685
+        y: 763.8536109114677
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1727160085247'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 05dfa66d-d5b1-4749-b902-24605b6d1e1b
+          role: system
+          text: '1. 根据提供的输入内容<{{#1727160235819.requirement_result#}}>，撰写一个工作方案的详细的工作要求部分，开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。确保字数不少于2000字。
+
+            2. 工作要求部分应包含三个主要部分：领导重视、明确责任、加强督查。
+
+            3. 在“领导重视”部分，强调领导层对工作的重视程度，表述为充分认识本项工作的重要意义，表明工作的重要性。
+
+            4. 在“明确责任”部分，详细说明如何将方案布置的工作落到实处，确保不被棚架、落空，明确具体责任人。
+
+            5. 在“加强督查”部分，描述对方案开展情况、进程的跟踪了解，确保工作的顺利实施。根据实施单位的多少和工作交叉情况，可以增加“加强协调”部分。
+
+            6. 确保输出内容逻辑清晰、条理分明，不包含任何XML标签。'
+        selected: false
+        title: 工作要求撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727160267060'
+      position:
+        x: 1294.2048353016685
+        y: 921.4795400514042
+      positionAbsolute:
+        x: 1294.2048353016685
+        y: 921.4795400514042
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str, arg5: str, arg6:\
+          \ str) -> dict:\n    return {\n        \"article_result\": arg1 + \"\\n\\\
+          n\" + arg2 + \"\\n\\n\" + arg3 + \"\\n\\n\" + arg4 + \"\\n\\n\" + arg5 +\
+          \ \"\\n\\n\" + arg6,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: true
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727160246669'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1727160252261'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1727160258716'
+          - text
+          variable: arg4
+        - value_selector:
+          - '1727160264667'
+          - text
+          variable: arg5
+        - value_selector:
+          - '1727160267060'
+          - text
+          variable: arg6
+      height: 82
+      id: '1727160277877'
+      position:
+        x: 1734.637352374868
+        y: 282
+      positionAbsolute:
+        x: 1734.637352374868
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1727160277877'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1727160381775'
+      position:
+        x: 1734.637352374868
+        y: 445.0114232349314
+      positionAbsolute:
+        x: 1734.637352374868
+        y: 445.0114232349314
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -246.33668927932638
+      y: 60.72280344015479
+      zoom: 0.5570519523525618

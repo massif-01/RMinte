@@ -1,0 +1,133 @@
+app:
+  description: Qwen 7B 完整版
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: chat
+  name: 党建AI小助手 - Beta 0.2
+  use_icon_as_answer_icon: false
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 5
+    strategy: react
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets:
+      - dataset:
+          enabled: true
+          id: 61ecf93b-fe06-4a65-8845-ef67a97713ac
+      - dataset:
+          enabled: true
+          id: 5c5c3c22-e292-43f4-9a7d-e20b293efe81
+      - dataset:
+          enabled: true
+          id: 94711705-54a7-46d0-96e4-625f89cdc9cf
+      - dataset:
+          enabled: true
+          id: 8a9b7a6b-e335-4383-a2e9-b4737bac182f
+      - dataset:
+          enabled: true
+          id: a6ee367b-0ad3-46cb-aa63-9b66a88a916a
+      - dataset:
+          enabled: true
+          id: 5131a10a-1798-4a0c-8f00-396c48c0f886
+      - dataset:
+          enabled: true
+          id: 6b35d9dc-4bf1-4121-bcb9-ba33021748dc
+      - dataset:
+          enabled: true
+          id: 687f356e-3980-42e3-a42d-65900499c6ff
+      - dataset:
+          enabled: true
+          id: a29d494a-70da-4148-83ed-cfa4e1663351
+      - dataset:
+          enabled: true
+          id: a70e3a7e-735c-437e-b037-c32094feea4c
+      - dataset:
+          enabled: true
+          id: cd56bc72-a655-42bd-aa41-05c8ce809dcf
+      - dataset:
+          enabled: true
+          id: 189cca99-1089-46e0-88e1-b42c68c30b3e
+      - dataset:
+          enabled: true
+          id: 460cb452-2786-4914-87b2-c3994680d6c2
+      - dataset:
+          enabled: true
+          id: 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+      - dataset:
+          enabled: true
+          id: 1995dcd5-2214-4cfd-9e22-02f6fb9b2561
+      - dataset:
+          enabled: true
+          id: 8043f256-179f-4ade-a1c0-ac91acce75e0
+    reranking_enable: true
+    reranking_mode: weighted_score
+    reranking_model:
+      reranking_model_name: bce-reranker-base_v1
+      reranking_provider_name: xinference
+    retrieval_model: multiple
+    score_threshold: 0.5
+    top_k: 7
+    weights:
+      keyword_setting:
+        keyword_weight: 0.3
+      vector_setting:
+        embedding_model_name: bce-embedding-base_v1
+        embedding_provider_name: xinference
+        vector_weight: 0.7
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+  model:
+    completion_params:
+      max_tokens: 5120
+      stop: []
+      temperature: 0.5
+    mode: chat
+    name: Qwen2.5-72B
+    provider: openai_api_compatible
+  more_like_this:
+    enabled: false
+  opening_statement: 欢迎使用党建AI小助手，您可以试着提问：
+  pre_prompt: "- Role: 党建知识权威解答专家\n- Background: 您将扮演一位精通中国共产党历史、理论和政策的资深专家，为用户提供准确无误的党建知识解答。\n\
+    - Profile: 作为党建知识领域的权威专家，您拥有扎实的专业知识和丰富经验，能够基于官方资料，提供权威、全面的解答。\n- Skills: 深入理解中国共产党的发展历程、核心理论与现行方针政策，能够确保所有解答严格遵循官方立场，提供精准信息。\n\
+    - Goals: 通过权威解答，帮助用户深入理解中国共产党的历史与现状，促进对党建内容的全面掌握。\n- Constrains: 确保所有解答严格遵循中国共产党的官方立场，使用准确无误的中文表述，避免任何模糊或偏离官方观点的表述。\n\
+    - OutputFormat: 使用清晰的文本，不要使用任何序号，不要对内容进行高亮、加粗或其他任何处理，以便于理解。\n- Workflow:\n  1.\
+    \ 回答中必须使用纯文本格式输出，不要对文本进行高亮、加粗或其他任何处理，以便于阅读\n  2. 接收用户关于党建的提问，确保理解问题核心。\n  3. 依据中国共产党的官方资料，准备准确、详细、结构化的回答。\n\
+    \  4. 若问题涉及复杂或敏感主题，引导用户参考官方出版物或权威网站，获取最权威解答。\n  5. 使用中文进行交流，确保语言准确无误，表达清晰。\n \
+    \ 6. 根据提问内容，提供相关问题建议，促进用户深入学习。"
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions:
+  - 党的建设必须坚决实现哪五项基本要求？
+  - 如何在新时代背景下加强基层党组织的凝聚力和战斗力？
+  - 如何加强党员干部的思想政治教育，提高其党性修养？
+  suggested_questions_after_answer:
+    enabled: true
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.1.2

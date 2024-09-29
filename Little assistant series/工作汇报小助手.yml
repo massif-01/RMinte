@@ -1,0 +1,3040 @@
+app:
+  description: 撰写工作汇报
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 工作汇报小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726333124328-source-1726852964699-target
+      selected: false
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303818433-source-1726852964699-target
+      selected: false
+      source: '1726303818433'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303820317-source-1726852964699-target
+      selected: false
+      source: '1726303820317'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1726291761984-source-1726906586993-target
+      selected: false
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1726906586993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1726906586993-source-1726905923843-target
+      selected: false
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1726905923843'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727009076987-source-1726852964699-target
+      selected: false
+      source: '1727009076987'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727262641446-source-1727262392277-target
+      selected: false
+      source: '1727262641446'
+      sourceHandle: source
+      target: '1727262392277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727262667729-source-1727262416838-target
+      selected: false
+      source: '1727262667729'
+      sourceHandle: source
+      target: '1727262416838'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727262725699-source-1727262848648-target
+      selected: false
+      source: '1727262725699'
+      sourceHandle: source
+      target: '1727262848648'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727262729515-source-1727263162108-target
+      selected: false
+      source: '1727262729515'
+      sourceHandle: source
+      target: '1727263162108'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727262848648-source-1727263206208-target
+      selected: false
+      source: '1727262848648'
+      sourceHandle: source
+      target: '1727263206208'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1726852964699-source-1727263206208-target
+      selected: false
+      source: '1726852964699'
+      sourceHandle: source
+      target: '1727263206208'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263162108-source-1727263206208-target
+      selected: false
+      source: '1727263162108'
+      sourceHandle: source
+      target: '1727263206208'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1727263206208-source-17272632783670-target
+      selected: false
+      source: '1727263206208'
+      sourceHandle: source
+      target: '17272632783670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727263314044-source-1727263337287-target
+      selected: false
+      source: '1727263314044'
+      sourceHandle: source
+      target: '1727263337287'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263457576-source-17272634662410-target
+      selected: false
+      source: '1727263457576'
+      sourceHandle: source
+      target: '17272634662410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263459867-source-17272634662410-target
+      selected: false
+      source: '1727263459867'
+      sourceHandle: source
+      target: '17272634662410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263461655-source-17272634662410-target
+      selected: false
+      source: '1727263461655'
+      sourceHandle: source
+      target: '17272634662410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263337287-source-17272634940360-target
+      selected: false
+      source: '1727263337287'
+      sourceHandle: source
+      target: '17272634940360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 17272634662410-source-17272634940360-target
+      selected: false
+      source: '17272634662410'
+      sourceHandle: source
+      target: '17272634940360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 17272634940360-source-17272635170730-target
+      selected: false
+      source: '17272634940360'
+      sourceHandle: source
+      target: '17272635170730'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727263532608-source-1727263551149-target
+      selected: false
+      source: '1727263532608'
+      sourceHandle: source
+      target: '1727263551149'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263551149-source-17272634940360-target
+      selected: false
+      source: '1727263551149'
+      sourceHandle: source
+      target: '17272634940360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727262392277-source-1727262440152-target
+      selected: false
+      source: '1727262392277'
+      sourceHandle: source
+      target: '1727262440152'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727262416838-source-1727262440152-target
+      selected: false
+      source: '1727262416838'
+      sourceHandle: source
+      target: '1727262440152'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1727262440152-source-1727262514332-target
+      selected: false
+      source: '1727262440152'
+      sourceHandle: source
+      target: '1727262514332'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17273479707590-source-1727348018305-target
+      selected: false
+      source: '17273479707590'
+      sourceHandle: source
+      target: '1727348018305'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727348018305-source-1727262440152-target
+      selected: false
+      source: '1727348018305'
+      sourceHandle: source
+      target: '1727262440152'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727262727503-source-1727355839037-target
+      selected: false
+      source: '1727262727503'
+      sourceHandle: source
+      target: '1727355839037'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727355839037-source-1727009085538-target
+      selected: false
+      source: '1727355839037'
+      sourceHandle: source
+      target: '1727009085538'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727355839037-source-1726339882193-target
+      selected: false
+      source: '1727355839037'
+      sourceHandle: source
+      target: '1726339882193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727355839037-source-1726339723075-target
+      selected: false
+      source: '1727355839037'
+      sourceHandle: source
+      target: '1726339723075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727355839037-source-1726851931907-target
+      selected: false
+      source: '1727355839037'
+      sourceHandle: source
+      target: '1726851931907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727009085538-source-1727009076987-target
+      selected: false
+      source: '1727009085538'
+      sourceHandle: source
+      target: '1727009076987'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339882193-source-1726333124328-target
+      selected: false
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726333124328'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339723075-source-1726303818433-target
+      selected: false
+      source: '1726339723075'
+      sourceHandle: source
+      target: '1726303818433'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726851931907-source-1726303820317-target
+      selected: false
+      source: '1726851931907'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272614943690-source-1727262641446-target
+      selected: false
+      source: '17272614943690'
+      sourceHandle: source
+      target: '1727262641446'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272614943690-source-17273479707590-target
+      selected: false
+      source: '17272614943690'
+      sourceHandle: source
+      target: '17273479707590'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272614943690-source-1727262667729-target
+      selected: false
+      source: '17272614943690'
+      sourceHandle: source
+      target: '1727262667729'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1727262725699-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1727262725699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1727262727503-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1727262727503'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1727262729515-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1727262729515'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: if-else
+      id: 1726905923843-source-1727359474793-target
+      selected: false
+      source: '1726905923843'
+      sourceHandle: source
+      target: '1727359474793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727359474793-true-17272614943690-target
+      selected: false
+      source: '1727359474793'
+      sourceHandle: 'true'
+      target: '17272614943690'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727359474793-082cb84c-5950-4017-ab8f-b0186da9cd16-1726904528623-target
+      selected: false
+      source: '1727359474793'
+      sourceHandle: 082cb84c-5950-4017-ab8f-b0186da9cd16
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727359474793-false-17272615774050-target
+      selected: false
+      source: '1727359474793'
+      sourceHandle: 'false'
+      target: '17272615774050'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272614943690-source-17273683530310-target
+      source: '17272614943690'
+      sourceHandle: source
+      target: '17273683530310'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17273683530310-source-1727368424988-target
+      source: '17273683530310'
+      sourceHandle: source
+      target: '1727368424988'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727368424988-source-1727262440152-target
+      source: '1727368424988'
+      sourceHandle: source
+      target: '1727262440152'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272615774050-source-1727263314044-target
+      source: '17272615774050'
+      sourceHandle: source
+      target: '1727263314044'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272615774050-source-17272633429920-target
+      source: '17272615774050'
+      sourceHandle: source
+      target: '17272633429920'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272615774050-source-1727263532608-target
+      source: '17272615774050'
+      sourceHandle: source
+      target: '1727263532608'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17272615774050-source-1727419250189-target
+      source: '17272615774050'
+      sourceHandle: source
+      target: '1727419250189'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17272633429920-source-1727419706309-target
+      source: '17272633429920'
+      sourceHandle: source
+      target: '1727419706309'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727419706309-source-17274197620130-target
+      source: '1727419706309'
+      sourceHandle: source
+      target: '17274197620130'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727419706309-source-17274198507760-target
+      source: '1727419706309'
+      sourceHandle: source
+      target: '17274198507760'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727419706309-source-17274198641910-target
+      source: '1727419706309'
+      sourceHandle: source
+      target: '17274198641910'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727419706309-source-17274198897420-target
+      source: '1727419706309'
+      sourceHandle: source
+      target: '17274198897420'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17274198507760-source-1727263457576-target
+      source: '17274198507760'
+      sourceHandle: source
+      target: '1727263457576'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17274198641910-source-1727263459867-target
+      source: '17274198641910'
+      sourceHandle: source
+      target: '1727263459867'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17274198897420-source-1727263461655-target
+      source: '17274198897420'
+      sourceHandle: source
+      target: '1727263461655'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17274197620130-source-1727263455508-target
+      source: '17274197620130'
+      sourceHandle: source
+      target: '1727263455508'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1727419250189-source-1727419706309-target
+      selected: false
+      source: '1727419250189'
+      sourceHandle: source
+      target: '1727419706309'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727263455508-source-17272634662410-target
+      source: '1727263455508'
+      sourceHandle: source
+      target: '17272634662410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1727359474793-50d9955e-7e55-4c91-aebc-c9860d6b9937-17272615774050-target
+      source: '1727359474793'
+      sourceHandle: 50d9955e-7e55-4c91-aebc-c9860d6b9937
+      target: '17272615774050'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+        - label: 写作形式
+          max_length: 48
+          options:
+          - 纵向式结构
+          - 横向式结构
+          - 综合式结构
+          required: false
+          type: select
+          variable: form
+      height: 170
+      id: '1726291761984'
+      position:
+        x: 863.6690665858638
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 863.6690665858638
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
+          role: system
+          text: '1. 首先，根据提供的写作依据<{{#1726339723075.existing_problem_result#}}>，理解工作汇报的背景和核心内容。
+
+            2. 文章开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            3. 确定未来展望部分的主要目标，例如提升效率、扩大市场、增强团队能力等。
+
+            4. 基于事实，结合当前的工作成果和面临的挑战，提出具体且可行的未来计划。
+
+            5. 在撰写过程中，确保内容真实、准确，避免主观臆断或夸大其词。
+
+            6. 语言要正式、专业，避免使用口语化表达。'
+        selected: false
+        title: 存在问题撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303818433'
+      position:
+        x: 2823.9190657274426
+        y: 1227.4319563189483
+      positionAbsolute:
+        x: 2823.9190657274426
+        y: 1227.4319563189483
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 3a86607f-16a0-4124-b650-76d94beb1a35
+          role: system
+          text: '根据提供的写作依据<{{#1726851931907.future_expectations_result#}}>，撰写工作汇报的未来展望部分。文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。写作过程中注意以下几点：
+
+            1. 要实事求是：向领导和同事汇报工作，无论怎么切入，怎么加工润色，都必须本着认真负责的态度和实事求是的精神，一定要把汇报工作建立在事实的基础之上，绝不能凭主观想象随意编造，更不能弄虚作假欺骗领导。
+
+            2. 明确目的：事先一定要想好这次汇报想要达到什么目的。这是一个带有根本性、方向性的问题，也是汇报的主体思想。
+
+            请根据上述指导原则，撰写未来展望部分，确保内容真实、目的明确。'
+        selected: false
+        title: 未来展望撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303820317'
+      position:
+        x: 2822.1110598053656
+        y: 1379.1896034305305
+      positionAbsolute:
+        x: 2822.1110598053656
+        y: 1379.1896034305305
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
+          role: system
+          text: '1. 首先，根据提供的写作依据<{{#1726339882193.business_performance_result#}}>，内容需紧密围绕主题展开撰写工作汇报的业务实绩部分。
+
+            2. 撰写时，不要在文章开头使用称谓，结尾不要包含任何致谢或总结的内容。完成输出后立即结束，不要总结或评论自身的工作。
+
+            3. 明确此次工作汇报的目的。思考这次汇报想要达到的具体目标，这将决定汇报的主体思想。
+
+            4. 其次，根据汇报目的和领导的要求，选择汇报的重点内容。重点内容应包括：领导最关心的事项、自己认为最能体现工作成绩的方面、以及具有个人特色的内容。
+
+            5. 在撰写过程中，确保内容真实可靠，基于实际工作情况，避免主观臆断或虚构事实。'
+        selected: false
+        title: 业务实绩撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726333124328'
+      position:
+        x: 2822.1110598053656
+        y: 1067.04142944212
+      positionAbsolute:
+        x: 2822.1110598053656
+        y: 1067.04142944212
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(existing_problem_input: str) -> dict:\n    import json\n \
+          \   try:\n        # Parse the input JSON string\n        data = json.loads(existing_problem_input)\n\
+          \        \n        # Extract the \"existing_problem\" content\n        existing_problem_result\
+          \ = data.get(\"existing_problem\", \"\")\n        \n        # Return the\
+          \ extracted existing_problem content\n        return {\"existing_problem_result\"\
+          : existing_problem_result}\n    \n    except json.JSONDecodeError as e:\n\
+          \        # Return error message if JSON is invalid\n        return {\"error\"\
+          : str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          existing_problem_result:
+            children: null
+            type: string
+        selected: false
+        title: 存在问题提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727355839037'
+          - text
+          variable: existing_problem_input
+      height: 82
+      id: '1726339723075'
+      position:
+        x: 2518.1110598053656
+        y: 1227.4319563189483
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 1227.4319563189483
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(business_performance_input: str) -> dict:\n    import json\n\
+          \    try:\n        # Parse the input JSON string\n        data = json.loads(business_performance_input)\n\
+          \        \n        # Extract the \"business_performance\" content\n    \
+          \    business_performance_result = data.get(\"business_performance\", \"\
+          \")\n        \n        # Return the extracted business_performance content\n\
+          \        return {\"business_performance_result\": business_performance_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          business_performance_result:
+            children: null
+            type: string
+        selected: false
+        title: 业务实绩提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727355839037'
+          - text
+          variable: business_performance_input
+      height: 82
+      id: '1726339882193'
+      position:
+        x: 2518.1110598053656
+        y: 1067.04142944212
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 1067.04142944212
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(future_expectations_input: str) -> dict:\n    import json\n\
+          \    try:\n        # Parse the input JSON string\n        data = json.loads(future_expectations_input)\n\
+          \        \n        # Extract the \"future_expectations\" content\n     \
+          \   future_expectations_result = data.get(\"future_expectations\", \"\"\
+          )\n        \n        # Return the extracted future_expectations content\n\
+          \        return {\"future_expectations_result\": future_expectations_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          future_expectations_result:
+            children: null
+            type: string
+        selected: false
+        title: 未来展望提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727355839037'
+          - text
+          variable: future_expectations_input
+      height: 82
+      id: '1726851931907'
+      position:
+        x: 2518.1110598053656
+        y: 1379.1896034305305
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 1379.1896034305305
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727009076987'
+          - text
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726303818433'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1726303820317'
+          - text
+          variable: arg4
+      height: 82
+      id: '1726852964699'
+      position:
+        x: 3147.0924166589525
+        y: 904.241300004438
+      positionAbsolute:
+        x: 3147.0924166589525
+        y: 904.241300004438
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '为了准确完成工作汇报提纲的撰写任务，请按照以下步骤操作：
+
+            1. 收集输入信息：确保你已经获得了标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>等必要信息。这些信息将用于构建提纲的具体内容。
+
+            2.提纲必须只能以一整个JSON对象的形式输出，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            3. 理解任务要求：工作汇报提纲需要按照纵向式结构（即时间顺序）撰写，提纲应包含以下部分，每一个部分是一个独立的键值对：分为前言——key为“foreword”、主体——key为“principal”、结尾——key为“ending”三部分。
+
+            4. 撰写前言：前言部分应简要介绍汇报的背景、目的和主要内容。这部分需要简明扼要，为读者提供一个清晰的预期。
+
+            5. 撰写主体：
+
+            - 工作成效：详细描述在特定时间段内完成的主要工作和取得的成果。这部分应突出个人或团队的努力和贡献。
+
+            - 业务实绩：列举具体的工作业绩，包括完成的项目、达成的目标等。使用具体数据和事实来支持你的陈述。
+
+            - 存在问题：诚实地分析工作中遇到的问题和挑战，以及这些问题对工作的影响。这部分应客观、真实。
+
+            - 未来展望：提出对未来的规划和期望，包括改进措施、目标设定等。这部分应积极向上，展现对未来的信心和决心。
+
+            6. 撰写结尾：结尾部分应总结全文，重申工作的重要性和个人的贡献，同时表达对未来的期待和决心。
+
+            7. 检查和修改：完成初稿后，仔细检查提纲的逻辑性和连贯性，确保没有遗漏重要信息，语言表达清晰、准确。
+
+            8. 输出提纲：最终输出的提纲不应包含任何XML标签，确保格式正确、内容完整。
+
+            请按照上述步骤，使用提供的标题和内容，撰写一份高质量的工作汇报提纲。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726904528623'
+      position:
+        x: 1614.3318792559453
+        y: 834.5657785350833
+      positionAbsolute:
+        x: 1614.3318792559453
+        y: 834.5657785350833
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 0f23908f-82ea-4f31-ad0f-3d044f492ad2
+        - 61ecf93b-fe06-4a65-8845-ef67a97713ac
+        - 94711705-54a7-46d0-96e4-625f89cdc9cf
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1726906586993'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 176
+      id: '1726905923843'
+      position:
+        x: 863.6690665858638
+        y: 331.57741159245217
+      positionAbsolute:
+        x: 863.6690665858638
+        y: 331.57741159245217
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726291761984'
+          - text
+          variable: arg2
+      height: 82
+      id: '1726906586993'
+      position:
+        x: 863.6690665858638
+        y: 234.30549936357966
+      positionAbsolute:
+        x: 863.6690665858638
+        y: 234.30549936357966
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: be6bc83d-1337-42b2-b50a-debb95fe91de
+          role: system
+          text: '1. 首先，根据提供的写作依据<{{#1727009085538.working_result_result#}}>，内容需紧密围绕主题展开撰写工作汇报的工作成效部分。
+
+            2. 撰写时，不要在文章开头使用称谓，结尾不要包含任何致谢或总结的内容。完成输出后立即结束，不要总结自身的工作。
+
+            3. 明确此次工作汇报的目的。思考这次汇报想要达到的具体目标，这将决定汇报的主体思想。
+
+            4. 其次，根据汇报目的和领导的要求，选择汇报的重点内容。重点内容应包括：领导最关心的事项、自己认为最能体现工作成绩的方面、以及具有个人特色的内容。
+
+            5. 在撰写过程中，确保内容真实可靠，基于实际工作情况，避免主观臆断或虚构事实。'
+        selected: false
+        title: 工作成效撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727009076987'
+      position:
+        x: 2822.1110598053656
+        y: 904.241300004438
+      positionAbsolute:
+        x: 2822.1110598053656
+        y: 904.241300004438
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(working_result_input: str) -> dict:\n    import json\n   \
+          \ try:\n        # Parse the input JSON string\n        data = json.loads(working_result_input)\n\
+          \        \n        # Extract the \"working_result\" content\n        working_result_result\
+          \ = data.get(\"working_result\", \"\")\n        \n        # Return the extracted\
+          \ working_result content\n        return {\"working_result_result\": working_result_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          working_result_result:
+            children: null
+            type: string
+        selected: false
+        title: 工作成效提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727355839037'
+          - text
+          variable: working_result_input
+      height: 82
+      id: '1727009085538'
+      position:
+        x: 2518.1110598053656
+        y: 904.241300004438
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 904.241300004438
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: sy1001@88.com
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"横向","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: yellow
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1727261462402'
+      position:
+        x: 1614.3318792559453
+        y: 997.1668807365385
+      positionAbsolute:
+        x: 1614.3318792559453
+        y: 997.1668807365385
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '1. 根据提供的标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>，撰写一个工作汇报提纲，提纲需按照纵向式结构（即时间顺序）进行组织。
+
+            2. 提纲应包含以下部分，每一个部分是一个独立的键值对：前言——key为“foreword”、主体——key为“principal”、未来展望——key为"future"、结尾——key为“ending”。
+
+            3. 提纲必须只能以一整个JSON对象的形式输出，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            4. 前言部分应简要介绍汇报的背景和目的。
+
+            5. 主体部分应详细描述工作内容，按照时间顺序排列，重点突出个人履职能力和主要工作成绩。
+
+            6. 结尾部分应总结工作成果，提出未来的工作计划或改进建议。
+
+            7. 内容应具有回顾性，即对已完成的工作进行回顾、反思和总结。
+
+            8. 内容应重点突出，避免面面俱到，只汇报与岗位职责相关的工作。
+
+            9. 表达应具有自述性，使用第一人称，采用叙述和说明的方式，适当议论。
+
+            10. 输出不应包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17272614943690'
+      position:
+        x: 1614.3318792559453
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1614.3318792559453
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: sy1001@88.com
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"纵向","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1727261513077'
+      position:
+        x: 1614.3318792559453
+        y: 198.62015848703018
+      positionAbsolute:
+        x: 1614.3318792559453
+        y: 198.62015848703018
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '为了准确完成工作汇报提纲的撰写任务，请按照以下步骤操作：
+
+            1. 收集输入信息：确保你已经获得了标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>等必要信息。这些信息将用于构建提纲的具体内容。
+
+            2.提纲必须只能以一整个JSON对象的形式输出，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            3. 理解任务要求：工作汇报提纲需要按照纵向式结构（即时间顺序）撰写，提纲应包含以下部分，每一个部分是一个独立的键值对：分为前言——key为“foreword”、主体——key为“principal”、结尾——key为“ending”、时间——key为“schedule”四部分。
+
+            4. 撰写前言：前言部分应简要介绍汇报的背景、目的和主要内容。这部分需要简明扼要，为读者提供一个清晰的预期。
+
+            5. 撰写主体：
+
+            - 工作成效：详细描述在特定时间段内完成的主要工作和取得的成果。这部分应突出个人或团队的努力和贡献。
+
+            - 业务实绩：列举具体的工作业绩，包括完成的项目、达成的目标等。使用具体数据和事实来支持你的陈述。
+
+            - 存在问题：诚实地分析工作中遇到的问题和挑战，以及这些问题对工作的影响。这部分应客观、真实。
+
+            - 未来展望：提出对未来的规划和期望，包括改进措施、目标设定等。这部分应积极向上，展现对未来的信心和决心。
+
+            6. 撰写结尾：结尾部分应总结全文，重申工作的重要性和个人的贡献，同时表达对未来的期待和决心。
+
+            7. 撰写时间：按照提供的内容<>，排布主体内容中各项工作的时间
+
+            8. 检查和修改：完成初稿后，仔细检查提纲的逻辑性和连贯性，确保没有遗漏重要信息，语言表达清晰、准确。
+
+            9. 输出提纲：最终输出的提纲不应包含任何XML标签，确保格式正确、内容完整。
+
+            请按照上述步骤，使用提供的标题和内容，撰写一份高质量的工作汇报提纲。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17272615774050'
+      position:
+        x: 1614.3318792559453
+        y: 1888.6677467611073
+      positionAbsolute:
+        x: 1614.3318792559453
+        y: 1888.6677467611073
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        author: sy1001@88.com
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"综合","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: pink
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1727261586157'
+      position:
+        x: 1614.3318792559453
+        y: 2044.1915161924435
+      positionAbsolute:
+        x: 1614.3318792559453
+        y: 2044.1915161924435
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 20b9244d-d878-4dab-abaf-11393f2ebe0d
+          role: system
+          text: '1. 根据用户提供的输入内容<{{#1727262641446.foreword_result#}}>，撰写工作汇报的前言部分。
+
+            2. 前言部分应包括述职者的职务、指导思想、工作性质、主要完成任务等。
+
+            3. 可以加入感谢领导支持、团队整体协助等内容，但不要过多。
+
+            4. 前言要紧扣工作职责，简明扼要。
+
+            5. 结尾不要撰写任何致谢类与总结类的内容。
+
+            6. 输出内容中不应包含任何XML标签。'
+        selected: false
+        title: 前言撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727262392277'
+      position:
+        x: 2230.3737847325574
+        y: -20.028834151267148
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: -20.028834151267148
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 8d35a822-ee9a-4f28-b991-c3dbdda03b3d
+          role: system
+          text: '你的任务是根据提供的输入内容<{{#1727262667729.ending_result#}}>，为工作汇报撰写结尾部分。结尾部分应遵循以下内容：
+
+            1. 表明态度：表达对当前工作的看法和态度。
+
+            2. 简要总结：对全文进行简要总结，确保与开头相呼应。
+
+            3. 提出期望：对接下来的工作提出期望或计划。
+
+            请按照以下步骤完成任务：
+
+            1. 仔细阅读输入内容，理解汇报的主要内容和重点。
+
+            2. 根据输入内容，撰写结尾部分，确保内容符合上述要求。
+
+            3. 确保结尾部分与开头相呼应，逻辑清晰，语言流畅。
+
+            4. 结尾不要撰写任何致谢类与总结类的内容。
+
+            5. 输出内容不应包含任何XML标签。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727262416838'
+      position:
+        x: 2230.3737847325574
+        y: 537.1083794643664
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 537.1083794643664
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str, arg3: str, arg4: str, arg5:str) ->\
+          \ dict:\n    return {\n        \"result\": arg1 + \"\\n\\n\" + arg2 + \"\
+          \\n\\n\" + arg3 + \"\\n\\n\" + arg4 + \"\\n\\n\" + arg5,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 全文整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727262392277'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1727368424988'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1727348018305'
+          - text
+          variable: arg4
+        - value_selector:
+          - '1727262416838'
+          - text
+          variable: arg5
+      height: 82
+      id: '1727262440152'
+      position:
+        x: 2666.4208876676785
+        y: 361.9272164694539
+      positionAbsolute:
+        x: 2666.4208876676785
+        y: 361.9272164694539
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1727262440152'
+          - result
+          variable: output
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1727262514332'
+      position:
+        x: 2992.2374071860795
+        y: 361.9272164694539
+      positionAbsolute:
+        x: 2992.2374071860795
+        y: 361.9272164694539
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(foreword_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(foreword_input)\n\
+          \        \n        # Extract the \"foreword\" content\n        foreword_result\
+          \ = data.get(\"foreword\", \"\")\n        \n        # Return the extracted\
+          \ foreword content\n        return {\"foreword_result\": foreword_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          foreword_result:
+            children: null
+            type: string
+        selected: false
+        title: 前言提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272614943690'
+          - text
+          variable: foreword_input
+      height: 82
+      id: '1727262641446'
+      position:
+        x: 1918.3318792559453
+        y: -20.028834151267148
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: -20.028834151267148
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ endinge content\n        return {\"ending_result\": ending_result}\n \
+          \   \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272614943690'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1727262667729'
+      position:
+        x: 1918.3318792559453
+        y: 537.1083794643664
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 537.1083794643664
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(foreword_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(foreword_input)\n\
+          \        \n        # Extract the \"foreword\" content\n        foreword_result\
+          \ = data.get(\"foreword\", \"\")\n        \n        # Return the extracted\
+          \ foreword content\n        return {\"foreword_result\": foreword_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          foreword_result:
+            children: null
+            type: string
+        selected: false
+        title: 前言提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: foreword_input
+      height: 82
+      id: '1727262725699'
+      position:
+        x: 1918.3318792559453
+        y: 726.21640224264
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 726.21640224264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: principal_input
+      height: 82
+      id: '1727262727503'
+      position:
+        x: 1918.3318792559453
+        y: 904.241300004438
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 904.241300004438
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ endinge content\n        return {\"ending_result\": ending_result}\n \
+          \   \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1727262729515'
+      position:
+        x: 1918.3318792559453
+        y: 1568.2097766176178
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 1568.2097766176178
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 2e6f115a-c150-4647-937a-ea5caa2a4aa7
+          role: system
+          text: '1. 根据用户提供的输入内容<{{#1727262725699.foreword_result#}}>，撰写工作汇报的前言部分。
+
+            2. 前言部分应包括述职者的职务、指导思想、工作性质、主要完成任务等。
+
+            3. 可以加入感谢领导支持、团队整体协助等内容，但不要过多。
+
+            4. 前言要紧扣工作职责，简明扼要。
+
+            5. 结尾不要撰写任何致谢类与总结类的内容。
+
+            6. 输出内容中不应包含任何XML标签。'
+        selected: false
+        title: 前言撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727262848648'
+      position:
+        x: 2230.3737847325574
+        y: 726.21640224264
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 726.21640224264
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 4b1e4f3d-624e-4875-8639-96b9426b11d3
+          role: system
+          text: '你的任务是根据提供的输入内容<{{#1727262729515.ending_result#}}>，为工作汇报撰写结尾部分。结尾部分应遵循以下内容：
+
+            1. 表明态度：表达对当前工作的看法和态度。
+
+            2. 简要总结：对全文进行简要总结，确保与开头相呼应。
+
+            3. 提出期望：对接下来的工作提出期望或计划。
+
+            请按照以下步骤完成任务：
+
+            1. 仔细阅读输入内容，理解汇报的主要内容和重点。
+
+            2. 根据输入内容，撰写结尾部分，确保内容符合上述要求。
+
+            3. 确保结尾部分与开头相呼应，逻辑清晰，语言流畅。
+
+            4. 结尾不要撰写任何致谢类与总结类的内容。
+
+            5. 输出内容不应包含任何XML标签。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263162108'
+      position:
+        x: 2230.3737847325574
+        y: 1568.2097766176178
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 1568.2097766176178
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n \
+          \   return {\n        \"result\": arg1 + \"\\n\\n\" + arg2 + \"\\n\\n\"\
+          \ + arg3 + \"\\n\\n\" + arg4,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 全文整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727262848648'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726852964699'
+          - article_result
+          variable: arg3
+        - value_selector:
+          - '1727263162108'
+          - text
+          variable: arg4
+      height: 82
+      id: '1727263206208'
+      position:
+        x: 2822.1110598053656
+        y: 1568.2097766176178
+      positionAbsolute:
+        x: 2822.1110598053656
+        y: 1568.2097766176178
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1727263206208'
+          - result
+          variable: output
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '17272632783670'
+      position:
+        x: 3147.0924166589525
+        y: 1568.2097766176178
+      positionAbsolute:
+        x: 3147.0924166589525
+        y: 1568.2097766176178
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(foreword_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(foreword_input)\n\
+          \        \n        # Extract the \"foreword\" content\n        foreword_result\
+          \ = data.get(\"foreword\", \"\")\n        \n        # Return the extracted\
+          \ foreword content\n        return {\"foreword_result\": foreword_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          foreword_result:
+            children: null
+            type: string
+        selected: false
+        title: 前言提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272615774050'
+          - text
+          variable: foreword_input
+      height: 82
+      id: '1727263314044'
+      position:
+        x: 1918.3318792559453
+        y: 1777.4946354053518
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 1777.4946354053518
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 9bac21a3-c35a-4ce2-ac2f-60216fce90cb
+          role: system
+          text: '1. 根据用户提供的输入内容<{{#1727263314044.foreword_result#}}>，撰写工作汇报的前言部分。
+
+            2. 前言部分应包括述职者的职务、指导思想、工作性质、主要完成任务等。
+
+            3. 可以加入感谢领导支持、团队整体协助等内容，但不要过多。
+
+            4. 前言要紧扣工作职责，简明扼要。
+
+            5. 结尾不要撰写任何致谢类与总结类的内容。
+
+            6. 输出内容中不应包含任何XML标签。'
+        selected: false
+        title: 前言撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263337287'
+      position:
+        x: 2230.3737847325574
+        y: 1777.4946354053518
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 1777.4946354053518
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272615774050'
+          - text
+          variable: principal_input
+      height: 82
+      id: '17272633429920'
+      position:
+        x: 1918.3318792559453
+        y: 1961.921533843321
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 1961.921533843321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 48d7a4d4-9067-4fe7-aa6f-a8bd0132a3ec
+          role: system
+          text: '1. 首先，根据提供的写作依据<{{#17274197620130.working_result_result#}}>，内容需紧密围绕主题展开撰写工作汇报的工作成效部分。
+
+            2. 内容按照时间顺序<{{#1727419250189.schedule_result#}}>排布。
+
+            3. 撰写时，不要在文章开头使用称谓，结尾不要包含任何致谢或总结的内容。完成输出后立即结束，不要总结自身的工作。
+
+            4. 明确此次工作汇报的目的。思考这次汇报想要达到的具体目标，这将决定汇报的主体思想。
+
+            5. 其次，根据汇报目的和领导的要求，选择汇报的重点内容。重点内容应包括：领导最关心的事项、自己认为最能体现工作成绩的方面、以及具有个人特色的内容。
+
+            6. 在撰写过程中，确保内容真实可靠，基于实际工作情况，避免主观臆断或虚构事实。'
+        selected: false
+        title: 工作成效撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263455508'
+      position:
+        x: 2829.4837120169577
+        y: 1961.921533843321
+      positionAbsolute:
+        x: 2829.4837120169577
+        y: 1961.921533843321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 92023746-5a35-4746-9d40-fb777438848b
+          role: system
+          text: '1. 首先，根据提供的写作依据<{{#17274198507760.business_performance_result#}}>，内容需紧密围绕主题展开撰写工作汇报的业务实绩部分。
+
+            2. 内容按照时间顺序<{{#1727419250189.schedule_result#}}>排布。
+
+            3. 撰写时，不要在文章开头使用称谓，结尾不要包含任何致谢或总结的内容。完成输出后立即结束，不要总结或评论自身的工作。
+
+            4. 明确此次工作汇报的目的。思考这次汇报想要达到的具体目标，这将决定汇报的主体思想。
+
+            5. 其次，根据汇报目的和领导的要求，选择汇报的重点内容。重点内容应包括：领导最关心的事项、自己认为最能体现工作成绩的方面、以及具有个人特色的内容。
+
+            6. 在撰写过程中，确保内容真实可靠，基于实际工作情况，避免主观臆断或虚构事实。'
+        selected: false
+        title: 业务实绩撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263457576'
+      position:
+        x: 2829.4837120169577
+        y: 2104.0368112473907
+      positionAbsolute:
+        x: 2829.4837120169577
+        y: 2104.0368112473907
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 4c149f65-392f-4754-95b1-155e55ae1041
+          role: system
+          text: '1. 首先，根据提供的写作依据<{{#17274198641910.existing_problem_result#}}>，理解工作汇报的背景和核心内容。
+
+            2. 内容按照时间顺序<{{#1727419250189.schedule_result#}}>排布。
+
+            3. 文章开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            4. 确定未来展望部分的主要目标，例如提升效率、扩大市场、增强团队能力等。
+
+            5. 基于事实，结合当前的工作成果和面临的挑战，提出具体且可行的未来计划。
+
+            6. 在撰写过程中，确保内容真实、准确，避免主观臆断或夸大其词。
+
+            7. 语言要正式、专业，避免使用口语化表达。'
+        selected: false
+        title: 存在问题撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263459867'
+      position:
+        x: 2829.4837120169577
+        y: 2237.995325957406
+      positionAbsolute:
+        x: 2829.4837120169577
+        y: 2237.995325957406
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 2b85d159-357f-41f2-9278-d67400e402b8
+          role: system
+          text: '根据提供的写作依据<{{#17274198897420.future_expectations_result#}}>，撰写工作汇报的未来展望部分。文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。写作过程中注意以下几点：
+
+            1. 内容按照时间顺序<{{#1727419250189.schedule_result#}}>排布。
+
+            2. 要实事求是：向领导和同事汇报工作，无论怎么切入，怎么加工润色，都必须本着认真负责的态度和实事求是的精神，一定要把汇报工作建立在事实的基础之上，绝不能凭主观想象随意编造，更不能弄虚作假欺骗领导。
+
+            3. 明确目的：事先一定要想好这次汇报想要达到什么目的。这是一个带有根本性、方向性的问题，也是汇报的主体思想。
+
+            请根据上述指导原则，撰写未来展望部分，确保内容真实、目的明确。'
+        selected: false
+        title: 未来展望撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263461655'
+      position:
+        x: 2829.4837120169577
+        y: 2371.9538406674205
+      positionAbsolute:
+        x: 2829.4837120169577
+        y: 2371.9538406674205
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + \"\\\
+          n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体整合
+        type: code
+        variables:
+        - value_selector:
+          - '1727263455508'
+          - text
+          variable: arg1
+        - value_selector:
+          - '1727263457576'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1727263459867'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1727263461655'
+          - text
+          variable: arg4
+      height: 82
+      id: '17272634662410'
+      position:
+        x: 3147.0924166589525
+        y: 1961.921533843321
+      positionAbsolute:
+        x: 3147.0924166589525
+        y: 1961.921533843321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n \
+          \   return {\n        \"result\": arg1 + \"\\n\\n\" + arg2 + \"\\n\\n\"\
+          \ + arg3 + \"\\n\\n\" + arg4,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 全文整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1727263337287'
+          - text
+          variable: arg2
+        - value_selector:
+          - '17272634662410'
+          - article_result
+          variable: arg3
+        - value_selector:
+          - '1727263551149'
+          - text
+          variable: arg4
+      height: 82
+      id: '17272634940360'
+      position:
+        x: 2829.4837120169577
+        y: 2551.018844814922
+      positionAbsolute:
+        x: 2829.4837120169577
+        y: 2551.018844814922
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '17272634940360'
+          - result
+          variable: output
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '17272635170730'
+      position:
+        x: 3147.0924166589525
+        y: 2551.018844814922
+      positionAbsolute:
+        x: 3147.0924166589525
+        y: 2551.018844814922
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ endinge content\n        return {\"ending_result\": ending_result}\n \
+          \   \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272615774050'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1727263532608'
+      position:
+        x: 1918.3318792559453
+        y: 2551.018844814922
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 2551.018844814922
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 1f83a353-3c7b-4eec-bc43-0165add1fedc
+          role: system
+          text: '你的任务是根据提供的输入内容<{{#1727263532608.ending_result#}}>，为工作汇报撰写结尾部分。结尾部分应遵循以下内容：
+
+            1. 表明态度：表达对当前工作的看法和态度。
+
+            2. 简要总结：对全文进行简要总结，确保与开头相呼应。
+
+            3. 提出期望：对接下来的工作提出期望或计划。
+
+            请按照以下步骤完成任务：
+
+            1. 仔细阅读输入内容，理解汇报的主要内容和重点。
+
+            2. 根据输入内容，撰写结尾部分，确保内容符合上述要求。
+
+            3. 确保结尾部分与开头相呼应，逻辑清晰，语言流畅。
+
+            4. 结尾不要撰写任何致谢类与总结类的内容。
+
+            5. 输出内容不应包含任何XML标签。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727263551149'
+      position:
+        x: 2230.3737847325574
+        y: 2551.018844814922
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 2551.018844814922
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(future_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(future_input)\n\
+          \        \n        # Extract the \"future\" content\n        future_result\
+          \ = data.get(\"future\", \"\")\n        \n        # Return the extracted\
+          \ future content\n        return {\"future_result\": future_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          future_result:
+            children: null
+            type: string
+        selected: false
+        title: 未来展望提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272614943690'
+          - text
+          variable: future_input
+      height: 82
+      id: '17273479707590'
+      position:
+        x: 1918.3318792559453
+        y: 361.9272164694539
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 361.9272164694539
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: a4996ac8-559a-4a83-9675-50b485997292
+          role: system
+          text: '根据提供的写作依据<{{#17273479707590.future_result#}}>，撰写工作汇报的未来展望部分。文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。写作过程中注意以下几点：
+
+            1. 要实事求是：向领导和同事汇报工作，无论怎么切入，怎么加工润色，都必须本着认真负责的态度和实事求是的精神，一定要把汇报工作建立在事实的基础之上，绝不能凭主观想象随意编造，更不能弄虚作假欺骗领导。
+
+            2. 明确目的：事先一定要想好这次汇报想要达到什么目的。这是一个带有根本性、方向性的问题，也是汇报的主体思想。
+
+            请根据上述指导原则，撰写未来展望部分，确保内容真实、目的明确。'
+        selected: false
+        title: 未来展望撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727348018305'
+      position:
+        x: 2230.3737847325574
+        y: 361.9272164694539
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 361.9272164694539
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 16ad1506-2949-4251-90ec-639abec30687
+          role: system
+          text: '根据提供的写作依据<{{#1727262727503.principal_result#}}>，撰写工作汇报的主体部分，主体包括四个部分，每一个部分是一个独立的键值对。主体部分以一整个JSON对象的形式输出，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            1. 确保文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            2. 工作成效——key为“working_result”：根据提供的写作依据，详细描述在特定时间段内完成的主要工作和取得的成果，突出个人或团队的努力和贡献。
+
+            3. 业务实绩——key为“business_performance”：列举具体的工作业绩，包括完成的项目、达成的目标等，使用具体数据和事实来支持你的陈述。
+
+            4. 存在问题——key为“existing_problem”：诚实地分析工作中遇到的问题和挑战，以及这些问题对工作的影响，这部分应保持客观和真实。
+
+            5. 未来展望——key为“future_expectations”：提出对未来的规划和期望，包括改进措施、目标设定等，这部分应积极向上，展现对未来的信心和决心。
+
+            6. 输出内容不应包含任何XML标签。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727355839037'
+      position:
+        x: 2230.3737847325574
+        y: 904.241300004438
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 904.241300004438
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0b682cee-104b-4158-9a9d-dedbe344fea7
+            value: 纵向式结构
+            varType: string
+            variable_selector:
+            - '1726291761984'
+            - form
+          id: 'true'
+          logical_operator: and
+        - case_id: 082cb84c-5950-4017-ab8f-b0186da9cd16
+          conditions:
+          - comparison_operator: is
+            id: d007522a-cd4a-44df-95b0-c3122a395e62
+            value: 横向式结构
+            varType: string
+            variable_selector:
+            - '1726291761984'
+            - form
+          id: 082cb84c-5950-4017-ab8f-b0186da9cd16
+          logical_operator: and
+        - case_id: 50d9955e-7e55-4c91-aebc-c9860d6b9937
+          conditions:
+          - comparison_operator: is
+            id: 4f18ffb6-2c0a-4e47-bab8-6d3ce0b9faf8
+            value: 综合式结构
+            varType: string
+            variable_selector:
+            - '1726291761984'
+            - form
+          id: 50d9955e-7e55-4c91-aebc-c9860d6b9937
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 222
+      id: '1727359474793'
+      position:
+        x: 1183.7391015061162
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1183.7391015061162
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272614943690'
+          - text
+          variable: principal_input
+      height: 82
+      id: '17273683530310'
+      position:
+        x: 1918.3318792559453
+        y: 169.52928619750003
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 169.52928619750003
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 9472fd1c-d7a4-4e21-a0e6-87de93cccf1a
+          role: system
+          text: '为了根据提供的写作依据<{{#17273683530310.principal_result#}}>撰写工作汇报的主体部分，字数不能少于2000字，请遵循以下步骤：
+
+            1. 输出完成后立即结束，不要撰写任何称谓类、致谢类与总结类的内容，也不要在输出中包含任何XML标签。
+
+            2. 仔细阅读提供的写作依据，确保理解述职者所负责和分管的工作范围。
+
+            3. 按照时间顺序整理述职者的工作内容，确保内容的逻辑性和连贯性。
+
+            4. 在撰写时，重点突出述职者的工作成效、业务成绩和存在的问题，避免面面俱到。
+
+            5. 使用第一人称进行自述，采用叙述和说明的表达方式，适当进行议论。
+
+            6. 确保内容具有回顾性，即对已经完成的实践活动进行回顾、反思和总结。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727368424988'
+      position:
+        x: 2230.3737847325574
+        y: 169.52928619750003
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 169.52928619750003
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(schedule_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(schedule_input)\n\
+          \        \n        # Extract the \"schedule\" content\n        schedule_result\
+          \ = data.get(\"schedule\", \"\")\n        \n        # Return the extracted\
+          \ schedule content\n        return {\"schedule_result\": schedule_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          schedule_result:
+            children: null
+            type: string
+        selected: false
+        title: 时间顺序提取
+        type: code
+        variables:
+        - value_selector:
+          - '17272615774050'
+          - text
+          variable: schedule_input
+      height: 82
+      id: '1727419250189'
+      position:
+        x: 1918.3318792559453
+        y: 2752.71296555675
+      positionAbsolute:
+        x: 1918.3318792559453
+        y: 2752.71296555675
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 9a1f8ebc-7be9-4e62-922f-1ddbbfb25289
+          role: system
+          text: '根据提供的写作依据<{{#17272633429920.principal_result#}}>，撰写工作汇报的主体部分，主体包括四个部分，每一个部分是一个独立的键值对。主体部分以一整个JSON对象的形式输出，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            1. 确保文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。输出完成后立即结束，不要总结自身工作。
+
+            2. 工作成效——key为“working_result”：根据提供的写作依据，详细描述在特定时间段内完成的主要工作和取得的成果，突出个人或团体的努力和贡献。
+
+            3. 业务实绩——key为“business_performance”：列举具体的工作业绩，包括完成的项目、达成的目标等，使用具体数据和事实来支持陈述。
+
+            4. 存在问题——key为“existing_problem”：诚实地分析工作中遇到的问题和挑战，以及这些问题对工作的影响，这部分应保持客观和真实。
+
+            5. 未来展望——key为“future_expectations”：提出对未来的规划和期望，包括改进措施、目标设定等，这部分应积极向上，展现对未来的信心和决心。
+
+            6. 输出内容不应包含任何XML标签。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727419706309'
+      position:
+        x: 2230.3737847325574
+        y: 1961.921533843321
+      positionAbsolute:
+        x: 2230.3737847325574
+        y: 1961.921533843321
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(working_result_input: str) -> dict:\n    import json\n   \
+          \ try:\n        # Parse the input JSON string\n        data = json.loads(working_result_input)\n\
+          \        \n        # Extract the \"working_result\" content\n        working_result_result\
+          \ = data.get(\"working_result\", \"\")\n        \n        # Return the extracted\
+          \ working_result content\n        return {\"working_result_result\": working_result_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          working_result_result:
+            children: null
+            type: string
+        selected: false
+        title: 工作成效提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727419706309'
+          - text
+          variable: working_result_input
+      height: 82
+      id: '17274197620130'
+      position:
+        x: 2518.1110598053656
+        y: 1961.921533843321
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 1961.921533843321
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(business_performance_input: str) -> dict:\n    import json\n\
+          \    try:\n        # Parse the input JSON string\n        data = json.loads(business_performance_input)\n\
+          \        \n        # Extract the \"business_performance\" content\n    \
+          \    business_performance_result = data.get(\"business_performance\", \"\
+          \")\n        \n        # Return the extracted business_performance content\n\
+          \        return {\"business_performance_result\": business_performance_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          business_performance_result:
+            children: null
+            type: string
+        selected: false
+        title: 业务实绩提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727419706309'
+          - text
+          variable: business_performance_input
+      height: 82
+      id: '17274198507760'
+      position:
+        x: 2518.1110598053656
+        y: 2104.0368112473907
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 2104.0368112473907
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(existing_problem_input: str) -> dict:\n    import json\n \
+          \   try:\n        # Parse the input JSON string\n        data = json.loads(existing_problem_input)\n\
+          \        \n        # Extract the \"existing_problem\" content\n        existing_problem_result\
+          \ = data.get(\"existing_problem\", \"\")\n        \n        # Return the\
+          \ extracted existing_problem content\n        return {\"existing_problem_result\"\
+          : existing_problem_result}\n    \n    except json.JSONDecodeError as e:\n\
+          \        # Return error message if JSON is invalid\n        return {\"error\"\
+          : str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          existing_problem_result:
+            children: null
+            type: string
+        selected: false
+        title: 存在问题提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727419706309'
+          - text
+          variable: existing_problem_input
+      height: 82
+      id: '17274198641910'
+      position:
+        x: 2518.1110598053656
+        y: 2237.995325957406
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 2237.995325957406
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(future_expectations_input: str) -> dict:\n    import json\n\
+          \    try:\n        # Parse the input JSON string\n        data = json.loads(future_expectations_input)\n\
+          \        \n        # Extract the \"future_expectations\" content\n     \
+          \   future_expectations_result = data.get(\"future_expectations\", \"\"\
+          )\n        \n        # Return the extracted future_expectations content\n\
+          \        return {\"future_expectations_result\": future_expectations_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          future_expectations_result:
+            children: null
+            type: string
+        selected: false
+        title: 未来展望提取
+        type: code
+        variables:
+        - value_selector:
+          - '1727419706309'
+          - text
+          variable: future_expectations_input
+      height: 82
+      id: '17274198897420'
+      position:
+        x: 2518.1110598053656
+        y: 2371.9538406674205
+      positionAbsolute:
+        x: 2518.1110598053656
+        y: 2371.9538406674205
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -686.4890723667281
+      y: 38.2352663982756
+      zoom: 0.5083946430811824

@@ -1,0 +1,65 @@
+app:
+  description: 根据文本内容和目的进行专业的语言优化
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: chat
+  name: 润色助手
+  use_icon_as_answer_icon: false
+kind: app
+model_config:
+  agent_mode:
+    enabled: false
+    max_iteration: 5
+    strategy: react
+    tools: []
+  annotation_reply:
+    enabled: false
+  chat_prompt_config: {}
+  completion_prompt_config: {}
+  dataset_configs:
+    datasets:
+      datasets: []
+    retrieval_model: multiple
+  dataset_query_variable: ''
+  external_data_tools: []
+  file_upload:
+    image:
+      detail: high
+      enabled: false
+      number_limits: 3
+      transfer_methods:
+      - remote_url
+      - local_file
+  model:
+    completion_params:
+      stop: []
+    mode: chat
+    name: Qwen2.5-72B
+    provider: openai_api_compatible
+  more_like_this:
+    enabled: false
+  opening_statement: 欢迎您使用文本润色助手服务。请提供您希望润色的文本，并告知文本的类型和目的。我们将根据您的需求，提供专业的润色建议。
+  pre_prompt: "- Role: 语言润色大师\n- Background: 用户期望增强文本的表达效果，无论是学术研究、商业文档还是创意作品，都需要在保持原意的同时，提升语言的美感和专业度。\n\
+    - Profile: 作为语言精炼大师，你不仅拥有卓越的语言技巧，还具备对各种文本类型的深刻理解，能够敏锐地捕捉到提升空间，为文本注入新的活力。\n- Skills:\
+    \ 你擅长提升文本的清晰度、连贯性和感染力，确保每句话都能准确传达作者的意图，同时保持风格的一致性和独特性。\n- Goals: 根据文本的类型和目的，提供深度润色服务，包括优化用词、调整句式、增强逻辑连贯性，最终提升文本的整体品质。\n\
+    - Constrains: 所有润色工作必须严格遵循作者的原意和文本的基调，避免引入新的误解或改变原有的风格。\n- OutputFormat: 提供详尽的润色指南，涵盖关键的修改点和理由，以及修改后的文本示例，便于用户理解和采纳。\n\
+    - Workflow:\n  1.确定文本的类型和修改目标。\n  2.深入分析文本的结构、语言和风格特点。\n  3.针对发现的问题，提出具体的润色建议，并展示修改前后的对比。\n\
+    \  4.完成服务后，直接结束对话，不作额外总结。\n- Initialization: 在第一次对话中，请直接输出以下：欢迎您使用文本润色助手服务。请提供您希望润色的文本，并告知文本的类型和目的。我们将根据您的需求，提供专业的润色建议。"
+  prompt_type: simple
+  retriever_resource:
+    enabled: true
+  sensitive_word_avoidance:
+    configs: []
+    enabled: false
+    type: ''
+  speech_to_text:
+    enabled: false
+  suggested_questions: []
+  suggested_questions_after_answer:
+    enabled: false
+  text_to_speech:
+    enabled: false
+    language: ''
+    voice: ''
+  user_input_form: []
+version: 0.1.2

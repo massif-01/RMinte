@@ -1,0 +1,733 @@
+app:
+  description: 撰写领导会议讲话
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 领导会议讲话小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726852407392-source-1726303820317-target
+      source: '1726852407392'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726333124328-source-1726852964699-target
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303818433-source-1726852964699-target
+      source: '1726303818433'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303820317-source-1726852964699-target
+      source: '1726303820317'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1726852964699-source-1726305994457-target
+      source: '1726852964699'
+      sourceHandle: source
+      target: '1726305994457'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339882193-source-1726333124328-target
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726333124328'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339723075-source-1726303818433-target
+      source: '1726339723075'
+      sourceHandle: source
+      target: '1726303818433'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1726339882193-source-1726852407392-target
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726852407392'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726851931907-source-1726303820317-target
+      source: '1726851931907'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1726291761984-source-1726906586993-target
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1726906586993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1726906586993-source-1726905923843-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1726905923843'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1726905923843-source-1726904528623-target
+      source: '1726905923843'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339882193-target
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339882193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339723075-target
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339723075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726851931907-target
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726851931907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 144
+      id: '1726291761984'
+      position:
+        x: 579.7136310296278
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 579.7136310296278
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
+          role: system
+          text: "为了完成工作类讲话稿主体部分的撰写任务，请遵循以下步骤：\n1. 在撰写中只输出正文，不要附带生成任何总结自身任务的文字。\n2.\
+            \ 文章的开头不要撰写称谓，结尾不要撰写任何致谢类的内容。\n3. 首先，理解讲话的目的和会议的核心内容<{{#1726339723075.principal_result#}}>，这将指导讲话稿的主题和重点。\n\
+            4. 根据讲话的目的，选择以下一种或多种写作方向：\n   a. 阐述如何深入理解文件、指示或会议精神，强调其重要性和实施策略。\n   b.\
+            \ 明确工作任务，分析当前形势，提出具体的工作意见或建议。\n   c. 结合本单位的实际情况，提出贯彻上级指示的措施或建议。\n   d.\
+            \ 对其他领导人的讲话进行补充，提供额外的观点或信息。\n   e. 围绕会议中心议题，结合自己分管的工作，分享个人见解或看法。\n6. 在写作过程中，确保讲话稿符合工作类讲话稿的特点，即对前一阶段工作进行总结，包括经验、教训、成绩和缺点，并对下一阶段的工作目标、任务、重点和具体措施进行规划。\n\
+            7. 语言应正式、准确，避免使用口语化或模糊的表达。\n7. 结尾部分应总结讲话的主要观点，强调讲话的核心信息，为听众留下深刻印象。\n8.\
+            \ 输出的讲话稿主体部分不应包含任何XML标签。"
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303818433'
+      position:
+        x: 1831.2377868464027
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 3a86607f-16a0-4124-b650-76d94beb1a35
+          role: system
+          text: '当您收到讲话稿的主体内容后，您的任务是撰写讲话稿的结尾部分。结尾部分应当满足以下要求：
+
+            1. 在撰写中只输出正文，不要附带生成任何总结自身任务的文字；作为一篇文章的结尾部分，请控制字数不要太长。
+
+            2. 文章的开头不要撰写称谓。
+
+            3. 总结全篇讲话的主要观点和核心信息<{{#1726291761984.text#}}>。
+
+            4. 结尾<{{#1726851931907.ending_result#}}>与讲话稿的开头<{{#1726852407392.transport_result#}}>相呼应，形成完整的结构。
+
+            5. 发出号召，鼓励听众采取行动或思考。
+
+            6. 或者，向听众咨询对讲话内容的意见或建议，以促进互动和反馈。
+
+            7. 撰写过程中，避免使用任何XML标签。'
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303820317'
+      position:
+        x: 1831.2377868464027
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 371.71425592464584
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1726852964699'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1726305994457'
+      position:
+        x: 2154.4111377779127
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 2154.4111377779127
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
+          role: system
+          text: '当您接收到<{{#1726339882193.beginning_result#}}>核心内容时，您的任务是撰写一段工作类讲话稿的开头。
+
+            1. 在撰写中只输出正文，不要附带生成任何总结自身任务的文字。
+
+            2. 文章的结尾不要撰写任何致谢类的内容。
+
+            3. 首先，根据与会人员的性质确定适当的称谓，如“尊敬的领导”、“亲爱的同事们”、“各位专家”等，确保称谓严肃、庄重、得体。
+
+            4. 接下来，用简洁的文字概述讲话内容，明确讲话的目的和重点。在撰写过程中，确保文风符合以下要求：态度鲜明，目的明确，内容单一，层次分明，语气坚定，逻辑严密，号召力强，针对性强，简洁明快。
+
+            5. 请在撰写时严格遵循这些要求，以确保讲话稿的质量。在输出时，请确保文本中不包含任何XML标签。'
+        selected: false
+        title: 开头撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726333124328'
+      position:
+        x: 1831.2377868464027
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 49.88038470391379
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: principal_input
+      height: 82
+      id: '1726339723075'
+      position:
+        x: 1529.4882847054373
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(beginning_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(beginning_input)\n\
+          \        \n        # Extract the \"beginning\" content\n        beginning_result\
+          \ = data.get(\"beginning\", \"\")\n        \n        # Return the extracted\
+          \ beginning content\n        return {\"beginning_result\": beginning_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          beginning_result:
+            children: null
+            type: string
+        selected: false
+        title: 开头提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: beginning_input
+      height: 82
+      id: '1726339882193'
+      position:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1726851931907'
+      position:
+        x: 1529.4882847054373
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 371.71425592464584
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(beginning_transport: str) -> dict:\n    return {\n     \
+          \   \"transport_result\": beginning_transport,\n    }\n# 由于Dify并发数限制，此节点仅用于传输数据"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          transport_result:
+            children: null
+            type: string
+        selected: false
+        title: 首尾呼应
+        type: code
+        variables:
+        - value_selector:
+          - '1726339882193'
+          - beginning_result
+          variable: beginning_transport
+      height: 82
+      id: '1726852407392'
+      position:
+        x: 1529.4882847054373
+        y: 504.157737389681
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 504.157737389681
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + arg3\
+          \ + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726303818433'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1726303820317'
+          - text
+          variable: arg4
+      height: 82
+      id: '1726852964699'
+      position:
+        x: 2154.4111377779127
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2154.4111377779127
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726905923843'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: "不要输出任何markdown格式标记，数据以一整个JSON对象形式输出，不要转成字符串，撰写时必须使用中文，为了完成撰写领导会议讲话稿提纲的任务，请遵循以下步骤：\
+            \   \n1. 首先，根据提供的会议背景和主题<{{#1726291761984.title#}}>，撰写讲话稿的开头部分。开头部分应简短而有力，能够吸引与会者的注意力，并简要介绍会议的主题和目的。根据与会人员的情况和会议性质，选择合适的称谓，如“同志们”“朋友们”“各位专家学者们”等，确保称谓严肃、庄重、得体。这一部分内容的key为“beginning”。\n\
+            2. 接着，撰写讲话稿的主体部分。主体部分应详细阐述会议的主要议题<{{#1726291761984.text#}}>，包括但不限于领导对下属的指示、部署和指导性意见。确保内容准确、针对性强，同时注意语言的得体性和互动性。根据会议的目的和内容，重点阐述如何领会文件、指示、会议精神；明确任务和分析形势，提出搞好工作的几点意见；结合本单位的具体情况，提出贯彻上级指示的意见或建议；对前面其他领导人的讲话做补充；围绕会议的中心议题，结合自己分管的工作谈几点看法。确保内容层次清晰、逻辑性强。这一部分内容的key为“principal”。\n\
+            3. 撰写讲话稿的结尾部分。结尾部分应总结会议的主要内容，强调会议的重要性，并对与会者提出期望和号召，激发他们的热情和干劲。这一部分内容的key为“ending”。\n\
+            4. 整个讲话稿的文字要精炼，语言要简明生动，避免冗长和复杂的表述。确保讲话时间不宜过长，通常控制在10-15分钟内。\n5. 最后，检查讲话稿的内容，确保没有遗漏重要信息，语言表达得体，符合领导的风格和会议的氛围。\n\
+            6. 输出的讲话稿不应包含任何XML标签。"
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726904528623'
+      position:
+        x: 1214.4581556594562
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1214.4581556594562
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 3507d0c3-cf42-43e3-91a5-a2c10261d242
+        - e5231e5c-5cb1-4484-a846-773226e9fbe1
+        - 0f23908f-82ea-4f31-ad0f-3d044f492ad2
+        - f4aa72f7-79a1-4781-a096-972ca60c3ffe
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        - 06fe27bf-770c-45dd-8fe7-d9dc22349df3
+        - 8dcf42fa-b86b-4009-9912-847c710ebc21
+        - 6292ef4e-2d46-4a88-a183-602ac34692ca
+        - 8c1682b5-9497-46c7-8547-192484de2a4f
+        - c5c528c2-d012-4456-a710-5f40a4175584
+        - feb545ae-8600-4fca-8612-63fd7ed234ad
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - 2adf6583-3fe0-4060-90e2-1bb3e6c475f2
+        - f5a52b39-9942-4ee4-ba17-2244c23387b9
+        - 68c9081c-5f56-428a-a292-c4b8edf034fb
+        - c4ab03fb-40f4-4d1f-ab36-26afaae2a3e1
+        - cd56bc72-a655-42bd-aa41-05c8ce809dcf
+        - a70e3a7e-735c-437e-b037-c32094feea4c
+        - 8043f256-179f-4ade-a1c0-ac91acce75e0
+        - a89296e1-b5f4-4f16-bab2-008466f5ff7f
+        - 410b037e-6cc9-4cf6-bc8f-748570aa65e9
+        - 687f356e-3980-42e3-a42d-65900499c6ff
+        - d79e70da-e5b7-449f-855c-b6d83d50c190
+        - 6b35d9dc-4bf1-4121-bcb9-ba33021748dc
+        - 1995dcd5-2214-4cfd-9e22-02f6fb9b2561
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 5131a10a-1798-4a0c-8f00-396c48c0f886
+        - 3898e774-3b52-43ec-a435-894f02d4062f
+        - 8a9b7a6b-e335-4383-a2e9-b4737bac182f
+        - a29d494a-70da-4148-83ed-cfa4e1663351
+        - 53e26050-8172-4351-85ce-a60269a5fcd2
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 61882789-cb40-4574-aacd-f0d912bb8d2c
+        - be9e2698-f655-46c3-89d5-4afcacb5ea75
+        - eea7ec24-db3a-4854-80f8-15f242a32834
+        - 4bf822a8-72c1-4808-ae06-8282d69d298d
+        - 968617f7-a64e-4078-b659-cc811bb01384
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - 94711705-54a7-46d0-96e4-625f89cdc9cf
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        - 5c5c3c22-e292-43f4-9a7d-e20b293efe81
+        - a6ee367b-0ad3-46cb-aa63-9b66a88a916a
+        - 61ecf93b-fe06-4a65-8845-ef67a97713ac
+        - 189cca99-1089-46e0-88e1-b42c68c30b3e
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1726906586993'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 1296
+      id: '1726905923843'
+      position:
+        x: 902.5345548808245
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 902.5345548808245
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726291761984'
+          - text
+          variable: arg2
+      height: 82
+      id: '1726906586993'
+      position:
+        x: 579.7136310296278
+        y: 224.00803453880167
+      positionAbsolute:
+        x: 579.7136310296278
+        y: 224.00803453880167
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 49.87406061301289
+      y: 100.64984445797988
+      zoom: 0.38810398096649806
