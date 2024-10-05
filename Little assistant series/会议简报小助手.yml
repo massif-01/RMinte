@@ -1,0 +1,494 @@
+app:
+  description: 其他常用公文 - 会务类公文 - 会议简报
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 会议简报小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339882193-source-1726333124328-target
+      selected: false
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726333124328'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1726291761984-source-1726906586993-target
+      selected: false
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1726906586993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339882193-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339882193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1726906586993-source-1726946759122-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1726946759122'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1726946759122-source-1726904528623-target
+      source: '1726946759122'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726906586993-source-1727630505853-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1727630505853'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1727630505853-source-1726904528623-target
+      source: '1727630505853'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1727631635415-source-1726305994457-target
+      source: '1727631635415'
+      sourceHandle: source
+      target: '1726305994457'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726333124328-source-1727631635415-target
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1727631635415'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 144
+      id: '1726291761984'
+      position:
+        x: 515.7090857714918
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 515.7090857714918
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1727631635415'
+          - result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1726305994457'
+      position:
+        x: 2475.8031172424967
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2475.8031172424967
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
+          role: system
+          text: '为了帮助AI撰写高质量的会议简报，以下是详细的步骤和要求：
+
+            1. 阅读并理解输入内容：首先，仔细阅读用户提供的提纲<{{#1726339882193.outline_result#}}>和写法<{{#1727630505853.text#}}>要求。确保理解会议的时间、议题、目的以及需要讨论的主要问题。
+
+            2. 撰写开头部分：用简短的文字总结会议的概况，同时清晰地交代会议的时间、议题和目的。这部分内容应该能够吸引读者的注意力，同时提供必要的背景信息。
+
+            3. 撰写主体部分：详细概括会议的状况和所要讨论的问题。这部分内容应该条理清晰，逻辑严密，确保读者能够理解会议的主要内容和讨论的焦点。
+
+            4. 确保字数要求：整个简报的字数不少于1000字。如果内容不足，可以适当增加细节描述或背景信息，但要确保内容的质量和相关性。
+
+            5. 检查和校对：完成初稿后，仔细检查语法、拼写和标点符号错误，确保简报的专业性和可读性。
+
+            6. 输出格式：输出的简报不应包含任何XML标签，确保文本格式正确。输出完成后立刻停止，不要总结自身工作。'
+        selected: false
+        title: 正文撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726333124328'
+      position:
+        x: 1835.002760096881
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1835.002760096881
+        y: 49.88038470391379
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(outline_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(outline_input)\n\
+          \        \n        # Extract the \"outline\" content\n        outline_result\
+          \ = data.get(\"outline\", \"\")\n        \n        # Return the extracted\
+          \ outline content\n        return {\"outline_result\": outline_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          outline_result:
+            children: null
+            type: string
+        selected: false
+        title: 思路提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: outline_input
+      height: 82
+      id: '1726339882193'
+      position:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '根据提供的标题<{{#1726291761984.title#}}>、内容<{{#1726291761984.text#}}>和会议简报的写法<{{#1727630505853.text#}}>，按照以下要点撰写会议简报的提纲：
+
+            1. 首先，阅读提供的标题、内容和会议简报的写法，确保理解会议的主要议题和背景信息。
+
+            2. 根据会议简报的特点，提炼出会议的主要内容，包括但不限于会议的进展情况、重要报告、讨论内容、通过决议、与会人员的发言、活动等。
+
+            3. 将提炼出的内容按照简明、求实、专业的原则，组织成一个提纲。
+
+            4. 确保提纲以一个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。提纲的key为“outline”。
+
+            5. 检查输出的提纲，确保没有遗漏任何关键信息，且符合会议简报的特点。
+
+            6. 最后，输出提纲时不要包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726904528623'
+      position:
+        x: 1206.6321938691242
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1206.6321938691242
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726291761984'
+          - text
+          variable: arg2
+      height: 82
+      id: '1726906586993'
+      position:
+        x: 515.7090857714918
+        y: 220.31706511066682
+      positionAbsolute:
+        x: 515.7090857714918
+        y: 220.31706511066682
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1726906586993'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 54
+      id: '1726946759122'
+      position:
+        x: 869.9123837915442
+        y: 220.31706511066682
+      positionAbsolute:
+        x: 869.9123837915442
+        y: 220.31706511066682
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ed9bc22c-3def-447a-875b-f1aaca483e35
+          role: system
+          text: '根据提供的会议标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>，判断会议简报应采用哪种写法，并输出写法的名称。具体写法包括：
+
+            1. 综述法：采集各方面的言论、意见加以概括而成，相当于一份会议的综合报道。
+
+            2. 重点报道法：重点反应会议的某个重要报告的内容、小组讨论或个人发言情况等。
+
+            3. 摘要法：摘录代表发言，介绍大会或小组会议上的发言概要。
+
+            按照以方法工作：
+
+            1. 首先，仔细阅读会议的标题和内容。
+
+            2. 根据内容的性质，判断会议简报应采用哪种写法：
+
+            - 如果内容涵盖了多个方面的言论和意见，并进行了综合概括，选择“综述法”。
+
+            - 如果内容重点描述了某个重要报告、小组讨论或个人发言，选择“重点报道法”。
+
+            - 如果内容摘录了代表发言，介绍了大会或小组会议上的发言概要，选择“摘要法”。
+
+            3. 输出所选择的写法名称，不要包含任何XML标签。'
+        selected: false
+        title: 写法判断
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1727630505853'
+      position:
+        x: 869.9123837915442
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 869.9123837915442
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          result\": arg1 + \"\\n\\n\" + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+      height: 82
+      id: '1727631635415'
+      position:
+        x: 2158.860737615343
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2158.860737615343
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -932.4848999789178
+      y: 324.16140330342404
+      zoom: 0.5312122734858127

@@ -1,0 +1,673 @@
+app:
+  description: 其他常用公文 - 会务类公文 - 会议方案
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 会议方案小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726333124328-source-1726852964699-target
+      selected: false
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303818433-source-1726852964699-target
+      selected: false
+      source: '1726303818433'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303820317-source-1726852964699-target
+      selected: false
+      source: '1726303820317'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1726852964699-source-1726305994457-target
+      selected: false
+      source: '1726852964699'
+      sourceHandle: source
+      target: '1726305994457'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339882193-source-1726333124328-target
+      selected: false
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726333124328'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339723075-source-1726303818433-target
+      selected: false
+      source: '1726339723075'
+      sourceHandle: source
+      target: '1726303818433'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726851931907-source-1726303820317-target
+      selected: false
+      source: '1726851931907'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1726291761984-source-1726906586993-target
+      selected: false
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1726906586993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339882193-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339882193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339723075-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339723075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726851931907-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726851931907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1726906586993-source-1726946759122-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1726946759122'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1726946759122-source-1726904528623-target
+      source: '1726946759122'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 144
+      id: '1726291761984'
+      position:
+        x: 579.7136310296278
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 579.7136310296278
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
+          role: system
+          text: '根据提供的信息<{{#1726339723075.principal_result#}}>，撰写会议方案的主体部分。请按照以下步骤完成任务：
+
+            1. 确定会议主题：基于输入的信息，明确会议的主题<{{#1726291761984.title#}}>、内容和议题。
+
+            2. 制定会议议程：列出会议的主要议程，包括每个议程的具体内容和时间安排。
+
+            3. 安排会议日程：详细列出会议的开始和结束时间，以及各个议程的具体时间安排。
+
+            4. 确定会议形式：说明会议是线上、线下还是混合形式，以及具体的会议地点。
+
+            5. 组织会务机构：列出会务机构的组织结构和分工，包括负责人和具体职责。
+
+            6. 准备会议文书：列出需要准备的会议文书，如会议通知、议程表、参会人员名单等。
+
+            7. 预算会议经费：详细列出会议的预算，包括场地费用、设备租赁、交通费用、餐饮费用等。
+
+            8. 制定保障措施：说明为确保会议顺利进行而采取的保障措施，如技术支持、安全措施等。
+
+            9. 描述筹备情况：简要说明会议筹备的进展情况，包括已完成的工作和待完成的工作。
+
+            在撰写过程中，请注意以下几点：
+
+            - 科学安排：统筹考虑各项内容，确保方案的科学性和合理性。
+
+            - 可行性与灵活性：方案中所提出的任务目标、步骤安排、落实办法、措施要求等，一定要符合客观的实际情况，要着眼于工作的发展变化趋势。
+
+            - 时间与弹性：既要尽可能准确地把握会议进行的时间和关键节点，又要为相关活动留有弹性空间，以防安排太紧、太慢而造成被动的局面。
+
+            - 格式要求：输出的内容不应包含任何XML标签，输出完成后立即结束，不要总结自身工作。'
+        selected: false
+        title: 主体撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303818433'
+      position:
+        x: 1831.2377868464027
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 3a86607f-16a0-4124-b650-76d94beb1a35
+          role: system
+          text: 提取<{{#1726851931907.ending_result#}}>的内容，并输出成纯文本，保持内容不变。
+        selected: false
+        title: 结尾撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303820317'
+      position:
+        x: 1831.2377868464027
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 371.71425592464584
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1726852964699'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1726305994457'
+      position:
+        x: 2154.4111377779127
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 2154.4111377779127
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
+          role: system
+          text: '根据提供的信息<{{#1726339882193.beginning_result#}}>，撰写会议方案的开头部分。请按照以下步骤完成任务：
+
+            1. 从输入中提取会议的基本要素，包括召开会议的原由、会议的宗旨、会议的规模、召开单位、会议名称，以及会议时间、地点、会期等。
+
+            2. 以正式、专业的语言撰写会议方案的开头部分，确保内容清晰、准确。
+
+            3. 开头部分应首先简要说明召开会议的原由和宗旨，然后介绍会议的规模、召开单位、会议名称，最后说明会议的时间、地点和会期。
+
+            4. 确保开头部分的结尾使用“特制定会议方案如下”等字样作为过渡语。
+
+            5. 输出的内容不应包含任何称谓、致谢、总结类的内容，也不应包含任何XML标签。
+
+            6. 在撰写过程中，注意科学安排，统筹考虑。对会议要周密计划、精心安排，做到总揽全局、全面统筹。'
+        selected: false
+        title: 开头撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726333124328'
+      position:
+        x: 1831.2377868464027
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(principal_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(principal_input)\n\
+          \        \n        # Extract the \"principal\" content\n        principal_result\
+          \ = data.get(\"principal\", \"\")\n        \n        # Return the extracted\
+          \ principal content\n        return {\"principal_result\": principal_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          principal_result:
+            children: null
+            type: string
+        selected: false
+        title: 主体提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: principal_input
+      height: 82
+      id: '1726339723075'
+      position:
+        x: 1529.4882847054373
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(beginning_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(beginning_input)\n\
+          \        \n        # Extract the \"beginning\" content\n        beginning_result\
+          \ = data.get(\"beginning\", \"\")\n        \n        # Return the extracted\
+          \ beginning content\n        return {\"beginning_result\": beginning_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          beginning_result:
+            children: null
+            type: string
+        selected: false
+        title: 开头提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: beginning_input
+      height: 82
+      id: '1726339882193'
+      position:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(ending_input: str) -> dict:\n    import json\n    try:\n \
+          \       # Parse the input JSON string\n        data = json.loads(ending_input)\n\
+          \        \n        # Extract the \"ending\" content\n        ending_result\
+          \ = data.get(\"ending\", \"\")\n        \n        # Return the extracted\
+          \ ending content\n        return {\"ending_result\": ending_result}\n  \
+          \  \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          ending_result:
+            children: null
+            type: string
+        selected: false
+        title: 结尾提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: ending_input
+      height: 82
+      id: '1726851931907'
+      position:
+        x: 1529.4882847054373
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 371.71425592464584
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2 + arg3\
+          \ + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726303818433'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1726303820317'
+          - text
+          variable: arg4
+      height: 82
+      id: '1726852964699'
+      position:
+        x: 2154.4111377779127
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2154.4111377779127
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '根据提供的标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>，按照以下要求撰写会议方案的提纲：
+
+            1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            2. 首先，根据提供的标题和内容，撰写会议方案的开头部分。开头部分应写明召开会议的原由、会议的宗旨、会议的规模、召开单位、会议名称，以及会议时间、地点、会期等，key为“beginning”。
+
+            3. 其次，撰写会议方案的主体部分。主体部分应分条列项写明会议的主题(内容、议题)、议程、日程、会议形式、会务机构的组织和分工、会议文书、会议经费、保障措施、筹备情况等事项，key为“principal”。
+
+            4. 最后，撰写会议方案的结尾部分。结尾部分根据会议方案的性质而定，如果属于夏季机关请示上级机关的，可写上类似请示报告结尾的用语；不需要总结会议的主要内容，强调会议的重要性和预期成果，key为"ending"。
+
+            5. 确保每个部分的内容清晰、具体，具有针对性、指导性和可操作性。
+
+            6. 在撰写过程中，注意科学安排，统筹考虑，确保方案的可行性和灵活性。
+
+            7. 输出的会议方案提纲不应包含任何XML标签。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726904528623'
+      position:
+        x: 1206.6321938691242
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1206.6321938691242
+        y: 49.88038470391379
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726291761984'
+          - text
+          variable: arg2
+      height: 82
+      id: '1726906586993'
+      position:
+        x: 579.7136310296278
+        y: 225.96452498638467
+      positionAbsolute:
+        x: 579.7136310296278
+        y: 225.96452498638467
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1726906586993'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 232
+      id: '1726946759122'
+      position:
+        x: 894.384709919655
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 894.384709919655
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -676.0623431425174
+      y: 230.24960972678565
+      zoom: 0.6086608522285719
