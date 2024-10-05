@@ -1,4 +1,6 @@
 # About RMinte
-*  Dify workflow
+*  Dify workflows
 *  Prompts
 *  RMinte Hardware
+*  ComfyUI workflows
+*  Other testing workflows
