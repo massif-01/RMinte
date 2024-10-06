@@ -1,0 +1,673 @@
+app:
+  description: 其他常用公文 - 事务类公文 - 述职报告
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 述职报告小助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.2
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726333124328-source-1726852964699-target
+      selected: false
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303818433-source-1726852964699-target
+      selected: false
+      source: '1726303818433'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726303820317-source-1726852964699-target
+      selected: false
+      source: '1726303820317'
+      sourceHandle: source
+      target: '1726852964699'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1726852964699-source-1726305994457-target
+      selected: false
+      source: '1726852964699'
+      sourceHandle: source
+      target: '1726305994457'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339882193-source-1726333124328-target
+      selected: false
+      source: '1726339882193'
+      sourceHandle: source
+      target: '1726333124328'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726339723075-source-1726303818433-target
+      selected: false
+      source: '1726339723075'
+      sourceHandle: source
+      target: '1726303818433'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726851931907-source-1726303820317-target
+      selected: false
+      source: '1726851931907'
+      sourceHandle: source
+      target: '1726303820317'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1726291761984-source-1726906586993-target
+      selected: false
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1726906586993'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339882193-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339882193'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726339723075-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726339723075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1726904528623-source-1726851931907-target
+      selected: false
+      source: '1726904528623'
+      sourceHandle: source
+      target: '1726851931907'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: knowledge-retrieval
+      id: 1726906586993-source-1726946759122-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1726946759122'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1726946759122-source-1726904528623-target
+      source: '1726946759122'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 开始
+        selected: false
+        title: 需求收集
+        type: start
+        variables:
+        - label: 标题
+          max_length: 64
+          options: []
+          required: true
+          type: text-input
+          variable: title
+        - label: 内容
+          max_length: 512
+          options: []
+          required: false
+          type: paragraph
+          variable: text
+      height: 144
+      id: '1726291761984'
+      position:
+        x: 579.7136310296278
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 579.7136310296278
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
+          role: system
+          text: '根据提供的信息<{{#1726339723075.responsibilities_result#}}>，撰写述职报告的工作岗位及职责部分。请按照以下步骤完成任务：
+
+            1. 仔细阅读提供的信息，理解工作岗位的性质、特点及应当履行的职责。
+
+            2. 开始撰写时，确保文章的开头和结尾不要有任何称谓、致谢、总结类的内容。
+
+            3. 介绍工作岗位的性质和特点，以及应当履行的职责等。内容应详略得当，文笔简洁利落，避免针对一件工作展开过于冗长的描述；应围绕岗位核心职能进行陈述，避免事无巨细的陈列说明。
+
+            4. 确保输出的内容不应包含任何XML标签。输出完成后立即结束，不要总结自身工作。'
+        selected: false
+        title: 工作岗位及职责撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303818433'
+      position:
+        x: 1831.2377868464027
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 3a86607f-16a0-4124-b650-76d94beb1a35
+          role: system
+          text: '根据提供的要点<{{#1726851931907.performance_result#}}>和原文<{{#1726291761984.text#}}>，撰写述职报告的职责履行情况部分。请按照以下步骤完成任务：
+
+            1. 阅读要点和原文：仔细阅读提供的要点和原文，确保理解任务要求和背景信息。
+
+            2. 文章的开头和结尾不要有任何称谓、致谢、总结类的内容。
+
+            3. 输出的内容不应包含任何XML标签。输出完成后立即结束，不要总结自身工作。
+
+            4. 确定结构：选择纵向结构（按时间顺序）或横向结构（按业务划分）来组织内容。
+
+            5. 撰写内容，须包括但不限于以下要点：
+
+            - 制度规定的职责履行情况：描述你如何履行制度规定的职责，使用具体案例和数据支持。
+
+            - 个人工作计划的完成情况：说明个人工作计划的完成情况，包括取得的成果和存在的问题。
+
+            - 其他开拓性工作：介绍你在职责之外进行的开拓性工作，提供具体案例和数据。
+
+            - 个人能力和单位事务的进步：总结履职过程中个人能力和单位事务的进步之处，指出发现的问题，提取有益的经验教训。
+
+            - 客观评价：保持谦虚诚恳的态度，客观评价自己的成绩和不足，避免夸大或避重就轻。
+
+            - 团队合作：肯定并强调团队合作的价值，不要将单位或部门的成绩片面归结为个人的决策和领导作用。
+
+            - 真实完整：内容应真实完整，充分阐述成绩，严肃认真检讨不足，避免说假话、空话、套话。
+
+            - 详略得当：文笔简洁利落，避免冗长描述，围绕岗位核心职能进行陈述。
+
+            - 以上要点不能作为小标题使用，文章需具备整体性。
+
+            6. 检查输出：确保输出内容不包含任何XML标签，且符合任务要求。'
+        selected: false
+        title: 职责履行情况撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726303820317'
+      position:
+        x: 1831.2377868464027
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 371.71425592464584
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 结束
+        outputs:
+        - value_selector:
+          - '1726852964699'
+          - article_result
+          variable: output_all
+        selected: false
+        title: 输出文本
+        type: end
+      height: 118
+      id: '1726305994457'
+      position:
+        x: 2154.4111377779127
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 2154.4111377779127
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
+          role: system
+          text: "根据提供的信息<{{#1726339882193.introduction_result#}}>，撰写述职报告的引言部分。请按照以下步骤完成任务：\n\
+            1. 从提供的信息中提取个人基本情况，包括姓名、职位等。\n2. 确定任职起止时间。\n3. 概述简要的任职情况，包括主要职责和取得的成果。\n\
+            4. 将上述信息整合成一段连贯的引言部分，确保内容符合以下要求：\n   - 文章的开头和结尾不要有任何称谓、致谢、总结类的内容。\n  \
+            \ - 输出的内容不应包含任何XML标签。\n5. 完成输出后立即结束，不要总结自身工作。\n请确保输出的内容符合上述要求。"
+        selected: false
+        title: 引言撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726333124328'
+      position:
+        x: 1831.2377868464027
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1831.2377868464027
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(responsibilities_input: str) -> dict:\n    import json\n \
+          \   try:\n        # Parse the input JSON string\n        data = json.loads(responsibilities_input)\n\
+          \        \n        # Extract the \"responsibilities\" content\n        responsibilities_result\
+          \ = data.get(\"responsibilities\", \"\")\n        \n        # Return the\
+          \ extracted responsibilities content\n        return {\"responsibilities_result\"\
+          : responsibilities_result}\n    \n    except json.JSONDecodeError as e:\n\
+          \        # Return error message if JSON is invalid\n        return {\"error\"\
+          : str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          responsibilities_result:
+            children: null
+            type: string
+        selected: false
+        title: 工作岗位及职责提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: responsibilities_input
+      height: 82
+      id: '1726339723075'
+      position:
+        x: 1529.4882847054373
+        y: 206.74797718791325
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 206.74797718791325
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(introduction_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(introduction_input)\n\
+          \        \n        # Extract the \"introduction\" content\n        introduction_result\
+          \ = data.get(\"introduction\", \"\")\n        \n        # Return the extracted\
+          \ introduction content\n        return {\"introduction_result\": introduction_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          introduction_result:
+            children: null
+            type: string
+        selected: false
+        title: 引言提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: introduction_input
+      height: 82
+      id: '1726339882193'
+      position:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(performance_input: str) -> dict:\n    import json\n    try:\n\
+          \        # Parse the input JSON string\n        data = json.loads(performance_input)\n\
+          \        \n        # Extract the \"performance\" content\n        performance_result\
+          \ = data.get(\"performance\", \"\")\n        \n        # Return the extracted\
+          \ performance content\n        return {\"performance_result\": performance_result}\n\
+          \    \n    except json.JSONDecodeError as e:\n        # Return error message\
+          \ if JSON is invalid\n        return {\"error\": str(e)}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          performance_result:
+            children: null
+            type: string
+        selected: false
+        title: 职责履行情况提取
+        type: code
+        variables:
+        - value_selector:
+          - '1726904528623'
+          - text
+          variable: performance_input
+      height: 82
+      id: '1726851931907'
+      position:
+        x: 1529.4882847054373
+        y: 371.71425592464584
+      positionAbsolute:
+        x: 1529.4882847054373
+        y: 371.71425592464584
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str) -> dict:\n   \
+          \ return {\n        \"article_result\": arg1 + \"\\n\\n\" + \"尊敬的各位领导、同志们：\"\
+          \ + \"\\n\\n\" + arg2 + \"\\n\\n\" + arg3 + \"\\n\\n\" + arg4,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 文本整合
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726303818433'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1726303820317'
+          - text
+          variable: arg4
+      height: 82
+      id: '1726852964699'
+      position:
+        x: 2154.4111377779127
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 2154.4111377779127
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1726946759122'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
+          role: system
+          text: '根据提供的标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>，撰写述职报告的提纲:
+
+            1. 生成的提纲应包括三部分，每一部分是一个独立的键值对：引言——key为“introduction”、工作岗位及职责——key为“responsibilities”、职责履行情况——key为"performance"。
+
+            2. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
+
+            3. 述职报告是党政机关干部按照制度规定，以自我评价的方式，向选举或人民机构、上级领导机关或主管部门、上级领导或主管领导以及本单位职工，陈述特定时期内履行岗位职责和工作开展情况的汇报文书。以第一人称用自述的方式的方式撰写。
+
+            4. 首先，根据提供的标题和内容，撰写引言部分。引言部分应简要介绍述职报告的背景、目的和时间范围。
+
+            5. 其次，撰写工作岗位及职责部分。这部分应详细描述你的工作岗位、主要职责和工作目标。
+
+            6. 最后，撰写职责履行情况部分。这部分应从“道德、能力、勤奋、成绩、廉洁”五个方面，整体论述你在任期内的工作表现和取得的成绩。'
+        selected: false
+        title: 行文思考
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1726904528623'
+      position:
+        x: 1206.6321938691242
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 1206.6321938691242
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          rerank_result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          rerank_result:
+            children: null
+            type: string
+        selected: false
+        title: 需求合并
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726291761984'
+          - text
+          variable: arg2
+      height: 82
+      id: '1726906586993'
+      position:
+        x: 579.7136310296278
+        y: 225.96452498638467
+      positionAbsolute:
+        x: 579.7136310296278
+        y: 225.96452498638467
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.52
+          top_k: 10
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1726906586993'
+        - rerank_result
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 232
+      id: '1726946759122'
+      position:
+        x: 894.384709919655
+        y: 49.88038470391379
+      positionAbsolute:
+        x: 894.384709919655
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -853.1771325163722
+      y: 230.6590995560648
+      zoom: 0.5713718013987624
