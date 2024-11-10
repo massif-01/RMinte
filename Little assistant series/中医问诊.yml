@@ -1,0 +1,528 @@
+app:
+  description: 深通岐黄之术
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 中医问诊
+  use_icon_as_answer_icon: true
+kind: app
+version: 0.1.3
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: 敢问阁下有何不适，可否详述一二？
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: true
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: true
+    text_to_speech:
+      autoPlay: enabled
+      enabled: true
+      language: zh-Hans
+      voice: sambert-zhishu-v1
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: knowledge-retrieval
+      id: 1731054257256-source-1731054361752-target
+      selected: false
+      source: '1731054257256'
+      sourceHandle: source
+      target: '1731054361752'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1731054361752-source-llm-target
+      selected: false
+      source: '1731054361752'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: llm-source-1731054918101-target
+      selected: false
+      source: llm
+      sourceHandle: source
+      target: '1731054918101'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1731054918101-source-answer-target
+      selected: false
+      source: '1731054918101'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1731054361752-source-1731055604399-target
+      selected: false
+      source: '1731054361752'
+      sourceHandle: source
+      target: '1731055604399'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1731054257256-source-1731055765030-target
+      selected: false
+      source: '1731054257256'
+      sourceHandle: source
+      target: '1731055765030'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: 1731055765030-source-1731055924227-target
+      selected: false
+      source: '1731055765030'
+      sourceHandle: source
+      target: '1731055924227'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1731055604399-source-1731054918101-target
+      source: '1731055604399'
+      sourceHandle: source
+      target: '1731054918101'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1731055924227-source-1731056221599-target
+      source: '1731055924227'
+      sourceHandle: source
+      target: '1731056221599'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1731056221599-source-1731054918101-target
+      source: '1731056221599'
+      sourceHandle: source
+      target: '1731054918101'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1731054257256'
+      position:
+        x: 38.80601592660196
+        y: 282
+      positionAbsolute:
+        x: 38.80601592660196
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1731054361752'
+          - result
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 957d0bf3-f094-4cd0-9813-d008bbd84ad4
+          role: system
+          text: "<instruction>\n您是一位老中医，拥有丰富的中医知识和经验，并随时查阅包含大量经典中医文献的知识库。请根据知识库中的内容和您自己的训练集，为用户提供关于如何诊断病症和抓药的具体建议。请按照以下步骤完成任务：\n\
+            \n1. 从知识库<{{#context#}}>和您自己的训练集中查找与用户描述的病症最相关的数据来源。\n2. 直接转述该数据来源中与用户病症最相关的部分内容。\n\
+            3. 根据转述的内容，提供具体的药品或药方建议，以及备选方案。\n\n请确保输出中不包含任何XML标签，并且在完成输出后立即停止，不要进行总结或回顾自身工作，也不需要提供无关的抓药建议。\n\
+            </instruction>\n\n  <example>\n    <input>\n用户描述：我最近总是感觉头晕，有时候还会心慌，晚上睡眠也不好。\n\
+            \    </input>\n    <output>\n    数据来源的名称：《黄帝内经》\n    相关性最高的数据的内容：《黄帝内经》中提到，头晕、心慌、睡眠不佳多由心脾两虚引起，心脾两虚则气血不足，不能上荣于脑，故见头晕；心神失养，故见心慌；心脾两虚，神不守舍，故见失眠。抓药的具体药品或药方，及备选方案：建议使用归脾汤加减，主要成分包括黄芪、党参、白术、茯苓、甘草、当归、酸枣仁、远志、木香、龙眼肉。备选方案为使用安神定志丸，主要成分包括酸枣仁、柏子仁、茯苓、远志、石菖蒲、龙骨、牡蛎。\n\
+            \    </output>\n  </example>\n"
+        selected: false
+        title: 诊断
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: llm
+      position:
+        x: 991.2552972970391
+        y: 282
+      positionAbsolute:
+        x: 991.2552972970391
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#llm.text#}}
+
+
+          勘误/补充：
+
+          {{#1731054918101.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 122
+      id: answer
+      position:
+        x: 1708.071594560638
+        y: 282
+      positionAbsolute:
+        x: 1708.071594560638
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 45979fc2-f3a5-4fc2-9be3-0ed02f37a9de
+        - 5b05bca5-12c4-4c0b-8cd3-d4fcb90b2ea5
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.5
+          top_k: 5
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 1
+        query_variable_selector:
+        - '1731054257256'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 92
+      id: '1731054361752'
+      position:
+        x: 380
+        y: 282
+      positionAbsolute:
+        x: 380
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.1
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7e9b697a-94ab-4264-a8b6-9ab72bde1c6d
+          role: system
+          text: '你是一个中医专家，深通岐黄之术。你的任务是审查初次给出的处方，并对其中的问题进行勘误。如果处方不够详细，你需要补充相关信息。请按照以下步骤完成任务：
+
+
+            1. 输出的内容不应包含任何XML标签，确保输出格式清晰、易于理解。并且在完成输出后立即停止，不要进行总结或回顾自身工作。
+
+            2. 仔细阅读初次给出的处方<{{#llm.text#}}>，结合另一个处方<{{#1731056221599.text#}}>和补充信息<{{#1731055604399.text#}}>检查其中的药物名称、剂量、用法等是否准确无误。如果没有问题，则直接输出你同事给的处方。
+
+            3. 如果处方中存在错误或不够详细的地方，进行勘误和补充。例如，如果药物剂量不明确，需要补充具体的剂量；如果用法不详细，需要补充具体的用法。'
+        selected: false
+        title: 反思
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1731054918101'
+      position:
+        x: 1333.199756728739
+        y: 282
+      positionAbsolute:
+        x: 1333.199756728739
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1731054361752'
+          - result
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 2b1fad2b-2d85-4a10-acc1-a5172a56261c
+          role: system
+          text: "<instruction>\n    您的任务是将古文写成的中医学书籍内容，用现代文的方式重新转述，确保准确性和专业性。请按照以下步骤完成任务：\n\
+            \n    1. 仔细阅读古文内容<{{#context#}}>，理解其背景、术语和医学知识。\n    2. 将古文内容逐句翻译成现代文，确保翻译的准确性和专业性。\n\
+            \    3. 在翻译过程中，注意保留原文的医学术语和专业概念，确保医学知识的准确性。\n    4. 确保翻译后的现代文流畅、易懂，同时保持原文的风格和语气。\n\
+            \    5. 完成翻译后，仔细校对，确保没有遗漏或错误。\n    6. 输出的现代文不应包含任何XML标签。输出完成后立刻停止，不要总结或复述自身工作。\n\
+            </instruction>\n\n  <examples>\n    <example>\n      <input>\n       \
+            \ 《黄帝内经》曰：“肺者，相傅之官，治节。心者，君主之官，神明出焉。肝者，将军之官，谋虑出焉。胆者，中正之官，决断出焉。脾胃者，仓廪之官，五味出焉。大肠者，传道之官，变化出焉。小肠者，受盛之官，化物出焉。肾者，作强之官，伎巧出焉。三焦者，决渎之官，水道出焉。膀胱者，州都之官，津液藏焉，气化则能出矣。”\n\
+            \      </input>\n      <output>\n        《黄帝内经》中提到：“肺是辅助器官，负责调节。心是君主器官，是精神意识的来源。肝是将军器官，负责思考和计划。胆是中正器官，负责决策。脾胃是仓库器官，负责消化五味。大肠是传输器官，负责废物的转化。小肠是接收器官，负责食物的消化。肾是强健器官，负责技巧和能力。三焦是排水器官，负责水液的代谢。膀胱是储水器官，负责储存津液，通过气化作用将津液排出体外。”\n\
+            \      </output>\n    </example>"
+        selected: false
+        title: 现代文转述
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1731055604399'
+      position:
+        x: 991.2552972970391
+        y: 475.12222870772644
+      positionAbsolute:
+        x: 991.2552972970391
+        y: 475.12222870772644
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 10024bbb-5222-4c71-9cad-9a9c52710c9e
+          role: system
+          text: "<instruction>\n        您的任务是将用户提供的现代医学描述转换成古文医学书籍中的对应文字。为了确保转换的准确性和客观性，请遵循以下步骤：\n\
+            \        1. 仔细阅读用户提供的现代医学描述<{{#sys.query#}}>。\n        2. 确保您理解了描述中的所有医学术语和概念。\n\
+            \        3. 将这些术语和概念转换成古文医学书籍中常用的词汇和表达方式。\n        4. 确保转换后的文字保持原意，且符合古文医学书籍的风格。\n\
+            \        5. 完成转换后，直接输出结果，不要包含任何XML标签，也不要进行总结或阐述自身工作。\n </instruction>\n\
+            \n    <examples>\n        <example>\n            <input>\n           \
+            \ 感冒是由病毒引起的呼吸道感染，常见症状包括发热、咳嗽、流鼻涕等。\n            </input>\n           \
+            \ <output>\n            感冒者，乃由病毒所感，致肺气不利，常见症见发热、咳嗽、鼻流清涕等。\n          \
+            \  </output>\n        </example>\n        <example>\n            <input>\n\
+            \            高血压是一种长期血压水平升高的疾病，可能导致心脏病和中风。\n            </input>\n   \
+            \         <output>\n            高血压者，乃血行不畅，脉道常高，久之可致心病及中风。\n         \
+            \   </output>\n        </example>\n        <example>\n            <input>\n\
+            \            糖尿病是一种代谢疾病，特征是高血糖，长期高血糖可导致多种并发症。\n            </input>\n\
+            \            <output>\n            糖尿病者，乃代谢失常，症见血糖常高，久之可致多种并发症。\n    \
+            \        </output>\n        </example>\n    </examples>"
+        - id: 9d114c04-1bd7-40fb-8235-f03728c4f9a6
+          role: user
+          text: '{{#sys.query#}}'
+        selected: false
+        title: 古文转述
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1731055765030'
+      position:
+        x: 380
+        y: 110.25735137536668
+      positionAbsolute:
+        x: 380
+        y: 110.25735137536668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 45979fc2-f3a5-4fc2-9be3-0ed02f37a9de
+        - 5b05bca5-12c4-4c0b-8cd3-d4fcb90b2ea5
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.5
+          top_k: 5
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1731055765030'
+        - text
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 92
+      id: '1731055924227'
+      position:
+        x: 685.6276486485194
+        y: 110.25735137536668
+      positionAbsolute:
+        x: 685.6276486485194
+        y: 110.25735137536668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1731055924227'
+          - result
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 725039ca-6382-49ae-af81-1f731f6be045
+          role: system
+          text: "<instruction>\n您是一位老中医，拥有丰富的中医知识和经验，并随时查阅包含大量经典中医文献的知识库。请根据知识库中的内容和您自己的训练集，为用户提供关于如何诊断病症和抓药的具体建议。请按照以下步骤完成任务：\n\
+            \n1. 从知识库<{{#context#}}>和您自己的训练集中查找与用户描述的病症最相关的数据来源。\n2. 直接转述该数据来源中与用户病症最相关的部分内容。\n\
+            3. 根据转述的内容，提供具体的药品或药方建议，以及备选方案。\n\n请确保输出中不包含任何XML标签，并且在完成输出后立即停止，不要进行总结或回顾自身工作，也不需要提供无关的抓药建议。\n\
+            </instruction>\n\n    <example>\n            <input>用户描述：我最近总是感觉头晕，有时候还会心慌，晚上睡眠也不好。</input>\n\
+            \            <output>数据来源的名称：《黄帝内经》相关性最高的数据的内容：《黄帝内经》中提到，头晕、心慌、睡眠不佳多由心脾两虚引起，心脾两虚则气血不足，不能上荣于脑，故见头晕；心神失养，故见心慌；心脾两虚，神不守舍，故见失眠。抓药的具体药品或药方，及备选方案：建议使用归脾汤加减，主要成分包括黄芪、党参、白术、茯苓、甘草、当归、酸枣仁、远志、木香、龙眼肉。备选方案为使用安神定志丸，主要成分包括酸枣仁、柏子仁、茯苓、远志、石菖蒲、龙骨、牡蛎。</output>\n\
+            \    </example>"
+        selected: false
+        title: 同时诊断
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1731056221599'
+      position:
+        x: 991.2552972970391
+        y: 110.25735137536668
+      positionAbsolute:
+        x: 991.2552972970391
+        y: 110.25735137536668
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 308.86661294348096
+      y: 143.70426059473328
+      zoom: 0.45105629068746206
