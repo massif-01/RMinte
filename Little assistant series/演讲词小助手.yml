@@ -1,23 +1,44 @@
 app:
-  description: 撰写演讲词
+  description: 其他常用公文 - 会务类公文 - 演讲词
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
   name: 演讲词小助手
   use_icon_as_answer_icon: false
 kind: app
-version: 0.1.2
+version: 0.1.3
 workflow:
   conversation_variables: []
   environment_variables: []
   features:
     file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
       image:
         enabled: false
         number_limits: 3
         transfer_methods:
         - local_file
         - remote_url
+      number_limits: 3
     opening_statement: ''
     retriever_resource:
       enabled: false
@@ -212,6 +233,83 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1726291761984-source-1730897799909-target
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1730897799909'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1730897799909-true-1730897925369-target
+      source: '1730897799909'
+      sourceHandle: 'true'
+      target: '1730897925369'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1730897799909-false-1730897937511-target
+      source: '1730897799909'
+      sourceHandle: 'false'
+      target: '1730897937511'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1730897925369-source-1730897983398-target
+      source: '1730897925369'
+      sourceHandle: source
+      target: '1730897983398'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1730897983398-source-1730898032112-target
+      source: '1730897983398'
+      sourceHandle: source
+      target: '1730898032112'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1730897937511-source-1730898032112-target
+      source: '1730897937511'
+      sourceHandle: source
+      target: '1730898032112'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1730898032112-source-1726904528623-target
+      source: '1730898032112'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: 开始
@@ -226,18 +324,29 @@ workflow:
           type: text-input
           variable: title
         - label: 内容
-          max_length: 512
+          max_length: null
           options: []
           required: false
           type: paragraph
           variable: text
-      height: 144
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: 参考文档上传
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: files_upload
+      height: 170
       id: '1726291761984'
       position:
-        x: 579.7136310296278
+        x: -7.359797425834245
         y: 49.88038470391379
       positionAbsolute:
-        x: 579.7136310296278
+        x: -7.359797425834245
         y: 49.88038470391379
       selected: false
       sourcePosition: right
@@ -266,7 +375,7 @@ workflow:
 
             1. 阅读提供的演讲主题<{{#1726291761984.title#}}>和背景信息<{{#1726339723075.principal_result#}}>。
 
-            2. 根据演讲的主题和背景信息，选择合适的展开方式（并列式、递进式或并列递进结合式）。
+            2. 根据演讲的主题和背景信息，选择合适的展开方式（并列式、递进式或并列递进结合式）。参考资料<{{#context#}}><{{#1730898032112.output#}}>。
 
             3. 文章的开头不要撰写称谓，结尾不要撰写任何致谢类与总结类的内容。
 
@@ -314,14 +423,14 @@ workflow:
 
             1. 首先，阅读提供的演讲词主体<{{#1726852407392.transport_result#}}>部分，理解演讲的核心主题和主要观点。
 
-            2. 根据演讲的主题<{{#1726291761984.title#}}>和内容<{{#1726851931907.ending_result#}}>，构思一个合适的结尾。结尾应是对演讲内容的自然延伸，避免引入新的、无关的信息。
+            2. 根据演讲的主题<{{#1726291761984.title#}}>和内容<{{#1726851931907.ending_result#}}>，构思一个合适的结尾。结尾应是对演讲内容的自然延伸，避免引入新的、无关的信息。参考资料<{{#context#}}><{{#1730898032112.output#}}>。
 
             3. 结尾部分可以采用归纳、升华、希望或号召的方式，确保结尾能够收拢全篇、总结全文，起到运筹帷幄的效果。
 
             4. 确保结尾部分语言流畅、情感真挚，能够引起听众的共鸣。
 
             5. 最后，检查结尾部分，确保没有使用任何XML标签。输出完成后立即结束，不要总结自身工作。'
-        selected: true
+        selected: false
         title: 结尾撰写
         type: llm
         variables: []
@@ -335,7 +444,7 @@ workflow:
       positionAbsolute:
         x: 1831.2377868464027
         y: 371.71425592464584
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -379,7 +488,7 @@ workflow:
         prompt_template:
         - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
           role: system
-          text: '你的任务是根据给定的内容，判断适合的写作方式，为演讲词写一个开头部分。开头部分的写作方式有四种：
+          text: '你的任务是根据给定的内容，判断适合的写作方式，参考资料<{{#context#}}><{{#1730898032112.output#}}>，为演讲词写一个开头部分。开头部分的写作方式有四种：
 
             1. 开门见山，亮出主旨
 
@@ -608,7 +717,7 @@ workflow:
         desc: LLM
         model:
           completion_params:
-            temperature: 0.7
+            temperature: 0.5
           mode: chat
           name: Qwen2.5-72B
           provider: openai_api_compatible
@@ -616,7 +725,7 @@ workflow:
         - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
           role: system
           text: "不要输出任何markdown格式标记，数据以一整个JSON对象形式输出，不要转成字符串，撰写时必须使用中文，为了完成撰写发言稿提纲的任务，请遵循以下步骤：\
-            \   \n1. 根据提供的标题<{{#1726291761984.title#}}>和要点<{{#1726291761984.text#}}>，撰写一个演讲词的提纲。\n\
+            \   \n1. 根据提供的标题<{{#1726291761984.title#}}>和要点<{{#1726291761984.text#}}>，参考资料<{{#context#}}><{{#1730898032112.output#}}>，撰写一个演讲词的提纲。\n\
             2. 演讲词提纲应包括开场白——key为“beginning”；主体——key为“principal”和结尾——key为“ending”三部分。\n\
             3. 在撰写提纲时，确保体现演讲词的特点：媒介的声音性、反馈的直接性、特定的对象性及适度的情感性。\n4. 演讲词的类型可以包括但不限于欢迎词、欢送词、祝酒词、贺词、悼词、祝寿词、演说词及会议中的开幕词、闭幕词。\n\
             5. 确保输出的提纲结构清晰，逻辑连贯，不包含任何XML标签。"
@@ -649,6 +758,42 @@ workflow:
         - 8c1682b5-9497-46c7-8547-192484de2a4f
         - 8dcf42fa-b86b-4009-9912-847c710ebc21
         - 460cb452-2786-4914-87b2-c3994680d6c2
+        - e5231e5c-5cb1-4484-a846-773226e9fbe1
+        - f4aa72f7-79a1-4781-a096-972ca60c3ffe
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        - 06fe27bf-770c-45dd-8fe7-d9dc22349df3
+        - 6292ef4e-2d46-4a88-a183-602ac34692ca
+        - c5c528c2-d012-4456-a710-5f40a4175584
+        - feb545ae-8600-4fca-8612-63fd7ed234ad
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - 2adf6583-3fe0-4060-90e2-1bb3e6c475f2
+        - f5a52b39-9942-4ee4-ba17-2244c23387b9
+        - 68c9081c-5f56-428a-a292-c4b8edf034fb
+        - c4ab03fb-40f4-4d1f-ab36-26afaae2a3e1
+        - cd56bc72-a655-42bd-aa41-05c8ce809dcf
+        - a70e3a7e-735c-437e-b037-c32094feea4c
+        - 8043f256-179f-4ade-a1c0-ac91acce75e0
+        - a89296e1-b5f4-4f16-bab2-008466f5ff7f
+        - 410b037e-6cc9-4cf6-bc8f-748570aa65e9
+        - 687f356e-3980-42e3-a42d-65900499c6ff
+        - d79e70da-e5b7-449f-855c-b6d83d50c190
+        - 6b35d9dc-4bf1-4121-bcb9-ba33021748dc
+        - 1995dcd5-2214-4cfd-9e22-02f6fb9b2561
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 5131a10a-1798-4a0c-8f00-396c48c0f886
+        - 3898e774-3b52-43ec-a435-894f02d4062f
+        - 8a9b7a6b-e335-4383-a2e9-b4737bac182f
+        - a29d494a-70da-4148-83ed-cfa4e1663351
+        - 53e26050-8172-4351-85ce-a60269a5fcd2
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 61882789-cb40-4574-aacd-f0d912bb8d2c
+        - be9e2698-f655-46c3-89d5-4afcacb5ea75
+        - eea7ec24-db3a-4854-80f8-15f242a32834
+        - 4bf822a8-72c1-4808-ae06-8282d69d298d
+        - 968617f7-a64e-4078-b659-cc811bb01384
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - a6ee367b-0ad3-46cb-aa63-9b66a88a916a
+        - 189cca99-1089-46e0-88e1-b42c68c30b3e
         desc: ''
         multiple_retrieval_config:
           reranking_enable: true
@@ -672,13 +817,13 @@ workflow:
         selected: false
         title: 知识检索
         type: knowledge-retrieval
-      height: 288
+      height: 1296
       id: '1726905923843'
       position:
-        x: 902.5345548808245
+        x: 593.2452448251834
         y: 49.88038470391379
       positionAbsolute:
-        x: 902.5345548808245
+        x: 593.2452448251834
         y: 49.88038470391379
       selected: false
       sourcePosition: right
@@ -686,8 +831,10 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
-          rerank_result\": arg1 + arg2,\n    }\n"
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # 检查 arg1 和 arg2 是否为空字符串，如果是则提供默认值\n\
+          \    arg1 = arg1 if arg1 else \"\"\n    arg2 = arg2 if arg2 else \"\"\n\
+          \    \n    # 返回包含拼接结果的字典\n    return {\n        \"rerank_result\": arg1\
+          \ + arg2,\n    }"
         code_language: python3
         desc: 代码执行
         outputs:
@@ -709,17 +856,148 @@ workflow:
       height: 82
       id: '1726906586993'
       position:
-        x: 579.7136310296278
-        y: 225.96452498638467
+        x: 276.97193273203754
+        y: 49.88038470391379
       positionAbsolute:
-        x: 579.7136310296278
-        y: 225.96452498638467
+        x: 276.97193273203754
+        y: 49.88038470391379
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 0fc48527-2a95-4aa9-8d06-b84df6b16122
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1726291761984'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1730897799909'
+      position:
+        x: 276.97193273203754
+        y: -164.5901458420645
+      positionAbsolute:
+        x: 276.97193273203754
+        y: -164.5901458420645
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1726291761984'
+        - files_upload
+      height: 94
+      id: '1730897925369'
+      position:
+        x: 593.2452448251834
+        y: -164.5901458420645
+      positionAbsolute:
+        x: 593.2452448251834
+        y: -164.5901458420645
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+      height: 82
+      id: '1730897937511'
+      position:
+        x: 593.2452448251834
+        y: -53.18017770234617
+      positionAbsolute:
+        x: 593.2452448251834
+        y: -53.18017770234617
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: true
+        template: '{{ arg1 | join("\n") }}
+
+          '
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1730897925369'
+          - text
+          variable: arg1
+      height: 82
+      id: '1730897983398'
+      position:
+        x: 884.9719327320377
+        y: -164.5901458420645
+      positionAbsolute:
+        x: 884.9719327320377
+        y: -164.5901458420645
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 资料聚合
+        type: variable-aggregator
+        variables:
+        - - '1730897983398'
+          - output
+        - - '1730897937511'
+          - result
+      height: 167
+      id: '1730898032112'
+      position:
+        x: 1206.6321938691242
+        y: -164.5901458420645
+      positionAbsolute:
+        x: 1206.6321938691242
+        y: -164.5901458420645
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -275.3707498136166
-      y: 190.98315729667115
-      zoom: 0.48886559344896857
+      x: -155.9591427140756
+      y: 306.78918340725124
+      zoom: 0.5934600829763975

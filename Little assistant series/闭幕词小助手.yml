@@ -1,23 +1,44 @@
 app:
-  description: 撰写闭幕词
+  description: 其他常用公文 - 会务类公文 - 闭幕词
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
   name: 闭幕词小助手
   use_icon_as_answer_icon: false
 kind: app
-version: 0.1.2
+version: 0.1.3
 workflow:
   conversation_variables: []
   environment_variables: []
   features:
     file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
       image:
         enabled: false
         number_limits: 3
         transfer_methods:
         - local_file
         - remote_url
+      number_limits: 3
     opening_statement: ''
     retriever_resource:
       enabled: false
@@ -34,54 +55,6 @@ workflow:
       voice: ''
   graph:
     edges:
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1726333124328-source-1726852964699-target
-      selected: false
-      source: '1726333124328'
-      sourceHandle: source
-      target: '1726852964699'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1726303818433-source-1726852964699-target
-      selected: false
-      source: '1726303818433'
-      sourceHandle: source
-      target: '1726852964699'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1726303820317-source-1726852964699-target
-      selected: false
-      source: '1726303820317'
-      sourceHandle: source
-      target: '1726852964699'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: code
-        targetType: end
-      id: 1726852964699-source-1726305994457-target
-      selected: false
-      source: '1726852964699'
-      sourceHandle: source
-      target: '1726305994457'
-      targetHandle: target
-      type: custom
-      zIndex: 0
     - data:
         isInIteration: false
         sourceType: code
@@ -192,30 +165,154 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1726941653467-source-1726852964699-target
-      source: '1726941653467'
+        sourceType: start
+        targetType: if-else
+      id: 1726291761984-source-1730885308897-target
+      selected: false
+      source: '1726291761984'
       sourceHandle: source
-      target: '1726852964699'
+      target: '1730885308897'
       targetHandle: target
       type: custom
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: knowledge-retrieval
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1730885308897-true-1730885412046-target
+      selected: false
+      source: '1730885308897'
+      sourceHandle: 'true'
+      target: '1730885412046'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1730885308897-false-1730885417567-target
+      selected: false
+      source: '1730885308897'
+      sourceHandle: 'false'
+      target: '1730885417567'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1726303818433-source-1730886403928-target
+      source: '1726303818433'
+      sourceHandle: source
+      target: '1730886403928'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1726333124328-source-1730886403928-target
+      source: '1726333124328'
+      sourceHandle: source
+      target: '1730886403928'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1726303820317-source-1730886403928-target
+      source: '1726303820317'
+      sourceHandle: source
+      target: '1730886403928'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: end
+      id: 1730886403928-source-1726305994457-target
+      source: '1730886403928'
+      sourceHandle: source
+      target: '1726305994457'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
         targetType: llm
-      id: 1726905923843-source-1726941653467-target
-      source: '1726905923843'
+      id: 1726851931907-source-1726941653467-target
+      source: '1726851931907'
       sourceHandle: source
       target: '1726941653467'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1726941653467-source-1730886403928-target
+      source: '1726941653467'
+      sourceHandle: source
+      target: '1730886403928'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1730885412046-source-1730888974686-target
+      source: '1730885412046'
+      sourceHandle: source
+      target: '1730888974686'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1730888974686-source-1730888999953-target
+      source: '1730888974686'
+      sourceHandle: source
+      target: '1730888999953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1730885417567-source-1730888999953-target
+      source: '1730885417567'
+      sourceHandle: source
+      target: '1730888999953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1730888999953-source-1726904528623-target
+      source: '1730888999953'
+      sourceHandle: source
+      target: '1726904528623'
       targetHandle: target
       type: custom
       zIndex: 0
     nodes:
     - data:
         desc: 开始
-        selected: false
+        selected: true
         title: 需求收集
         type: start
         variables:
@@ -226,20 +323,31 @@ workflow:
           type: text-input
           variable: title
         - label: 内容
-          max_length: 512
+          max_length: null
           options: []
           required: false
           type: paragraph
           variable: text
-      height: 144
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: 参考文档上传
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: files_upload
+      height: 170
       id: '1726291761984'
       position:
-        x: 579.7136310296278
+        x: -8.74781631216905
         y: 49.88038470391379
       positionAbsolute:
-        x: 579.7136310296278
+        x: -8.74781631216905
         y: 49.88038470391379
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -260,7 +368,7 @@ workflow:
         prompt_template:
         - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
           role: system
-          text: "本任务要求你为一个闭幕词写手撰写闭幕词的主体部分，核心内容根据<{{#1726339723075.principal_result#}}>。闭幕词的主体部分需要包括以下内容：\n\
+          text: "本任务要求你为一个闭幕词写手撰写闭幕词的主体部分，核心内容根据<{{#1726339723075.principal_result#}}>参考资料<{{#context#}}><{{#1730888999953.output#}}>。闭幕词的主体部分需要包括以下内容：\n\
             1. 概述会议进行的情况。\n2. 恰当地评价会议的收获、意义和影响。\n3. 文章的开头不要撰写称谓，结尾不要撰写任何致谢类的内容。\n\
             \        \n请按照以下步骤完成任务：\n1. 阅读提供的会议信息，了解会议的主题、议程、参与者等关键信息。\n2. 根据会议信息，概述会议的进行情况，包括主要讨论的议题、重要发言、活动亮点等。\n\
             3. 评价会议的收获，可以从知识分享、合作机会、解决问题等方面进行评价。\n4. 分析会议的意义和影响，可以考虑会议对行业、参与者个人或组织的影响。\n\
@@ -300,7 +408,7 @@ workflow:
         prompt_template:
         - id: 3a86607f-16a0-4124-b650-76d94beb1a35
           role: system
-          text: '当您收到闭幕词内容<{{#1726851931907.ending_result#}}>后，您的任务是撰写闭幕词的结尾部分。结尾部分应当满足以下要求：
+          text: '当您收到闭幕词内容<{{#1726851931907.ending_result#}}>后，您的任务是撰写闭幕词的结尾部分，参考资料<{{#context#}}><{{#1730888999953.output#}}>。结尾部分应当满足以下要求：
 
             1. 首先，根据提供的会议内容，总结会议讨论通过的注意事项和基本精神，这部分内容需要具体且明确。
 
@@ -336,8 +444,8 @@ workflow:
         desc: 结束
         outputs:
         - value_selector:
-          - '1726852964699'
-          - article_result
+          - '1730886403928'
+          - output
           variable: output_all
         selected: false
         title: 输出文本
@@ -345,11 +453,11 @@ workflow:
       height: 118
       id: '1726305994457'
       position:
-        x: 2154.4111377779127
-        y: 206.74797718791325
+        x: 2460.1828839102236
+        y: 568.940923580852
       positionAbsolute:
-        x: 2154.4111377779127
-        y: 206.74797718791325
+        x: 2460.1828839102236
+        y: 568.940923580852
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -371,7 +479,7 @@ workflow:
         prompt_template:
         - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
           role: system
-          text: '当您接收到<{{#1726339882193.beginning_result#}}>核心内容时，您的任务是撰写一段闭幕词的开头。
+          text: '当您接收到<{{#1726339882193.beginning_result#}}>核心内容时，您的任务是根据参考资料<{{#context#}}><{{#1730888999953.output#}}>，撰写一段闭幕词的开头。
 
             1. 首先，根据提供的大会名称<{{#1726291761984.title#}}>和经过，简要说明大会的背景和目的。
 
@@ -507,53 +615,6 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "def main(arg1: str, arg2: str, arg3: str, arg4: str, arg5: str) ->\
-          \ dict:\n    return {\n        \"article_result\": arg1 + \"\\n\\n\" + arg2\
-          \ + arg3 + arg4 + arg5,\n    }"
-        code_language: python3
-        desc: 代码执行
-        outputs:
-          article_result:
-            children: null
-            type: string
-        selected: false
-        title: 文本整合
-        type: code
-        variables:
-        - value_selector:
-          - '1726291761984'
-          - title
-          variable: arg1
-        - value_selector:
-          - '1726333124328'
-          - text
-          variable: arg2
-        - value_selector:
-          - '1726303818433'
-          - text
-          variable: arg3
-        - value_selector:
-          - '1726303820317'
-          - text
-          variable: arg4
-        - value_selector:
-          - '1726941653467'
-          - text
-          variable: arg5
-      height: 82
-      id: '1726852964699'
-      position:
-        x: 2154.4111377779127
-        y: 49.88038470391379
-      positionAbsolute:
-        x: 2154.4111377779127
-        y: 49.88038470391379
-      selected: false
-      sourcePosition: right
-      targetPosition: left
-      type: custom
-      width: 244
-    - data:
         context:
           enabled: true
           variable_selector:
@@ -570,7 +631,7 @@ workflow:
         - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
           role: system
           text: "不要输出任何markdown格式标记，数据以一整个JSON对象形式输出，不要转成字符串，撰写时必须使用中文，为了完成撰写闭幕词提纲的任务，请遵循以下步骤：\
-            \   \n1. 根据提供的会议主题<{{#1726291761984.title#}}>及会议要点<{{#1726291761984.text#}}>，撰写一个闭幕词提纲。\n\
+            \   \n1. 根据提供的会议主题及会议要点<{{#1726906586993.rerank_result#}}>，参考资料<{{#context#}}><{{#1730888999953.output#}}>，撰写一个闭幕词提纲。\n\
             2. 闭幕词应包括开头、主体和结尾三部分。是在会议即将结束时由有关领导人或德高望重者向与会代表所做的总结性、号召性的讲话。\n3. 开头部分简要回顾会议的召开情况，表达对与会者的感谢。这一部分内容的key为“beginning”。\n\
             4. 主体部分对会议的进展、完成的议题、取得的成果、会议的意义及会议精神进行高度概括。这一部分内容的key为“principal”。\n5.\
             \ 结尾部分对会议进行总结，激励与会者贯彻和宣传会议精神，积极完成会议布置的任务。这一部分内容的key为“ending”。\n6. 闭幕词应言简意赅，避免长篇大论，语言要坚定有力，句式简短急促，令人振奋。\n\
@@ -666,19 +727,21 @@ workflow:
       height: 1296
       id: '1726905923843'
       position:
-        x: 902.5345548808245
+        x: 615.7509306274223
         y: 49.88038470391379
       positionAbsolute:
-        x: 902.5345548808245
+        x: 615.7509306274223
         y: 49.88038470391379
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
-          rerank_result\": arg1 + arg2,\n    }\n"
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # 检查 arg1 和 arg2 是否为空字符串，如果是则提供默认值\n\
+          \    arg1 = arg1 if arg1 else \"\"\n    arg2 = arg2 if arg2 else \"\"\n\
+          \    \n    # 返回包含拼接结果的字典\n    return {\n        \"rerank_result\": arg1\
+          \ + arg2,\n    }"
         code_language: python3
         desc: 代码执行
         outputs:
@@ -700,11 +763,11 @@ workflow:
       height: 82
       id: '1726906586993'
       position:
-        x: 579.7136310296278
-        y: 225.96452498638467
+        x: 303.58360184031915
+        y: 49.88038470391379
       positionAbsolute:
-        x: 579.7136310296278
-        y: 225.96452498638467
+        x: 303.58360184031915
+        y: 49.88038470391379
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -726,7 +789,7 @@ workflow:
           role: system
           text: '您的任务是撰写闭幕词的结束语部分，结束语部分应当满足以下要求：
 
-            1. 根据提供的会议信息<{{#1726291761984.title#}}><{{#1726291761984.text#}}>，首先以积极的语气发出号召，提出希望或表示祝愿。
+            1. 根据提供的会议信息<{{#1726906586993.rerank_result#}}>，首先以积极的语气发出号召，提出希望或表示祝愿。
 
             2. 接着，对保证大会顺利进行的有关单位和服务人员表示感谢。
 
@@ -745,16 +808,197 @@ workflow:
       id: '1726941653467'
       position:
         x: 1831.2377868464027
-        y: 535.1564068022227
+        y: 568.940923580852
       positionAbsolute:
         x: 1831.2377868464027
-        y: 535.1564068022227
+        y: 568.940923580852
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 2978aac6-b8a3-41b9-a18e-37b3f25c21a8
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1726291761984'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1730885308897'
+      position:
+        x: 303.58360184031915
+        y: -171.82604627890203
+      positionAbsolute:
+        x: 303.58360184031915
+        y: -171.82604627890203
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1726291761984'
+        - files_upload
+      height: 94
+      id: '1730885412046'
+      position:
+        x: 615.7509306274223
+        y: -171.82604627890203
+      positionAbsolute:
+        x: 615.7509306274223
+        y: -171.82604627890203
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+      height: 82
+      id: '1730885417567'
+      position:
+        x: 615.7509306274223
+        y: -58.75119258116386
+      positionAbsolute:
+        x: 615.7509306274223
+        y: -58.75119258116386
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: false
+        template: '{{ arg1 }}
+
+          \n
+
+          {{ arg2 }}
+
+          {{ arg3 }}
+
+          {{ arg4 }}
+
+          {{ arg5 }}'
+        title: 文本整合
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+        - value_selector:
+          - '1726333124328'
+          - text
+          variable: arg2
+        - value_selector:
+          - '1726303818433'
+          - text
+          variable: arg3
+        - value_selector:
+          - '1726303820317'
+          - text
+          variable: arg4
+        - value_selector:
+          - '1726941653467'
+          - text
+          variable: arg5
+      height: 82
+      id: '1730886403928'
+      position:
+        x: 2181.4299161463323
+        y: 568.940923580852
+      positionAbsolute:
+        x: 2181.4299161463323
+        y: 568.940923580852
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}
+
+          '
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1730885412046'
+          - text
+          variable: arg1
+      height: 82
+      id: '1730888974686'
+      position:
+        x: 919.7509306274223
+        y: -171.82604627890203
+      positionAbsolute:
+        x: 919.7509306274223
+        y: -171.82604627890203
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 资料聚合
+        type: variable-aggregator
+        variables:
+        - - '1730888974686'
+          - output
+        - - '1730885417567'
+          - result
+      height: 167
+      id: '1730888999953'
+      position:
+        x: 1208.2287841574177
+        y: -171.82604627890203
+      positionAbsolute:
+        x: 1208.2287841574177
+        y: -171.82604627890203
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: -477.952985052081
-      y: 190.47823742952585
-      zoom: 0.6134449800729799
+      x: 299.9167151354178
+      y: 172.60397231974608
+      zoom: 0.8047126708027093

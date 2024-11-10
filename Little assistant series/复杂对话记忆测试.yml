@@ -1,0 +1,1244 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 复杂对话记忆测试
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.3
+workflow:
+  conversation_variables:
+  - description: 记忆固定，4次
+    id: 3382aa05-3bb9-4299-9ce9-31b3709cf006
+    name: mem_fix
+    value: ''
+    value_type: string
+  - description: 记忆写入
+    id: 20f7af84-519b-41d3-8c63-374c419baefb
+    name: memory
+    value: []
+    value_type: array[object]
+  - description: ''
+    id: 0bbeed08-3cda-46fe-bb8c-58257861f35e
+    name: chat_history
+    value: ''
+    value_type: string
+  - description: 判断用户意图
+    id: c97a3cfd-5d26-4688-b069-fff6d864bdbe
+    name: user_intent
+    value: ''
+    value_type: string
+  - description: 判断是否处于第一轮对话
+    id: a6e510f6-f7b0-4678-ab8d-db88e860bf8d
+    name: is_first_message
+    value: 1
+    value_type: number
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: parameter-extractor
+        targetType: assigner
+      id: 1730291613898-source-1730292287727-target
+      source: '1730291613898'
+      sourceHandle: source
+      target: '1730292287727'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: code
+      id: 1730292287727-source-1730292945953-target
+      source: '1730292287727'
+      sourceHandle: source
+      target: '1730292945953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: assigner
+      id: 1730292945953-source-1730293030587-target
+      source: '1730292945953'
+      sourceHandle: source
+      target: '1730293030587'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: variable-aggregator
+      id: 1730293030587-source-1730292518167-target
+      source: '1730293030587'
+      sourceHandle: source
+      target: '1730292518167'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: assigner
+      id: 1730430793566-source-1730430873992-target
+      source: '1730430793566'
+      sourceHandle: source
+      target: '1730430873992'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: if-else
+      id: 1730292518167-source-1730452236176-target
+      source: '1730292518167'
+      sourceHandle: source
+      target: '1730452236176'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: parameter-extractor
+      id: 1730291170403-true-1730291613898-target
+      source: '1730291170403'
+      sourceHandle: 'true'
+      target: '1730291613898'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: variable-aggregator
+      id: 1730291170403-false-1730292518167-target
+      source: '1730291170403'
+      sourceHandle: 'false'
+      target: '1730292518167'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: code
+      id: 1730430873992-source-1730431475975-target
+      source: '1730430873992'
+      sourceHandle: source
+      target: '1730431475975'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: code
+      id: 1730431475975-source-1730642405355-target
+      source: '1730431475975'
+      sourceHandle: source
+      target: '1730642405355'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: if-else
+      id: 1730430873992-source-1730876782614-target
+      source: '1730430873992'
+      sourceHandle: source
+      target: '1730876782614'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1730876782614-true-1730876847007-target
+      source: '1730876782614'
+      sourceHandle: 'true'
+      target: '1730876847007'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: assigner
+      id: 1730876847007-source-1730876872194-target
+      source: '1730876847007'
+      sourceHandle: source
+      target: '1730876872194'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1730642405355-source-1730465917735-target
+      source: '1730642405355'
+      sourceHandle: source
+      target: '1730465917735'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: assigner
+        targetType: llm
+      id: 1730876872194-source-1730465917735-target
+      source: '1730876872194'
+      sourceHandle: source
+      target: '1730465917735'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1730465917735-source-1730457920957-target
+      source: '1730465917735'
+      sourceHandle: source
+      target: '1730457920957'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: code
+      id: 1730290769844-source-17309078691430-target
+      source: '1730290769844'
+      sourceHandle: source
+      target: '17309078691430'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 17309078691430-source-1730907756230-target
+      source: '17309078691430'
+      sourceHandle: source
+      target: '1730907756230'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: answer
+      id: 1730907756230-source-1730907794306-target
+      source: '1730907756230'
+      sourceHandle: source
+      target: '1730907794306'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1730290769844'
+      position:
+        x: -426.82150226192147
+        y: 984.7000996980194
+      positionAbsolute:
+        x: -426.82150226192147
+        y: 984.7000996980194
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: e47a86d5-ef44-46c6-99ae-702111acdc4a
+            value: '1'
+            varType: number
+            variable_selector:
+            - conversation
+            - is_first_message
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 是否处于第一轮对话
+        type: if-else
+      height: 154
+      id: '1730291170403'
+      position:
+        x: 381.70288193001807
+        y: 698.6723558604106
+      positionAbsolute:
+        x: 381.70288193001807
+        y: 698.6723558604106
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 参数提取器
+        instruction: '根据用户输入的内容，判断用户对话的意图，用户是需要创作还是聊天还是解惑。
+
+          1.如果用户说“我想让你写一首诗/词/文章”，则属于“创作”；
+
+          2.如果用户说“我心情不好/我需要帮助”或其他求助类话题，则属于“解惑”；
+
+          3.不属于以上两种的均判定为“聊天”
+
+          输出的意图只能为：创作、解惑、聊天，不能输出其他无关内容'
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        parameters:
+        - description: 判断用户对话的意图，包含：创作、聊天、解惑
+          name: user_intent
+          required: false
+          type: string
+        query:
+        - sys
+        - query
+        reasoning_mode: prompt
+        selected: false
+        title: 判断用户意图
+        type: parameter-extractor
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1730291613898'
+      position:
+        x: 750.3666313225979
+        y: 698.6723558604106
+      positionAbsolute:
+        x: 750.3666313225979
+        y: 698.6723558604106
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        assigned_variable_selector:
+        - conversation
+        - user_intent
+        desc: 变量赋值
+        input_variable_selector:
+        - '1730291613898'
+        - user_intent
+        selected: false
+        title: 用户意图存储
+        type: assigner
+        write_mode: over-write
+      height: 160
+      id: '1730292287727'
+      position:
+        x: 1091.8174016377748
+        y: 698.6723558604106
+      positionAbsolute:
+        x: 1091.8174016377748
+        y: 698.6723558604106
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 首轮对话
+        type: variable-aggregator
+        variables:
+        - - '1730291613898'
+          - user_intent
+      height: 141
+      id: '1730292518167'
+      position:
+        x: 750.3666313225979
+        y: 954.0855894728795
+      positionAbsolute:
+        x: 750.3666313225979
+        y: 954.0855894728795
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main():\n    data = 0\n    return {\n        \"result\": data,\n\
+          \    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: number
+        selected: false
+        title: 输出0
+        type: code
+        variables: []
+      height: 82
+      id: '1730292945953'
+      position:
+        x: 1392.4005705416587
+        y: 698.6723558604106
+      positionAbsolute:
+        x: 1392.4005705416587
+        y: 698.6723558604106
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        assigned_variable_selector:
+        - conversation
+        - is_first_message
+        desc: 变量赋值
+        input_variable_selector:
+        - '1730292945953'
+        - result
+        selected: false
+        title: 判断第一轮对话
+        type: assigner
+        write_mode: over-write
+      height: 160
+      id: '1730293030587'
+      position:
+        x: 1694.7778451416032
+        y: 698.6723558604106
+      positionAbsolute:
+        x: 1694.7778451416032
+        y: 698.6723558604106
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≤
+            id: 7ac99041-531a-4793-946b-36913c8e5f6a
+            value: '4'
+            varType: number
+            variable_selector:
+            - sys
+            - dialogue_count
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 是否处于前四轮对话
+        type: if-else
+      height: 154
+      id: '1730430479721'
+      position:
+        x: 381.70288193001807
+        y: 1687.3619935095383
+      positionAbsolute:
+        x: 381.70288193001807
+        y: 1687.3619935095383
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: df7a10f5-b8ca-4eee-b4b0-998c11a75064
+          role: system
+          text: '从 {{#sys.query#}} 推断事实、偏好、性格和记忆
+
+            只需以项目符号形式返回事实、偏好、性格和记忆：
+
+
+            推断事实、偏好、性格和记忆的约束：
+
+            - 生成完成后立刻停止，不要复述或总结自身工作。
+
+            - 事实、偏好、性格和记忆应简洁明了。
+
+            - 不要以“此人喜欢披萨”开头。相反，以“喜欢披萨”开头。
+
+            - 不要记住提供的用户/代理详细信息。只记住事实、偏好、性格和记忆。
+
+
+            推断的事实、偏好、性格和记忆：
+
+            输出格式严格按照示例：
+
+            {
+
+            "memory": {
+
+            "facts": [
+
+            "两个人：Ray 和 Lily",
+
+            "Ray 20 岁",
+
+            "Lily 18 岁",
+
+            "Lily 的名字包含汉字‘利利’"
+
+            ],
+
+            "preferences": [],
+
+            "memories": [],
+
+            "character": []
+
+            }
+
+            }
+
+
+            '
+        selected: false
+        title: 提取记忆
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1730430693643'
+      position:
+        x: 381.70288193001807
+        y: 1523.3516963519364
+      positionAbsolute:
+        x: 381.70288193001807
+        y: 1523.3516963519364
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(arg1: str) -> object:\n    try:\n        #\
+          \ Parse the input JSON string\n        input_data = json.loads(arg1)\n \
+          \       \n        # Extract the memory object\n        memory = input_data.get(\"\
+          memory\", {})\n        \n        # Construct the return object\n       \
+          \ result = {\n            \"facts\": memory.get(\"facts\", []),\n      \
+          \      \"preferences\": memory.get(\"preferences\", []),\n            \"\
+          character\": memory.get(\"character\", []),\n            \"memories\": memory.get(\"\
+          memories\", [])\n        }\n        \n        return {\n            \"mem\"\
+          : result\n        }\n    except json.JSONDecodeError:\n        return {\n\
+          \            \"result\": \"Error: Invalid JSON string\"\n        }\n   \
+          \ except Exception as e:\n        return {\n            \"result\": f\"\
+          Error: {str(e)}\"\n        }"
+        code_language: python3
+        desc: 将字符串转义为Object
+        outputs:
+          mem:
+            children: null
+            type: object
+        selected: false
+        title: 数据转换
+        type: code
+        variables:
+        - value_selector:
+          - '1730430693643'
+          - text
+          variable: arg1
+      height: 82
+      id: '1730430793566'
+      position:
+        x: 381.70288193001807
+        y: 1406.5286902575986
+      positionAbsolute:
+        x: 381.70288193001807
+        y: 1406.5286902575986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        assigned_variable_selector:
+        - conversation
+        - memory
+        desc: 将提取的记忆写入会话变量
+        input_variable_selector:
+        - '1730430793566'
+        - mem
+        selected: false
+        title: 记忆写入
+        type: assigner
+        write_mode: append
+      height: 160
+      id: '1730430873992'
+      position:
+        x: 381.70288193001807
+        y: 1214.224281188948
+      positionAbsolute:
+        x: 381.70288193001807
+        y: 1214.224281188948
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(arg1: list) -> dict:\n    try:\n        # 验证输入是否为列表\n\
+          \        if not isinstance(arg1, list):\n            raise ValueError(\"\
+          Input must be a list\")\n        \n        # 构建内存对象，包含所有的内容\n        memory\
+          \ = {\"memory\": arg1}\n        \n        # 将对象转换为 JSON 字符串\n        json_str\
+          \ = json.dumps(memory, ensure_ascii=False, indent=2)\n        \n       \
+          \ # 将 JSON 字符串包裹在 <answer> 标签中\n        result = f\"<answer>{json_str}</answer>\"\
+          \n        \n        return {\n            \"result\": result\n        }\n\
+          \    except Exception as e:\n        # 提供更具体的错误信息\n        return {\n  \
+          \          \"result\": f\"<answer>Error: {str(e)}</answer>\"\n        }"
+        code_language: python3
+        desc: 将Object转义为字符串
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 数据还原
+        type: code
+        variables:
+        - value_selector:
+          - conversation
+          - memory
+          variable: arg1
+      height: 82
+      id: '1730431475975'
+      position:
+        x: 750.3666313225979
+        y: 1356.7107511560137
+      positionAbsolute:
+        x: 750.3666313225979
+        y: 1356.7107511560137
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: fae4747d-12b3-4072-88af-7c7bad112884
+            value: 创作
+            varType: string
+            variable_selector:
+            - conversation
+            - user_intent
+          id: 'true'
+          logical_operator: and
+        - case_id: ae097859-d61c-41f8-8e25-cd0d6502f58f
+          conditions:
+          - comparison_operator: is
+            id: 8a384d02-d3ae-4090-9472-3f0091fd54a5
+            value: 解惑
+            varType: string
+            variable_selector:
+            - conversation
+            - user_intent
+          id: ae097859-d61c-41f8-8e25-cd0d6502f58f
+          logical_operator: and
+        - case_id: 20b7d528-d1bf-4747-b8e1-6de7c6cbb9fe
+          conditions:
+          - comparison_operator: is
+            id: b821a2a7-3a62-405f-b273-5ebc7e7a1c94
+            value: 聊天
+            varType: string
+            variable_selector:
+            - conversation
+            - user_intent
+          - comparison_operator: ≤
+            id: 8c722df5-256b-40f9-964d-946179dae3c3
+            value: '4'
+            varType: number
+            variable_selector:
+            - sys
+            - dialogue_count
+          id: 20b7d528-d1bf-4747-b8e1-6de7c6cbb9fe
+          logical_operator: and
+        - case_id: 35422a11-5c24-4a75-a6d2-dfe67a02c299
+          conditions:
+          - comparison_operator: is
+            id: e4aac1f1-738f-4089-be69-67bbae96e5ee
+            value: 聊天
+            varType: string
+            variable_selector:
+            - conversation
+            - user_intent
+          - comparison_operator: ≥
+            id: 710e4cbf-0a5c-4234-9937-c514bcd87450
+            value: '5'
+            varType: number
+            variable_selector:
+            - sys
+            - dialogue_count
+          id: 35422a11-5c24-4a75-a6d2-dfe67a02c299
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 对话分支
+        type: if-else
+      height: 350
+      id: '1730452236176'
+      position:
+        x: 1091.8174016377748
+        y: 954.0855894728795
+      positionAbsolute:
+        x: 1091.8174016377748
+        y: 954.0855894728795
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1730457492704'
+          - result
+        desc: LLM
+        memory:
+          query_prompt_template: ''
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 20
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 0c965492-66c3-4c42-8e6a-be3c4ad4d0a5
+          role: system
+          text: '根据用户的要求<{{#sys.query#}}>，参考仓央嘉措的作品及相关资料<{{#context#}}>，在符合用户的个人背景（包含：事实、偏好、性格和记忆）<{{#1730431475975.result#}}>的情况下，结合仓央嘉措的作品风格（如四六体）、特点和内容，为用户进行文学创作。请按照以下步骤完成任务：
+
+
+            1. 仔细阅读用户提供的个人背景信息，包括事实、偏好、性格和记忆。
+
+            2. 结合仓央嘉措的作品风格（如四六体）、特点和内容，理解其文学特点和情感表达方式。
+
+            3. 根据用户的个人背景，创作一段文学作品，确保内容与用户的背景信息相符合。
+
+            4. 创作时，可以引用或化用仓央嘉措的诗句，但需保持原创性。
+
+            5. 确保创作的作品情感丰富，语言优美，能够触动用户的心灵。
+
+            6. 输出的作品中不应包含任何XML标签。
+
+            7. 输出完成后立刻停止，不要陈述或总结自身工作。'
+        selected: false
+        title: 创作
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1730457170599'
+      position:
+        x: 1560.119962275539
+        y: 1041.0628023283796
+      positionAbsolute:
+        x: 1560.119962275539
+        y: 1041.0628023283796
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - 6542791d-22d6-4963-b275-cf3bb14ba99f
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: 0.45
+          top_k: 5
+          weights:
+            keyword_setting:
+              keyword_weight: 0.3
+            vector_setting:
+              embedding_model_name: bce-embedding-base_v1
+              embedding_provider_name: xinference
+              vector_weight: 0.7
+        query_variable_selector:
+        - '1730290769844'
+        - sys.query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 54
+      id: '1730457492704'
+      position:
+        x: -114.53550888307336
+        y: 984.7000996980194
+      positionAbsolute:
+        x: -114.53550888307336
+        y: 984.7000996980194
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1730465917735.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 103
+      id: '1730457920957'
+      position:
+        x: 1967.6748392346994
+        y: 1356.7107511560137
+      positionAbsolute:
+        x: 1967.6748392346994
+        y: 1356.7107511560137
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: ''
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: true
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 254d223d-1b94-4aa3-ba03-e4337528e950
+          role: system
+          text: "你将扮演仓央嘉措，根据用户的背景信息<{{#1730642405355.result#}}>和用户对话，以仓央嘉措的身份和风格进行回应。请确保你的回答符合仓央嘉措的诗意和哲学思想，同时也要考虑到用户的背景信息，使对话更加贴近用户的情感和需求。请不要在输出中包含任何XML标签。\n\
+            \n    1. 仔细阅读用户的背景信息，了解用户的兴趣、情感状态和需求。\n    2. 仔细阅读用户的对话内容，理解用户的问题或情感表达。\n\
+            \    3. 以仓央嘉措的身份和风格进行回应，确保回答中包含诗意和哲学思想。\n    4. 根据用户的背景信息，使回答更加贴近用户的情感和需求。\n\
+            \    5. 确保回答中不包含任何XML标签。"
+        selected: false
+        title: 聊天
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1730465917735'
+      position:
+        x: 1560.119962275539
+        y: 1356.7107511560137
+      positionAbsolute:
+        x: 1560.119962275539
+        y: 1356.7107511560137
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str = None) -> dict:\n    # 将 None 转换为空字符串\n    arg1\
+          \ = arg1 if arg1 is not None else \"\"\n    \n    return {\n        \"result\"\
+          : arg1,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 数据转换
+        type: code
+        variables:
+        - value_selector:
+          - '1730431475975'
+          - result
+          variable: arg1
+      height: 82
+      id: '1730642405355'
+      position:
+        x: 1091.8174016377748
+        y: 1356.7107511560137
+      positionAbsolute:
+        x: 1091.8174016377748
+        y: 1356.7107511560137
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 134adb58-24cb-4a3c-880a-d3c0ab9c8986
+          role: system
+          text: "你将扮演仓央嘉措，根据用户的背景信息<{{#conversation.mem_fix#}}>和用户对话，以仓央嘉措的身份和风格进行回应。请确保你的回答符合仓央嘉措的诗意和哲学思想，同时也要考虑到用户的背景信息，使对话更加贴近用户的情感和需求。请不要在输出中包含任何XML标签。\n\
+            \n    1. 仔细阅读用户的背景信息，了解用户的兴趣、情感状态和需求。\n    2. 仔细阅读用户的对话内容，理解用户的问题或情感表达。\n\
+            \    3. 以仓央嘉措的身份和风格进行回应，确保回答中包含诗意和哲学思想。\n    4. 根据用户的背景信息，使回答更加贴近用户的情感和需求。\n\
+            \    5. 确保回答中不包含任何XML标签。"
+        selected: false
+        title: 聊天
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1730876641087'
+      position:
+        x: 1524.9116494796551
+        y: 1839.5403336519091
+      positionAbsolute:
+        x: 1524.9116494796551
+        y: 1839.5403336519091
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: ≥
+            id: e557e64b-bade-4508-ab32-e67196afed81
+            value: '5'
+            varType: number
+            variable_selector:
+            - sys
+            - dialogue_count
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 4
+        type: if-else
+      height: 126
+      id: '1730876782614'
+      position:
+        x: 750.3666313225979
+        y: 1477.7107511560137
+      positionAbsolute:
+        x: 750.3666313225979
+        y: 1477.7107511560137
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(arg1: list) -> dict:\n    try:\n        # 验证输入是否为列表\n\
+          \        if not isinstance(arg1, list):\n            raise ValueError(\"\
+          Input must be a list\")\n        \n        # 构建内存对象，包含所有的内容\n        memory\
+          \ = {\"memory\": arg1}\n        \n        # 将对象转换为 JSON 字符串\n        json_str\
+          \ = json.dumps(memory, ensure_ascii=False, indent=2)\n        \n       \
+          \ # 将 JSON 字符串包裹在 <answer> 标签中\n        result = f\"<answer>{json_str}</answer>\"\
+          \n        \n        return {\n            \"result\": result\n        }\n\
+          \    except Exception as e:\n        # 提供更具体的错误信息\n        return {\n  \
+          \          \"result\": f\"<answer>Error: {str(e)}</answer>\"\n        }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 数据还原
+        type: code
+        variables:
+        - value_selector:
+          - conversation
+          - memory
+          variable: arg1
+      height: 54
+      id: '1730876847007'
+      position:
+        x: 1091.8174016377748
+        y: 1477.7107511560137
+      positionAbsolute:
+        x: 1091.8174016377748
+        y: 1477.7107511560137
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        assigned_variable_selector:
+        - conversation
+        - mem_fix
+        desc: ''
+        input_variable_selector:
+        - '1730876847007'
+        - result
+        selected: false
+        title: 记忆写入
+        type: assigner
+        write_mode: over-write
+      height: 132
+      id: '1730876872194'
+      position:
+        x: 1091.8174016377748
+        y: 1573.755449353861
+      positionAbsolute:
+        x: 1091.8174016377748
+        y: 1573.755449353861
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1730876641087.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 103
+      id: '1730876982593'
+      position:
+        x: 1828.9116494796551
+        y: 1839.5403336519091
+      positionAbsolute:
+        x: 1828.9116494796551
+        y: 1839.5403336519091
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: ''
+        - id: '2'
+          name: ''
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        query_variable_selector: []
+        selected: false
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 144
+      id: '1730879707066'
+      position:
+        x: -114.53550888307336
+        y: 1552.8769733132856
+      positionAbsolute:
+        x: -114.53550888307336
+        y: 1552.8769733132856
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-72B
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 76edaa37-91de-4c9a-b455-3dcf7d0ee124
+          role: system
+          text: 人格分析专家，根据{{#17309078691430.result#}}给用户做画像
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1730907756230'
+      position:
+        x: -487.99446780146747
+        y: 1321.323457015713
+      positionAbsolute:
+        x: -487.99446780146747
+        y: 1321.323457015713
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1730907756230.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 103
+      id: '1730907794306'
+      position:
+        x: -183.99446780146752
+        y: 1321.323457015713
+      positionAbsolute:
+        x: -183.99446780146752
+        y: 1321.323457015713
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(arg1: list) -> dict:\n    try:\n        # 验证输入是否为列表\n\
+          \        if not isinstance(arg1, list):\n            raise ValueError(\"\
+          Input must be a list\")\n        \n        # 构建内存对象，包含所有的内容\n        memory\
+          \ = {\"memory\": arg1}\n        \n        # 将对象转换为 JSON 字符串\n        json_str\
+          \ = json.dumps(memory, ensure_ascii=False, indent=2)\n        \n       \
+          \ # 将 JSON 字符串包裹在 <answer> 标签中\n        result = f\"<answer>{json_str}</answer>\"\
+          \n        \n        return {\n            \"result\": result\n        }\n\
+          \    except Exception as e:\n        # 提供更具体的错误信息\n        return {\n  \
+          \          \"result\": f\"<answer>Error: {str(e)}</answer>\"\n        }"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 数据还原 (1)
+        type: code
+        variables:
+        - value_selector:
+          - conversation
+          - memory
+          variable: arg1
+      height: 54
+      id: '17309078691430'
+      position:
+        x: -243.5138687775344
+        y: 1136.4492920084172
+      positionAbsolute:
+        x: -243.5138687775344
+        y: 1136.4492920084172
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 479.07930358737445
+      y: -319.72910342735935
+      zoom: 0.5013238227466287
