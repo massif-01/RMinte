@@ -6,7 +6,7 @@ app:
   name: 意见小助手
   use_icon_as_answer_icon: false
 kind: app
-version: 0.1.2
+version: 0.1.3
 workflow:
   conversation_variables: []
   environment_variables:
@@ -27,12 +27,33 @@ workflow:
     value_type: string
   features:
     file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
       image:
         enabled: false
         number_limits: 3
         transfer_methods:
         - local_file
         - remote_url
+      number_limits: 3
     opening_statement: ''
     retriever_resource:
       enabled: false
@@ -221,6 +242,83 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1726291761984-source-1731396248494-target
+      source: '1726291761984'
+      sourceHandle: source
+      target: '1731396248494'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1731396248494-true-1731396279075-target
+      source: '1731396248494'
+      sourceHandle: 'true'
+      target: '1731396279075'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1731396279075-source-1731396281233-target
+      source: '1731396279075'
+      sourceHandle: source
+      target: '1731396281233'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1731396281233-source-1731396283494-target
+      source: '1731396281233'
+      sourceHandle: source
+      target: '1731396283494'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1731396248494-false-1731396286275-target
+      source: '1731396248494'
+      sourceHandle: 'false'
+      target: '1731396286275'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1731396286275-source-1731396283494-target
+      source: '1731396286275'
+      sourceHandle: source
+      target: '1731396283494'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1731396283494-source-1726904528623-target
+      source: '1731396283494'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: 开始
@@ -240,13 +338,25 @@ workflow:
           required: false
           type: paragraph
           variable: text
-      height: 144
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 参考文档上传
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: files_upload
+      height: 170
       id: '1726291761984'
       position:
-        x: 356.35393022323797
+        x: -307.2044761244354
         y: -71.33405622561082
       positionAbsolute:
-        x: 356.35393022323797
+        x: -307.2044761244354
         y: -71.33405622561082
       selected: false
       sourcePosition: right
@@ -269,7 +379,7 @@ workflow:
         prompt_template:
         - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
           role: system
-          text: "根据提供的信息<{{#1726339723075.principal_result#}}>，撰写意见的主体部分。请遵循以下步骤：\n\
+          text: "根据提供的信息<{{#1726339723075.principal_result#}}>，参考资料<{{#context#}}><{{#1731396283494.output#}}>，撰写意见的主体部分。请遵循以下步骤：\n\
             1. 根据意见的类型<{{#1728142571846.text#}}>，从以下变量<{{#env.up_tone#}}><{{#env.down_tone#}}><{{#env.parallel_tone#}}>中选择适合的语气。\n\
             2. 字数不得少于3000字。\n3. 撰写意见时，确保文章的开头和结尾没有称谓、致谢、总结类的内容。\n4. 意见的主体部分应包括以下内容：\n\
             \   - 该党政机关的简介（如果适用）。\n   - 对有关问题或某项工作的建议或规范的解决办法。\n   - 对问题的深刻分析，并在此基础上提出解决问题的完整想法。\n\
@@ -311,7 +421,7 @@ workflow:
         prompt_template:
         - id: 3a86607f-16a0-4124-b650-76d94beb1a35
           role: system
-          text: '根据提供的信息<{{#1726851931907.ending_result#}}>，撰写意见的结语部分。请按照以下步骤操作：
+          text: '根据提供的信息<{{#1726851931907.ending_result#}}>，参考资料<{{#context#}}><{{#1731396283494.output#}}>，撰写意见的结语部分。请按照以下步骤操作：
 
             1. 首先，确定意见的类型<{{#1728142571846.text#}}>。
 
@@ -338,7 +448,7 @@ workflow:
       positionAbsolute:
         x: 1831.2377868464027
         y: 335.71662522996155
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -382,7 +492,7 @@ workflow:
         prompt_template:
         - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
           role: system
-          text: '1. 根据提供的信息<{{#1726339882193.beginning_result#}}>，撰写意见的开头部分。确保文章的开头和结尾不要有任何称谓、致谢、总结类的内容。
+          text: '1. 根据提供的信息<{{#1726339882193.beginning_result#}}>，参考资料<{{#context#}}><{{#1731396283494.output#}}>，撰写意见的开头部分。确保文章的开头和结尾不要有任何称谓、致谢、总结类的内容。
 
             2. 输出的内容不应包含任何XML标签。输出完成后立即结束，不要总结自身工作。
 
@@ -555,7 +665,7 @@ workflow:
       positionAbsolute:
         x: 2154.4111377779127
         y: -71.33405622561082
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -576,7 +686,7 @@ workflow:
         prompt_template:
         - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
           role: system
-          text: '任务描述：根据提供的标题<{{#1726291761984.title#}}>、内容<{{#1726291761984.text#}}>、类型及特点<{{#1728142571846.text#}}>，按照以下要求撰写意见的提纲。提纲必须以一个完整的JSON对象形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。意见是对重要问题提出见解和处理办法，是行政机关使用频率较高的法定公文。意见中所表达的态度是诚恳的，即使是下行文中的意见也没有决定或通知等文种的强制性。作为上行文的意见，更要知无不言言无不尽，对上级提交本机关、单位的建设性认识，起到参谋的作用。意见即可用于行政机关联合行文，又可用于政府机关单独行文。开头要简要阐明发文的一句、背景、目的，文字根据具体情况可长可短，主要回答“为什么提出意见”。主体是意见的核心部分，主要是对有关问题或某项工作提出该党政机关的简介、建议或规范的解决办法。结语提出要求或号召。输出的提纲不应包含任何XML标签。
+          text: '任务描述：根据提供的标题<{{#1726291761984.title#}}>、内容<{{#1726291761984.text#}}>、类型及特点<{{#1728142571846.text#}}>，参考资料<{{#context#}}><{{#1731396283494.output#}}>，按照以下要求撰写意见的提纲。提纲必须以一个完整的JSON对象形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。意见是对重要问题提出见解和处理办法，是行政机关使用频率较高的法定公文。意见中所表达的态度是诚恳的，即使是下行文中的意见也没有决定或通知等文种的强制性。作为上行文的意见，更要知无不言言无不尽，对上级提交本机关、单位的建设性认识，起到参谋的作用。意见即可用于行政机关联合行文，又可用于政府机关单独行文。开头要简要阐明发文的一句、背景、目的，文字根据具体情况可长可短，主要回答“为什么提出意见”。主体是意见的核心部分，主要是对有关问题或某项工作提出该党政机关的简介、建议或规范的解决办法。结语提出要求或号召。输出的提纲不应包含任何XML标签。
 
 
             步骤：
@@ -601,10 +711,10 @@ workflow:
       height: 126
       id: '1726904528623'
       position:
-        x: 1172.489313302001
+        x: 1174.5221498557048
         y: -71.33405622561082
       positionAbsolute:
-        x: 1172.489313302001
+        x: 1174.5221498557048
         y: -71.33405622561082
       selected: false
       sourcePosition: right
@@ -629,6 +739,34 @@ workflow:
         - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
         - f4aa72f7-79a1-4781-a096-972ca60c3ffe
         - 8043f256-179f-4ade-a1c0-ac91acce75e0
+        - 3507d0c3-cf42-43e3-91a5-a2c10261d242
+        - e5231e5c-5cb1-4484-a846-773226e9fbe1
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        - 06fe27bf-770c-45dd-8fe7-d9dc22349df3
+        - 8dcf42fa-b86b-4009-9912-847c710ebc21
+        - 6292ef4e-2d46-4a88-a183-602ac34692ca
+        - 8c1682b5-9497-46c7-8547-192484de2a4f
+        - c5c528c2-d012-4456-a710-5f40a4175584
+        - feb545ae-8600-4fca-8612-63fd7ed234ad
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - 2adf6583-3fe0-4060-90e2-1bb3e6c475f2
+        - f5a52b39-9942-4ee4-ba17-2244c23387b9
+        - 68c9081c-5f56-428a-a292-c4b8edf034fb
+        - a89296e1-b5f4-4f16-bab2-008466f5ff7f
+        - 410b037e-6cc9-4cf6-bc8f-748570aa65e9
+        - 687f356e-3980-42e3-a42d-65900499c6ff
+        - d79e70da-e5b7-449f-855c-b6d83d50c190
+        - 1995dcd5-2214-4cfd-9e22-02f6fb9b2561
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 3898e774-3b52-43ec-a435-894f02d4062f
+        - a29d494a-70da-4148-83ed-cfa4e1663351
+        - 53e26050-8172-4351-85ce-a60269a5fcd2
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 61882789-cb40-4574-aacd-f0d912bb8d2c
+        - be9e2698-f655-46c3-89d5-4afcacb5ea75
+        - eea7ec24-db3a-4854-80f8-15f242a32834
+        - 4bf822a8-72c1-4808-ae06-8282d69d298d
+        - 968617f7-a64e-4078-b659-cc811bb01384
         desc: ''
         multiple_retrieval_config:
           reranking_enable: true
@@ -652,13 +790,13 @@ workflow:
         selected: false
         title: 知识检索
         type: knowledge-retrieval
-      height: 512
+      height: 1296
       id: '1726905923843'
       position:
-        x: 639.3770990030168
+        x: 783.3676217817542
         y: 177.9498726321658
       positionAbsolute:
-        x: 639.3770990030168
+        x: 783.3676217817542
         y: 177.9498726321658
       selected: false
       sourcePosition: right
@@ -666,8 +804,10 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
-          rerank_result\": arg1 + arg2,\n    }\n"
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # 检查 arg1 和 arg2 是否为空字符串，如果是则提供默认值\n\
+          \    arg1 = arg1 if arg1 else \"\"\n    arg2 = arg2 if arg2 else \"\"\n\
+          \    \n    # 返回包含拼接结果的字典\n    return {\n        \"rerank_result\": arg1\
+          \ + arg2,\n    }"
         code_language: python3
         desc: 代码执行
         outputs:
@@ -749,7 +889,136 @@ workflow:
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 3a738175-e24a-4557-be25-eef51cfb09fd
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1726291761984'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1731396248494'
+      position:
+        x: 110.50009685756663
+        y: -363.7548438752964
+      positionAbsolute:
+        x: 110.50009685756663
+        y: -363.7548438752964
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1726291761984'
+        - files_upload
+      height: 94
+      id: '1731396279075'
+      position:
+        x: 414.50009685756663
+        y: -363.7548438752964
+      positionAbsolute:
+        x: 414.50009685756663
+        y: -363.7548438752964
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模版转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1731396279075'
+          - text
+          variable: arg1
+      height: 82
+      id: '1731396281233'
+      position:
+        x: 718.5000968575666
+        y: -363.7548438752964
+      positionAbsolute:
+        x: 718.5000968575666
+        y: -363.7548438752964
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 资料聚合
+        type: variable-aggregator
+        variables:
+        - - '1731396286275'
+          - result
+        - - '1731396281233'
+          - output
+      height: 167
+      id: '1731396283494'
+      position:
+        x: 1022.5000968575666
+        y: -363.7548438752964
+      positionAbsolute:
+        x: 1022.5000968575666
+        y: -363.7548438752964
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+      height: 82
+      id: '1731396286275'
+      position:
+        x: 414.50009685756663
+        y: -232.1309493549228
+      positionAbsolute:
+        x: 414.50009685756663
+        y: -232.1309493549228
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -44.067069768595275
-      y: 245.02391465242363
-      zoom: 0.4166940909868003
+      x: -36.820053230665735
+      y: 348.46633835943084
+      zoom: 0.4919234643719775

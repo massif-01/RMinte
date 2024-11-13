@@ -1,23 +1,44 @@
 app:
-  description: 撰写工作方案
+  description: 其他常用公文 - 事务类公文 - 工作简报
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
   name: 工作简报小助手
   use_icon_as_answer_icon: false
 kind: app
-version: 0.1.2
+version: 0.1.3
 workflow:
   conversation_variables: []
   environment_variables: []
   features:
     file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
       image:
         enabled: false
         number_limits: 3
         transfer_methods:
         - local_file
         - remote_url
+      number_limits: 3
     opening_statement: ''
     retriever_resource:
       enabled: false
@@ -63,6 +84,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 1727160200591-source-1727160258716-target
+      selected: false
       source: '1727160200591'
       sourceHandle: source
       target: '1727160258716'
@@ -74,6 +96,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 1727160197295-source-1727160252261-target
+      selected: false
       source: '1727160197295'
       sourceHandle: source
       target: '1727160252261'
@@ -85,6 +108,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 1727160193793-source-1727160246669-target
+      selected: false
       source: '1727160193793'
       sourceHandle: source
       target: '1727160246669'
@@ -96,6 +120,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 1727160246669-source-1727160277877-target
+      selected: false
       source: '1727160246669'
       sourceHandle: source
       target: '1727160277877'
@@ -107,6 +132,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 1727160252261-source-1727160277877-target
+      selected: false
       source: '1727160252261'
       sourceHandle: source
       target: '1727160277877'
@@ -118,6 +144,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 1727160258716-source-1727160277877-target
+      selected: false
       source: '1727160258716'
       sourceHandle: source
       target: '1727160277877'
@@ -129,6 +156,7 @@ workflow:
         sourceType: code
         targetType: end
       id: 1727160277877-source-1727160381775-target
+      selected: false
       source: '1727160277877'
       sourceHandle: source
       target: '1727160381775'
@@ -140,6 +168,7 @@ workflow:
         sourceType: knowledge-retrieval
         targetType: if-else
       id: 1727160085247-source-1727525615633-target
+      selected: false
       source: '1727160085247'
       sourceHandle: source
       target: '1727525615633'
@@ -148,100 +177,10 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: if-else
-        targetType: llm
-      id: 1727525615633-true-1727439961032-target
-      source: '1727525615633'
-      sourceHandle: 'true'
-      target: '1727439961032'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: llm
-      id: 1727525615633-8440ca06-e3ad-45bf-89d5-ddec5f55e9cc-1727439963591-target
-      selected: false
-      source: '1727525615633'
-      sourceHandle: 8440ca06-e3ad-45bf-89d5-ddec5f55e9cc
-      target: '1727439963591'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: llm
-      id: 1727525615633-4053fe29-7049-439a-9919-80f9490e37ea-1727439968564-target
-      selected: false
-      source: '1727525615633'
-      sourceHandle: 4053fe29-7049-439a-9919-80f9490e37ea
-      target: '1727439968564'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: llm
-      id: 1727525615633-efa6efe5-6a57-47d8-a4d1-44c238e5b769-1727439973402-target
-      selected: false
-      source: '1727525615633'
-      sourceHandle: efa6efe5-6a57-47d8-a4d1-44c238e5b769
-      target: '1727439973402'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: if-else
-        targetType: llm
-      id: 1727525615633-false-1727439961032-target
-      source: '1727525615633'
-      sourceHandle: 'false'
-      target: '1727439961032'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1727439961032-source-1727160193793-target
-      source: '1727439961032'
-      sourceHandle: source
-      target: '1727160193793'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1727439961032-source-1727160197295-target
-      source: '1727439961032'
-      sourceHandle: source
-      target: '1727160197295'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: code
-      id: 1727439961032-source-1727160200591-target
-      source: '1727439961032'
-      sourceHandle: source
-      target: '1727160200591'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: code
         targetType: code
       id: 1727160193793-source-1727525977557-target
+      selected: false
       source: '1727160193793'
       sourceHandle: source
       target: '1727525977557'
@@ -253,6 +192,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 1727525977557-source-1727160252261-target
+      selected: false
       source: '1727525977557'
       sourceHandle: source
       target: '1727160252261'
@@ -372,6 +312,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 17275271806540-source-17275273887810-target
+      selected: false
       source: '17275271806540'
       sourceHandle: source
       target: '17275273887810'
@@ -383,6 +324,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275271806540-source-17275273486920-target
+      selected: false
       source: '17275271806540'
       sourceHandle: source
       target: '17275273486920'
@@ -394,6 +336,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275271854810-source-17275273518440-target
+      selected: false
       source: '17275271854810'
       sourceHandle: source
       target: '17275273518440'
@@ -405,6 +348,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275271888600-source-17275273554070-target
+      selected: false
       source: '17275271888600'
       sourceHandle: source
       target: '17275273554070'
@@ -416,6 +360,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275273887810-source-17275273518440-target
+      selected: false
       source: '17275273887810'
       sourceHandle: source
       target: '17275273518440'
@@ -427,6 +372,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275273486920-source-17275274120010-target
+      selected: false
       source: '17275273486920'
       sourceHandle: source
       target: '17275274120010'
@@ -438,6 +384,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275273518440-source-17275274120010-target
+      selected: false
       source: '17275273518440'
       sourceHandle: source
       target: '17275274120010'
@@ -449,6 +396,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275273554070-source-17275274120010-target
+      selected: false
       source: '17275273554070'
       sourceHandle: source
       target: '17275274120010'
@@ -460,6 +408,7 @@ workflow:
         sourceType: code
         targetType: end
       id: 17275274120010-source-17275274321070-target
+      selected: false
       source: '17275274120010'
       sourceHandle: source
       target: '17275274321070'
@@ -471,6 +420,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 17275272100770-source-17275275642170-target
+      selected: false
       source: '17275272100770'
       sourceHandle: source
       target: '17275275642170'
@@ -482,6 +432,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275272100770-source-17275275853120-target
+      selected: false
       source: '17275272100770'
       sourceHandle: source
       target: '17275275853120'
@@ -493,6 +444,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275272228560-source-17275275888140-target
+      selected: false
       source: '17275272228560'
       sourceHandle: source
       target: '17275275888140'
@@ -504,6 +456,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275272367550-source-17275275924620-target
+      selected: false
       source: '17275272367550'
       sourceHandle: source
       target: '17275275924620'
@@ -515,6 +468,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275275642170-source-17275275888140-target
+      selected: false
       source: '17275275642170'
       sourceHandle: source
       target: '17275275888140'
@@ -526,6 +480,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275275853120-source-17275276337690-target
+      selected: false
       source: '17275275853120'
       sourceHandle: source
       target: '17275276337690'
@@ -537,6 +492,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275275888140-source-17275276337690-target
+      selected: false
       source: '17275275888140'
       sourceHandle: source
       target: '17275276337690'
@@ -548,6 +504,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275275924620-source-17275276337690-target
+      selected: false
       source: '17275275924620'
       sourceHandle: source
       target: '17275276337690'
@@ -559,6 +516,7 @@ workflow:
         sourceType: code
         targetType: end
       id: 17275276337690-source-17275276383430-target
+      selected: false
       source: '17275276337690'
       sourceHandle: source
       target: '17275276383430'
@@ -570,6 +528,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275272498170-source-17275277275570-target
+      selected: false
       source: '17275272498170'
       sourceHandle: source
       target: '17275277275570'
@@ -581,6 +540,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275272639360-source-17275277443450-target
+      selected: false
       source: '17275272639360'
       sourceHandle: source
       target: '17275277443450'
@@ -592,6 +552,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275272738150-source-17275277473260-target
+      selected: false
       source: '17275272738150'
       sourceHandle: source
       target: '17275277473260'
@@ -603,6 +564,7 @@ workflow:
         sourceType: code
         targetType: code
       id: 17275272498170-source-17275277192650-target
+      selected: false
       source: '17275272498170'
       sourceHandle: source
       target: '17275277192650'
@@ -614,6 +576,7 @@ workflow:
         sourceType: code
         targetType: llm
       id: 17275277192650-source-17275277443450-target
+      selected: false
       source: '17275277192650'
       sourceHandle: source
       target: '17275277443450'
@@ -625,6 +588,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275277275570-source-17275277702740-target
+      selected: false
       source: '17275277275570'
       sourceHandle: source
       target: '17275277702740'
@@ -636,6 +600,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275277443450-source-17275277702740-target
+      selected: false
       source: '17275277443450'
       sourceHandle: source
       target: '17275277702740'
@@ -647,6 +612,7 @@ workflow:
         sourceType: llm
         targetType: code
       id: 17275277473260-source-17275277702740-target
+      selected: false
       source: '17275277473260'
       sourceHandle: source
       target: '17275277702740'
@@ -658,9 +624,358 @@ workflow:
         sourceType: code
         targetType: end
       id: 17275277702740-source-17275277791100-target
+      selected: false
       source: '17275277702740'
       sourceHandle: source
       target: '17275277791100'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439961032-source-1727160193793-target
+      selected: false
+      source: '1727439961032'
+      sourceHandle: source
+      target: '1727160193793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439961032-source-1727160197295-target
+      selected: false
+      source: '1727439961032'
+      sourceHandle: source
+      target: '1727160197295'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1727439961032-source-1727160200591-target
+      selected: false
+      source: '1727439961032'
+      sourceHandle: source
+      target: '1727160200591'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1727525615633-true-1731399751147-target
+      selected: false
+      source: '1727525615633'
+      sourceHandle: 'true'
+      target: '1731399751147'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1731399751147-true-1731399762351-target
+      selected: false
+      source: '1731399751147'
+      sourceHandle: 'true'
+      target: '1731399762351'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1731399762351-source-1731399764824-target
+      selected: false
+      source: '1731399762351'
+      sourceHandle: source
+      target: '1731399764824'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1731399764824-source-1731399766694-target
+      selected: false
+      source: '1731399764824'
+      sourceHandle: source
+      target: '1731399766694'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1731399751147-false-1731399776841-target
+      source: '1731399751147'
+      sourceHandle: 'false'
+      target: '1731399776841'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1731399776841-source-1731399766694-target
+      source: '1731399776841'
+      sourceHandle: source
+      target: '1731399766694'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1731399766694-source-1727439961032-target
+      source: '1731399766694'
+      sourceHandle: source
+      target: '1727439961032'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1727525615633-8440ca06-e3ad-45bf-89d5-ddec5f55e9cc-1731400436090-target
+      source: '1727525615633'
+      sourceHandle: 8440ca06-e3ad-45bf-89d5-ddec5f55e9cc
+      target: '1731400436090'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1731400436090-true-1731400448736-target
+      source: '1731400436090'
+      sourceHandle: 'true'
+      target: '1731400448736'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1731400448736-source-1731400454662-target
+      source: '1731400448736'
+      sourceHandle: source
+      target: '1731400454662'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1731400454662-source-1731400469293-target
+      source: '1731400454662'
+      sourceHandle: source
+      target: '1731400469293'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1731400436090-false-1731400474805-target
+      source: '1731400436090'
+      sourceHandle: 'false'
+      target: '1731400474805'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1731400469293-source-1727439963591-target
+      source: '1731400469293'
+      sourceHandle: source
+      target: '1727439963591'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1731400474805-source-1731400469293-target
+      source: '1731400474805'
+      sourceHandle: source
+      target: '1731400469293'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1727525615633-4053fe29-7049-439a-9919-80f9490e37ea-1731400693898-target
+      source: '1727525615633'
+      sourceHandle: 4053fe29-7049-439a-9919-80f9490e37ea
+      target: '1731400693898'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1727525615633-efa6efe5-6a57-47d8-a4d1-44c238e5b769-1731400705953-target
+      source: '1727525615633'
+      sourceHandle: efa6efe5-6a57-47d8-a4d1-44c238e5b769
+      target: '1731400705953'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1731400693898-true-1731400740598-target
+      source: '1731400693898'
+      sourceHandle: 'true'
+      target: '1731400740598'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1731400693898-false-1731400743572-target
+      source: '1731400693898'
+      sourceHandle: 'false'
+      target: '1731400743572'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1731400740598-source-1731400745784-target
+      source: '1731400740598'
+      sourceHandle: source
+      target: '1731400745784'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1731400745784-source-1731400748558-target
+      source: '1731400745784'
+      sourceHandle: source
+      target: '1731400748558'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1731400743572-source-1731400748558-target
+      source: '1731400743572'
+      sourceHandle: source
+      target: '1731400748558'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1731400748558-source-1727439968564-target
+      source: '1731400748558'
+      sourceHandle: source
+      target: '1727439968564'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1731400705953-true-1731400758228-target
+      source: '1731400705953'
+      sourceHandle: 'true'
+      target: '1731400758228'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1731400705953-false-1731400760638-target
+      source: '1731400705953'
+      sourceHandle: 'false'
+      target: '1731400760638'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1731400758228-source-1731400762463-target
+      source: '1731400758228'
+      sourceHandle: source
+      target: '1731400762463'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1731400762463-source-1731400765067-target
+      source: '1731400762463'
+      sourceHandle: source
+      target: '1731400765067'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1731400760638-source-1731400765067-target
+      source: '1731400760638'
+      sourceHandle: source
+      target: '1731400765067'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1731400765067-source-1727439973402-target
+      source: '1731400765067'
+      sourceHandle: source
+      target: '1727439973402'
       targetHandle: target
       type: custom
       zIndex: 0
@@ -678,7 +993,7 @@ workflow:
           - 专题简报
           - 会议简报
           - 动态简报
-          required: false
+          required: true
           type: select
           variable: classification
         - label: 标题
@@ -693,13 +1008,24 @@ workflow:
           required: false
           type: paragraph
           variable: text
-      height: 170
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: 参考文档上传
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: files_upload
+      height: 196
       id: '1727159899881'
       position:
-        x: -571.6447854943608
+        x: -1878.0666525966308
         y: 290.9758234916579
       positionAbsolute:
-        x: -571.6447854943608
+        x: -1878.0666525966308
         y: 290.9758234916579
       selected: false
       sourcePosition: right
@@ -707,8 +1033,10 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
-          rerank_result\": arg1 + arg2,\n    }\n"
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # 检查 arg1 和 arg2 是否为空字符串，如果是则提供默认值\n\
+          \    arg1 = arg1 if arg1 else \"\"\n    arg2 = arg2 if arg2 else \"\"\n\
+          \    \n    # 返回包含拼接结果的字典\n    return {\n        \"rerank_result\": arg1\
+          \ + arg2,\n    }"
         code_language: python3
         desc: 代码执行
         outputs:
@@ -730,11 +1058,11 @@ workflow:
       height: 82
       id: '1727159954446'
       position:
-        x: -571.6447854943608
-        y: 483.0584462131363
+        x: -1884.3409764694122
+        y: 531.9495754125951
       positionAbsolute:
-        x: -571.6447854943608
-        y: 483.0584462131363
+        x: -1884.3409764694122
+        y: 531.9495754125951
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -746,6 +1074,46 @@ workflow:
         - 0f23908f-82ea-4f31-ad0f-3d044f492ad2
         - f4aa72f7-79a1-4781-a096-972ca60c3ffe
         - c4206160-791c-4829-93bb-d36b8748dc40
+        - 3507d0c3-cf42-43e3-91a5-a2c10261d242
+        - 06fe27bf-770c-45dd-8fe7-d9dc22349df3
+        - 8dcf42fa-b86b-4009-9912-847c710ebc21
+        - 6292ef4e-2d46-4a88-a183-602ac34692ca
+        - 8c1682b5-9497-46c7-8547-192484de2a4f
+        - c5c528c2-d012-4456-a710-5f40a4175584
+        - feb545ae-8600-4fca-8612-63fd7ed234ad
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - 2adf6583-3fe0-4060-90e2-1bb3e6c475f2
+        - f5a52b39-9942-4ee4-ba17-2244c23387b9
+        - 68c9081c-5f56-428a-a292-c4b8edf034fb
+        - c4ab03fb-40f4-4d1f-ab36-26afaae2a3e1
+        - cd56bc72-a655-42bd-aa41-05c8ce809dcf
+        - a70e3a7e-735c-437e-b037-c32094feea4c
+        - 8043f256-179f-4ade-a1c0-ac91acce75e0
+        - a89296e1-b5f4-4f16-bab2-008466f5ff7f
+        - 410b037e-6cc9-4cf6-bc8f-748570aa65e9
+        - 687f356e-3980-42e3-a42d-65900499c6ff
+        - d79e70da-e5b7-449f-855c-b6d83d50c190
+        - 6b35d9dc-4bf1-4121-bcb9-ba33021748dc
+        - 1995dcd5-2214-4cfd-9e22-02f6fb9b2561
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 5131a10a-1798-4a0c-8f00-396c48c0f886
+        - 3898e774-3b52-43ec-a435-894f02d4062f
+        - 8a9b7a6b-e335-4383-a2e9-b4737bac182f
+        - a29d494a-70da-4148-83ed-cfa4e1663351
+        - 53e26050-8172-4351-85ce-a60269a5fcd2
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 61882789-cb40-4574-aacd-f0d912bb8d2c
+        - be9e2698-f655-46c3-89d5-4afcacb5ea75
+        - eea7ec24-db3a-4854-80f8-15f242a32834
+        - 4bf822a8-72c1-4808-ae06-8282d69d298d
+        - 968617f7-a64e-4078-b659-cc811bb01384
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - 94711705-54a7-46d0-96e4-625f89cdc9cf
+        - 460cb452-2786-4914-87b2-c3994680d6c2
+        - 5c5c3c22-e292-43f4-9a7d-e20b293efe81
+        - a6ee367b-0ad3-46cb-aa63-9b66a88a916a
+        - 61ecf93b-fe06-4a65-8845-ef67a97713ac
+        - 189cca99-1089-46e0-88e1-b42c68c30b3e
         desc: ''
         multiple_retrieval_config:
           reranking_enable: true
@@ -769,14 +1137,14 @@ workflow:
         selected: false
         title: 知识检索
         type: knowledge-retrieval
-      height: 176
+      height: 1296
       id: '1727160085247'
       position:
-        x: -571.6447854943608
-        y: 602.1903485754082
+        x: -1565.01957336
+        y: 290.9758234916579
       positionAbsolute:
-        x: -571.6447854943608
-        y: 602.1903485754082
+        x: -1565.01957336
+        y: 290.9758234916579
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -807,10 +1175,10 @@ workflow:
       height: 82
       id: '1727160193793'
       position:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 80.94155378686389
       positionAbsolute:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 80.94155378686389
       selected: false
       sourcePosition: right
@@ -842,10 +1210,10 @@ workflow:
       height: 82
       id: '1727160197295'
       position:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 233.53055314504752
       positionAbsolute:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 233.53055314504752
       selected: false
       sourcePosition: right
@@ -877,10 +1245,10 @@ workflow:
       height: 82
       id: '1727160200591'
       position:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 389.3613175866527
       positionAbsolute:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 389.3613175866527
       selected: false
       sourcePosition: right
@@ -903,7 +1271,7 @@ workflow:
         prompt_template:
         - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
           role: system
-          text: '根据提供的信息<{{#1727160193793.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#1727160193793.beginning_result#}}>，参考资料<{{#context#}}><{{#1731399766694.output#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，确保理解所有关键点。
 
@@ -923,10 +1291,10 @@ workflow:
       height: 126
       id: '1727160246669'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 80.94155378686389
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 80.94155378686389
       selected: false
       sourcePosition: right
@@ -949,7 +1317,7 @@ workflow:
         prompt_template:
         - id: 73a62160-ef1b-423c-9577-e977d34a28f2
           role: system
-          text: '根据提供的信息<{{#1727160197295.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#1727525977557.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#1727160197295.principal_result#}}>，参考资料<{{#context#}}><{{#1731399766694.output#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#1727525977557.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 首先，仔细阅读提供的信息，确保理解所有关键点。
 
@@ -971,10 +1339,10 @@ workflow:
       height: 126
       id: '1727160252261'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 233.53055314504752
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 233.53055314504752
       selected: false
       sourcePosition: right
@@ -997,7 +1365,7 @@ workflow:
         prompt_template:
         - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
           role: system
-          text: '根据提供的信息<{{#1727160200591.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#1727160200591.ending_result#}}>，参考资料<{{#context#}}><{{#1731399766694.output#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，理解其核心内容和背景。
 
@@ -1019,10 +1387,10 @@ workflow:
       height: 126
       id: '1727160258716'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 389.3613175866527
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 389.3613175866527
       selected: false
       sourcePosition: right
@@ -1062,10 +1430,10 @@ workflow:
       height: 82
       id: '1727160277877'
       position:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 233.53055314504752
       positionAbsolute:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 233.53055314504752
       selected: false
       sourcePosition: right
@@ -1085,10 +1453,10 @@ workflow:
       height: 118
       id: '1727160381775'
       position:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 233.53055314504752
       positionAbsolute:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 233.53055314504752
       selected: false
       sourcePosition: right
@@ -1111,7 +1479,7 @@ workflow:
         prompt_template:
         - id: 80108fb1-fc5a-461c-b886-8a03258d5149
           role: system
-          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个工作简报的提纲。提纲应包含开头、主体、结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，参考资料<{{#context#}}><{{#1731399766694.output#}}>，撰写一个工作简报的提纲。提纲应包含开头、主体、结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
 
             1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
 
@@ -1137,10 +1505,10 @@ workflow:
       height: 126
       id: '1727439961032'
       position:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 233.53055314504752
       positionAbsolute:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 233.53055314504752
       selected: false
       sourcePosition: right
@@ -1163,7 +1531,7 @@ workflow:
         prompt_template:
         - id: 9ec8116e-1bef-480f-98b0-ce145a792acf
           role: system
-          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个专题简报的提纲。提纲应包含开头、主体、结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，参考资料<{{#context#}}><{{#1731400469293.output#}}>，撰写一个专题简报的提纲。提纲应包含开头、主体、结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
 
             1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
 
@@ -1189,10 +1557,10 @@ workflow:
       height: 126
       id: '1727439963591'
       position:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 933.1901390388222
       positionAbsolute:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 933.1901390388222
       selected: false
       sourcePosition: right
@@ -1215,7 +1583,7 @@ workflow:
         prompt_template:
         - id: 2d0c0493-90f6-47d5-b31e-58266aaf8a8d
           role: system
-          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个会议简报的提纲。提纲应包含开头，主体，结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，参考资料<{{#context#}}><{{#1731400748558.output#}}>，撰写一个会议简报的提纲。提纲应包含开头，主体，结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
 
             1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
 
@@ -1237,10 +1605,10 @@ workflow:
       height: 126
       id: '1727439968564'
       position:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 1649.1542902172216
       positionAbsolute:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 1649.1542902172216
       selected: false
       sourcePosition: right
@@ -1263,7 +1631,7 @@ workflow:
         prompt_template:
         - id: 971888e1-b689-4423-ac33-ba0e73ebed6f
           role: system
-          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，撰写一个动态简报的提纲。提纲应包含开头，主体，结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
+          text: '根据提供的标题<{{#1727159899881.title#}}>和内容<{{#1727159899881.text#}}>，参考资料<{{#context#}}><{{#1731400765067.output#}}>，撰写一个动态简报的提纲。提纲应包含开头，主体，结尾三部分，每一个部分是一个独立的键值对：开头——key为“beginning”、主体——key为“principal”、结尾——key为"ending"。
 
             1. 提纲必须只能以一整个JSON对象的形式输出，对象内不要包含子对象，不要包含数组，不要输出任何markdown格式标记，撰写时必须使用中文。
 
@@ -1276,7 +1644,7 @@ workflow:
             5. 撰写简报的结尾部分，总结简报内容，提出建议或展望。
 
             6. 确保输出的JSON对象中不包含任何XML标签。'
-        selected: false
+        selected: true
         title: 行文思考
         type: llm
         variables: []
@@ -1285,12 +1653,12 @@ workflow:
       height: 126
       id: '1727439973402'
       position:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 2373.1187111842914
       positionAbsolute:
-        x: 106.51912991011613
+        x: 406.51912991011613
         y: 2373.1187111842914
-      selected: false
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -1339,6 +1707,7 @@ workflow:
             variable_selector:
             - '1727159899881'
             - classification
+          id: efa6efe5-6a57-47d8-a4d1-44c238e5b769
           logical_operator: and
         desc: ''
         selected: false
@@ -1347,10 +1716,10 @@ workflow:
       height: 270
       id: '1727525615633'
       position:
-        x: -267.00441248314814
+        x: -1224.5248367027718
         y: 290.9758234916579
       positionAbsolute:
-        x: -267.00441248314814
+        x: -1224.5248367027718
         y: 290.9758234916579
       selected: false
       sourcePosition: right
@@ -1377,10 +1746,10 @@ workflow:
       height: 82
       id: '1727525977557'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: -45.972845710297264
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: -45.972845710297264
       selected: false
       sourcePosition: right
@@ -1412,10 +1781,10 @@ workflow:
       height: 82
       id: '17275271806540'
       position:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 769.1390715528144
       positionAbsolute:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 769.1390715528144
       selected: false
       sourcePosition: right
@@ -1447,10 +1816,10 @@ workflow:
       height: 82
       id: '17275271854810'
       position:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 933.1901390388222
       positionAbsolute:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 933.1901390388222
       selected: false
       sourcePosition: right
@@ -1482,10 +1851,10 @@ workflow:
       height: 82
       id: '17275271888600'
       position:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 1102.0662379214773
       positionAbsolute:
-        x: 446.269931707202
+        x: 746.269931707202
         y: 1102.0662379214773
       selected: false
       sourcePosition: right
@@ -1517,10 +1886,10 @@ workflow:
       height: 82
       id: '17275272100770'
       position:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 1476.1842858847347
       positionAbsolute:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 1476.1842858847347
       selected: false
       sourcePosition: right
@@ -1552,10 +1921,10 @@ workflow:
       height: 82
       id: '17275272228560'
       position:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 1649.1542902172216
       positionAbsolute:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 1649.1542902172216
       selected: false
       sourcePosition: right
@@ -1587,10 +1956,10 @@ workflow:
       height: 82
       id: '17275272367550'
       position:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 1827.1562035967636
       positionAbsolute:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 1827.1562035967636
       selected: false
       sourcePosition: right
@@ -1622,10 +1991,10 @@ workflow:
       height: 82
       id: '17275272498170'
       position:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 2194.9402478860425
       positionAbsolute:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 2194.9402478860425
       selected: false
       sourcePosition: right
@@ -1657,10 +2026,10 @@ workflow:
       height: 82
       id: '17275272639360'
       position:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 2373.1187111842914
       positionAbsolute:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 2373.1187111842914
       selected: false
       sourcePosition: right
@@ -1692,10 +2061,10 @@ workflow:
       height: 82
       id: '17275272738150'
       position:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 2555.0808234739034
       positionAbsolute:
-        x: 454.269931707202
+        x: 754.269931707202
         y: 2555.0808234739034
       selected: false
       sourcePosition: right
@@ -1718,7 +2087,7 @@ workflow:
         prompt_template:
         - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
           role: system
-          text: '根据提供的信息<{{#17275271806540.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275271806540.beginning_result#}}>，参考资料<{{#context#}}><{{#1731400469293.output#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，确保理解所有关键点。
 
@@ -1738,10 +2107,10 @@ workflow:
       height: 126
       id: '17275273486920'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 769.1390715528144
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 769.1390715528144
       selected: false
       sourcePosition: right
@@ -1764,7 +2133,7 @@ workflow:
         prompt_template:
         - id: 73a62160-ef1b-423c-9577-e977d34a28f2
           role: system
-          text: '根据提供的信息<{{#17275271854810.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275273887810.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275271854810.principal_result#}}>，参考资料<{{#context#}}><{{#1731400469293.output#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275273887810.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 首先，仔细阅读提供的信息，确保理解所有关键点。
 
@@ -1786,10 +2155,10 @@ workflow:
       height: 126
       id: '17275273518440'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 933.1901390388222
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 933.1901390388222
       selected: false
       sourcePosition: right
@@ -1812,7 +2181,7 @@ workflow:
         prompt_template:
         - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
           role: system
-          text: '根据提供的信息<{{#17275271888600.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275271888600.ending_result#}}>，参考资料<{{#context#}}><{{#1731400469293.output#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，理解其核心内容和背景。
 
@@ -1834,10 +2203,10 @@ workflow:
       height: 126
       id: '17275273554070'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1102.0662379214773
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1102.0662379214773
       selected: false
       sourcePosition: right
@@ -1864,10 +2233,10 @@ workflow:
       height: 82
       id: '17275273887810'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 632.2963944878655
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 632.2963944878655
       selected: false
       sourcePosition: right
@@ -1907,10 +2276,10 @@ workflow:
       height: 82
       id: '17275274120010'
       position:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 933.1901390388222
       positionAbsolute:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 933.1901390388222
       selected: false
       sourcePosition: right
@@ -1930,10 +2299,10 @@ workflow:
       height: 118
       id: '17275274321070'
       position:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 933.1901390388222
       positionAbsolute:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 933.1901390388222
       selected: false
       sourcePosition: right
@@ -1960,10 +2329,10 @@ workflow:
       height: 82
       id: '17275275642170'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1340.3693905589143
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1340.3693905589143
       selected: false
       sourcePosition: right
@@ -1986,7 +2355,7 @@ workflow:
         prompt_template:
         - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
           role: system
-          text: '根据提供的信息<{{#17275272100770.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275272100770.beginning_result#}}>，参考资料<{{#context#}}><{{#1731400748558.output#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，确保理解所有关键点。
 
@@ -2006,10 +2375,10 @@ workflow:
       height: 126
       id: '17275275853120'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1476.1842858847347
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1476.1842858847347
       selected: false
       sourcePosition: right
@@ -2032,7 +2401,7 @@ workflow:
         prompt_template:
         - id: 73a62160-ef1b-423c-9577-e977d34a28f2
           role: system
-          text: '根据提供的信息<{{#17275272228560.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275275642170.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275272228560.principal_result#}}>，参考资料<{{#context#}}><{{#1731400748558.output#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275275642170.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 首先，仔细阅读提供的信息，确保理解所有关键点。
 
@@ -2054,10 +2423,10 @@ workflow:
       height: 126
       id: '17275275888140'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1649.1542902172216
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1649.1542902172216
       selected: false
       sourcePosition: right
@@ -2080,7 +2449,7 @@ workflow:
         prompt_template:
         - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
           role: system
-          text: '根据提供的信息<{{#17275272367550.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275272367550.ending_result#}}>，参考资料<{{#context#}}><{{#1731400748558.output#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，理解其核心内容和背景。
 
@@ -2102,10 +2471,10 @@ workflow:
       height: 126
       id: '17275275924620'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1827.1562035967636
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 1827.1562035967636
       selected: false
       sourcePosition: right
@@ -2145,10 +2514,10 @@ workflow:
       height: 82
       id: '17275276337690'
       position:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 1649.1542902172216
       positionAbsolute:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 1649.1542902172216
       selected: false
       sourcePosition: right
@@ -2168,10 +2537,10 @@ workflow:
       height: 118
       id: '17275276383430'
       position:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 1649.1542902172216
       positionAbsolute:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 1649.1542902172216
       selected: false
       sourcePosition: right
@@ -2198,10 +2567,10 @@ workflow:
       height: 82
       id: '17275277192650'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2056.5811566997454
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2056.5811566997454
       selected: false
       sourcePosition: right
@@ -2224,7 +2593,7 @@ workflow:
         prompt_template:
         - id: 18b5fa78-4b75-4d4b-94b1-c11cdd984f6c
           role: system
-          text: '根据提供的信息<{{#17275272498170.beginning_result#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275272498170.beginning_result#}}>，参考资料<{{#context#}}><{{#1731400765067.output#}}>，撰写工作简报的开头。简报开头要用概括性的语言介绍时间的主要内容和基本背景。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，确保理解所有关键点。
 
@@ -2244,10 +2613,10 @@ workflow:
       height: 126
       id: '17275277275570'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2194.9402478860425
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2194.9402478860425
       selected: false
       sourcePosition: right
@@ -2270,7 +2639,7 @@ workflow:
         prompt_template:
         - id: 73a62160-ef1b-423c-9577-e977d34a28f2
           role: system
-          text: '根据提供的信息<{{#17275272639360.principal_result#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275277192650.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275272639360.principal_result#}}>，参考资料<{{#context#}}><{{#1731400765067.output#}}>，撰写工作简报的主体。工作简报的主体应紧扣开头<{{#17275277192650.result#}}>进行阐述，按照一定的逻辑编写。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 首先，仔细阅读提供的信息，确保理解所有关键点。
 
@@ -2292,10 +2661,10 @@ workflow:
       height: 126
       id: '17275277443450'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2373.1187111842914
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2373.1187111842914
       selected: false
       sourcePosition: right
@@ -2318,7 +2687,7 @@ workflow:
         prompt_template:
         - id: 7a9bf8b5-b421-4dab-b4a5-ca045e2a8f00
           role: system
-          text: '根据提供的信息<{{#17275272738150.ending_result#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
+          text: '根据提供的信息<{{#17275272738150.ending_result#}}>，参考资料<{{#context#}}><{{#1731400765067.output#}}>，撰写工作简报的结尾。工作简报的结尾要指出时间的意义或者未来发展趋势。文章的开头和结尾不要撰写任何称谓、总结性、致谢性的内容。撰写完成后直接输出，立刻停止，不要总结你自身的工作。
 
             1. 仔细阅读提供的信息，理解其核心内容和背景。
 
@@ -2340,12 +2709,12 @@ workflow:
       height: 126
       id: '17275277473260'
       position:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2555.0808234739034
       positionAbsolute:
-        x: 775.4022374838441
+        x: 1075.4022374838441
         y: 2555.0808234739034
-      selected: true
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -2383,10 +2752,10 @@ workflow:
       height: 82
       id: '17275277702740'
       position:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 2373.1187111842914
       positionAbsolute:
-        x: 1109.9200373554804
+        x: 1409.9200373554804
         y: 2373.1187111842914
       selected: false
       sourcePosition: right
@@ -2406,10 +2775,526 @@ workflow:
       height: 118
       id: '17275277791100'
       position:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
         y: 2373.1187111842914
       positionAbsolute:
-        x: 1406.1222125801903
+        x: 1706.1222125801903
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 8f52ed4a-aae6-463f-94fb-9dc07dfc2305
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1727159899881'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1731399751147'
+      position:
+        x: -843.8358168487414
+        y: 233.53055314504752
+      positionAbsolute:
+        x: -843.8358168487414
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1727159899881'
+        - files_upload
+      height: 94
+      id: '1731399762351'
+      position:
+        x: -539.8358168487414
+        y: 233.53055314504752
+      positionAbsolute:
+        x: -539.8358168487414
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1731399762351'
+          - text
+          variable: arg1
+      height: 82
+      id: '1731399764824'
+      position:
+        x: -235.8358168487414
+        y: 233.53055314504752
+      positionAbsolute:
+        x: -235.8358168487414
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 文档聚合
+        type: variable-aggregator
+        variables:
+        - - '1731399764824'
+          - output
+        - - '1731399776841'
+          - result
+      height: 167
+      id: '1731399766694'
+      position:
+        x: 68.16418315125861
+        y: 233.53055314504752
+      positionAbsolute:
+        x: 68.16418315125861
+        y: 233.53055314504752
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+      height: 82
+      id: '1731399776841'
+      position:
+        x: -539.8358168487414
+        y: 363.1766307835639
+      positionAbsolute:
+        x: -539.8358168487414
+        y: 363.1766307835639
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 46be9def-eb0a-49dc-8ff5-6436e54a901a
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1727159899881'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1731400436090'
+      position:
+        x: -843.8358168487414
+        y: 933.1901390388222
+      positionAbsolute:
+        x: -843.8358168487414
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1727159899881'
+        - files_upload
+      height: 94
+      id: '1731400448736'
+      position:
+        x: -547.4367575462809
+        y: 933.1901390388222
+      positionAbsolute:
+        x: -547.4367575462809
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模版转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1731400448736'
+          - text
+          variable: arg1
+      height: 82
+      id: '1731400454662'
+      position:
+        x: -235.8358168487414
+        y: 933.1901390388222
+      positionAbsolute:
+        x: -235.8358168487414
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 文档聚合
+        type: variable-aggregator
+        variables:
+        - - '1731400454662'
+          - output
+        - - '1731400474805'
+          - result
+      height: 167
+      id: '1731400469293'
+      position:
+        x: 68.16418315125861
+        y: 933.1901390388222
+      positionAbsolute:
+        x: 68.16418315125861
+        y: 933.1901390388222
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+      height: 82
+      id: '1731400474805'
+      position:
+        x: -547.4367575462809
+        y: 1093.1619910511045
+      positionAbsolute:
+        x: -547.4367575462809
+        y: 1093.1619910511045
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 2308c064-36ee-405c-8c3d-5c8cc574f753
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1727159899881'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1731400693898'
+      position:
+        x: -843.8358168487414
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: -843.8358168487414
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 7fb8884f-55e0-405e-a7e6-5a8cccb7f5d6
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1727159899881'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1731400705953'
+      position:
+        x: -843.8358168487414
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: -843.8358168487414
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1727159899881'
+        - files_upload
+      height: 94
+      id: '1731400740598'
+      position:
+        x: -539.8358168487414
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: -539.8358168487414
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+      height: 82
+      id: '1731400743572'
+      position:
+        x: -539.8358168487414
+        y: 1785.0594467197166
+      positionAbsolute:
+        x: -539.8358168487414
+        y: 1785.0594467197166
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1731400740598'
+          - text
+          variable: arg1
+      height: 82
+      id: '1731400745784'
+      position:
+        x: -235.8358168487414
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: -235.8358168487414
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 文档聚合
+        type: variable-aggregator
+        variables:
+        - - '1731400745784'
+          - output
+        - - '1731400743572'
+          - result
+      height: 167
+      id: '1731400748558'
+      position:
+        x: 68.16418315125861
+        y: 1649.1542902172216
+      positionAbsolute:
+        x: 68.16418315125861
+        y: 1649.1542902172216
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1727159899881'
+        - files_upload
+      height: 94
+      id: '1731400758228'
+      position:
+        x: -539.8358168487414
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: -539.8358168487414
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1727159899881'
+          - title
+          variable: arg1
+      height: 82
+      id: '1731400760638'
+      position:
+        x: -539.8358168487414
+        y: 2506.9807649961913
+      positionAbsolute:
+        x: -539.8358168487414
+        y: 2506.9807649961913
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1731400758228'
+          - text
+          variable: arg1
+      height: 82
+      id: '1731400762463'
+      position:
+        x: -235.8358168487414
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: -235.8358168487414
+        y: 2373.1187111842914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 文档聚合
+        type: variable-aggregator
+        variables:
+        - - '1731400762463'
+          - output
+        - - '1731400760638'
+          - result
+      height: 167
+      id: '1731400765067'
+      position:
+        x: 68.16418315125861
+        y: 2373.1187111842914
+      positionAbsolute:
+        x: 68.16418315125861
         y: 2373.1187111842914
       selected: false
       sourcePosition: right
@@ -2417,6 +3302,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: -77.25165103657304
-      y: -451.6807850865368
-      zoom: 0.3433963898414545
+      x: 433.2237737350033
+      y: -84.90981773435237
+      zoom: 0.30957258257731013

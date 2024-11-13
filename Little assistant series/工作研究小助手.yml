@@ -1,23 +1,44 @@
 app:
-  description: 撰写工作研究
+  description: 其他常用公文 - 事务类公文 - 工作研究
   icon: 🤖
   icon_background: '#FFEAD5'
   mode: workflow
   name: 工作研究小助手
   use_icon_as_answer_icon: false
 kind: app
-version: 0.1.2
+version: 0.1.3
 workflow:
   conversation_variables: []
   environment_variables: []
   features:
     file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
       image:
         enabled: false
         number_limits: 3
         transfer_methods:
         - local_file
         - remote_url
+      number_limits: 3
     opening_statement: ''
     retriever_resource:
       enabled: false
@@ -164,32 +185,10 @@ workflow:
       zIndex: 0
     - data:
         isInIteration: false
-        sourceType: start
-        targetType: llm
-      id: 1726291761984-source-1727599031634-target
-      source: '1726291761984'
-      sourceHandle: source
-      target: '1727599031634'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: knowledge-retrieval
         targetType: llm
       id: 1726905923843-source-1726904528623-target
       source: '1726905923843'
-      sourceHandle: source
-      target: '1726904528623'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
-        sourceType: llm
-        targetType: llm
-      id: 1727599031634-source-1726904528623-target
-      source: '1727599031634'
       sourceHandle: source
       target: '1726904528623'
       targetHandle: target
@@ -228,6 +227,105 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: llm
+      id: 1726906586993-source-1727599031634-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1727599031634'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1727599031634-source-1726904528623-target
+      source: '1727599031634'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: if-else
+      id: 1726906586993-source-1731247712339-target
+      source: '1726906586993'
+      sourceHandle: source
+      target: '1731247712339'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1731247712339-true-1731247767667-target
+      source: '1731247712339'
+      sourceHandle: 'true'
+      target: '1731247767667'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1731247712339-false-1731247778641-target
+      source: '1731247712339'
+      sourceHandle: 'false'
+      target: '1731247778641'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1731247767667-source-1731247827449-target
+      source: '1731247767667'
+      sourceHandle: source
+      target: '1731247827449'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1731247827449-source-1731247873921-target
+      source: '1731247827449'
+      sourceHandle: source
+      target: '1731247873921'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1731247778641-source-1731247873921-target
+      source: '1731247778641'
+      sourceHandle: source
+      target: '1731247873921'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1731247873921-source-1726904528623-target
+      source: '1731247873921'
+      sourceHandle: source
+      target: '1726904528623'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: 开始
@@ -242,19 +340,31 @@ workflow:
           type: text-input
           variable: title
         - label: 内容
-          max_length: 512
+          max_length: null
           options: []
           required: false
           type: paragraph
           variable: text
-      height: 144
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: 参考文档上传
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: files_upload
+      height: 170
       id: '1726291761984'
       position:
-        x: 612.4424632780157
-        y: 49.88038470391379
+        x: -486.98384214794316
+        y: 848
       positionAbsolute:
-        x: 612.4424632780157
-        y: 49.88038470391379
+        x: -486.98384214794316
+        y: 848
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -276,7 +386,7 @@ workflow:
         prompt_template:
         - id: d61277a8-38b0-4f5b-b2a4-3a4f0391292e
           role: system
-          text: '根据提供的信息<{{#1726339723075.principal_result#}}>，撰写工作研究的正文部分，要求如下：
+          text: '根据提供的信息<{{#1726339723075.principal_result#}}>，参考资料<{{#context#}}><{{#1731247873921.output#}}>，撰写工作研究的正文部分，要求如下：
 
             1. 文章的开头和结尾不要有任何称谓、致谢、总结类的内容。
 
@@ -289,7 +399,7 @@ workflow:
             5. 正文的第二目的是解决问题：对于产生问题的原因，逐一提出解决对策，这是工作研究的最终目的和意义所在，要提出切实可行的解决办法，避免空谈阔论。
 
             6. 要详细的撰写，字数不少于2000字。'
-        selected: false
+        selected: true
         title: 正文撰写
         type: llm
         variables: []
@@ -298,12 +408,12 @@ workflow:
       height: 126
       id: '1726303818433'
       position:
-        x: 2131.2377868464027
-        y: 206.74797718791325
+        x: 1848.2846232233896
+        y: 1014
       positionAbsolute:
-        x: 2131.2377868464027
-        y: 206.74797718791325
-      selected: false
+        x: 1848.2846232233896
+        y: 1014
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -324,7 +434,7 @@ workflow:
         prompt_template:
         - id: 3a86607f-16a0-4124-b650-76d94beb1a35
           role: system
-          text: '根据提供的信息<{{#1726851931907.ending_result#}}>，撰写工作研究的结尾部分，要求如下：
+          text: '根据提供的信息<{{#1726851931907.ending_result#}}>，参考资料<{{#context#}}><{{#1731247873921.output#}}>，撰写工作研究的结尾部分，要求如下：
 
             1. 仔细阅读提供的信息，理解研究的背景、过程和主要发现。
 
@@ -337,7 +447,7 @@ workflow:
             5. 确保文章的开头和结尾没有称谓、致谢或总结类的内容。
 
             6. 输出的内容不应包含任何XML标签。'
-        selected: true
+        selected: false
         title: 结尾撰写
         type: llm
         variables: []
@@ -346,12 +456,12 @@ workflow:
       height: 126
       id: '1726303820317'
       position:
-        x: 2131.2377868464027
-        y: 371.71425592464584
+        x: 1848.2846232233896
+        y: 1212.1330615891661
       positionAbsolute:
-        x: 2131.2377868464027
-        y: 371.71425592464584
-      selected: true
+        x: 1848.2846232233896
+        y: 1212.1330615891661
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -369,11 +479,11 @@ workflow:
       height: 118
       id: '1726305994457'
       position:
-        x: 2454.4111377779127
-        y: 206.74797718791325
+        x: 2462
+        y: 1014
       positionAbsolute:
-        x: 2454.4111377779127
-        y: 206.74797718791325
+        x: 2462
+        y: 1014
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -395,7 +505,7 @@ workflow:
         prompt_template:
         - id: 22ccb145-5a73-41d0-bbfd-36c23bd20770
           role: system
-          text: '1. 根据提供的信息<{{#1726339882193.introduction_result#}}>，撰写工作研究的导言部分。
+          text: '1. 根据提供的信息<{{#1726339882193.introduction_result#}}>，参考资料<{{#context#}}><{{#1731247873921.output#}}>，撰写工作研究的导言部分。
 
             2. 导言部分应包括以下内容：
 
@@ -427,11 +537,11 @@ workflow:
       height: 126
       id: '1726333124328'
       position:
-        x: 2131.2377868464027
-        y: 49.88038470391379
+        x: 1848.2846232233896
+        y: 848
       positionAbsolute:
-        x: 2131.2377868464027
-        y: 49.88038470391379
+        x: 1848.2846232233896
+        y: 848
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -462,11 +572,11 @@ workflow:
       height: 82
       id: '1726339723075'
       position:
-        x: 1829.4882847054373
-        y: 206.74797718791325
+        x: 1550
+        y: 962.6335711094796
       positionAbsolute:
-        x: 1829.4882847054373
-        y: 206.74797718791325
+        x: 1550
+        y: 962.6335711094796
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -497,11 +607,11 @@ workflow:
       height: 82
       id: '1726339882193'
       position:
-        x: 1829.4882847054373
-        y: 49.88038470391379
+        x: 1550
+        y: 848
       positionAbsolute:
-        x: 1829.4882847054373
-        y: 49.88038470391379
+        x: 1550
+        y: 848
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -532,11 +642,11 @@ workflow:
       height: 82
       id: '1726851931907'
       position:
-        x: 1829.4882847054373
-        y: 371.71425592464584
+        x: 1550
+        y: 1113.0665307945828
       positionAbsolute:
-        x: 1829.4882847054373
-        y: 371.71425592464584
+        x: 1550
+        y: 1113.0665307945828
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -575,11 +685,11 @@ workflow:
       height: 82
       id: '1726852964699'
       position:
-        x: 2454.4111377779127
-        y: 49.88038470391379
+        x: 2158
+        y: 1014
       positionAbsolute:
-        x: 2454.4111377779127
-        y: 49.88038470391379
+        x: 2158
+        y: 1014
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -601,7 +711,7 @@ workflow:
         prompt_template:
         - id: ce60b2c8-ff65-4fb5-aa75-2ed512805a1c
           role: system
-          text: '根据提供的标题<{{#1726291761984.title#}}>、内容<{{#1726291761984.text#}}>和工作研究的类型<{{#1727599031634.text#}}>，撰写一个工作研究的提纲。
+          text: '根据提供的标题<{{#1726291761984.title#}}>、内容<{{#1726291761984.text#}}>和工作研究的类型<{{#1727599031634.text#}}>，参考资料<{{#context#}}><{{#1731247873921.output#}}>，撰写一个工作研究的提纲。
 
             1. 提纲应包含三个部分：导言、正文和结尾，每个部分作为一个独立的键值对，键分别为“introduction”、“principal”和“ending”。
 
@@ -627,11 +737,11 @@ workflow:
       height: 126
       id: '1726904528623'
       position:
-        x: 1527.0877140243667
-        y: 49.88038470391379
+        x: 972.4581557587726
+        y: 848
       positionAbsolute:
-        x: 1527.0877140243667
-        y: 49.88038470391379
+        x: 972.4581557587726
+        y: 848
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -647,6 +757,42 @@ workflow:
         - 8c1682b5-9497-46c7-8547-192484de2a4f
         - 8dcf42fa-b86b-4009-9912-847c710ebc21
         - 460cb452-2786-4914-87b2-c3994680d6c2
+        - e5231e5c-5cb1-4484-a846-773226e9fbe1
+        - f4aa72f7-79a1-4781-a096-972ca60c3ffe
+        - c4206160-791c-4829-93bb-d36b8748dc40
+        - 06fe27bf-770c-45dd-8fe7-d9dc22349df3
+        - 6292ef4e-2d46-4a88-a183-602ac34692ca
+        - c5c528c2-d012-4456-a710-5f40a4175584
+        - feb545ae-8600-4fca-8612-63fd7ed234ad
+        - 56c1cb83-1360-4f6e-ba19-406be608219f
+        - 2adf6583-3fe0-4060-90e2-1bb3e6c475f2
+        - f5a52b39-9942-4ee4-ba17-2244c23387b9
+        - 68c9081c-5f56-428a-a292-c4b8edf034fb
+        - c4ab03fb-40f4-4d1f-ab36-26afaae2a3e1
+        - cd56bc72-a655-42bd-aa41-05c8ce809dcf
+        - a70e3a7e-735c-437e-b037-c32094feea4c
+        - 8043f256-179f-4ade-a1c0-ac91acce75e0
+        - a89296e1-b5f4-4f16-bab2-008466f5ff7f
+        - 410b037e-6cc9-4cf6-bc8f-748570aa65e9
+        - 687f356e-3980-42e3-a42d-65900499c6ff
+        - d79e70da-e5b7-449f-855c-b6d83d50c190
+        - 6b35d9dc-4bf1-4121-bcb9-ba33021748dc
+        - 1995dcd5-2214-4cfd-9e22-02f6fb9b2561
+        - 9d17f31a-de98-4e2e-9280-4f4d8bb5234d
+        - 5131a10a-1798-4a0c-8f00-396c48c0f886
+        - 3898e774-3b52-43ec-a435-894f02d4062f
+        - 8a9b7a6b-e335-4383-a2e9-b4737bac182f
+        - a29d494a-70da-4148-83ed-cfa4e1663351
+        - 53e26050-8172-4351-85ce-a60269a5fcd2
+        - 54f83acb-4619-4e09-8dc2-add382da6d3d
+        - 61882789-cb40-4574-aacd-f0d912bb8d2c
+        - be9e2698-f655-46c3-89d5-4afcacb5ea75
+        - eea7ec24-db3a-4854-80f8-15f242a32834
+        - 4bf822a8-72c1-4808-ae06-8282d69d298d
+        - 968617f7-a64e-4078-b659-cc811bb01384
+        - 8cb5ed3b-cf03-4b63-b5cd-eecffda05d8f
+        - a6ee367b-0ad3-46cb-aa63-9b66a88a916a
+        - 189cca99-1089-46e0-88e1-b42c68c30b3e
         desc: ''
         multiple_retrieval_config:
           reranking_enable: true
@@ -670,22 +816,24 @@ workflow:
         selected: false
         title: 知识检索
         type: knowledge-retrieval
-      height: 288
+      height: 1296
       id: '1726905923843'
       position:
-        x: 1238.0050854268025
-        y: 206.74797718791325
+        x: 441.0372594266031
+        y: 852.0610874345031
       positionAbsolute:
-        x: 1238.0050854268025
-        y: 206.74797718791325
+        x: 441.0372594266031
+        y: 852.0610874345031
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     - data:
-        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
-          rerank_result\": arg1 + arg2,\n    }\n"
+        code: "def main(arg1: str, arg2: str) -> dict:\n    # 检查 arg1 和 arg2 是否为空字符串，如果是则提供默认值\n\
+          \    arg1 = arg1 if arg1 else \"\"\n    arg2 = arg2 if arg2 else \"\"\n\
+          \    \n    # 返回包含拼接结果的字典\n    return {\n        \"rerank_result\": arg1\
+          \ + arg2,\n    }"
         code_language: python3
         desc: 代码执行
         outputs:
@@ -707,11 +855,11 @@ workflow:
       height: 82
       id: '1726906586993'
       position:
-        x: 943.8218897929455
-        y: 206.74797718791325
+        x: -195.05515295578647
+        y: 848
       positionAbsolute:
-        x: 943.8218897929455
-        y: 206.74797718791325
+        x: -195.05515295578647
+        y: 848
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -737,11 +885,11 @@ workflow:
       height: 82
       id: '1727531352166'
       position:
-        x: 1829.4882847054373
-        y: 509.4398749394069
+        x: 1550
+        y: 1257.9280379010254
       positionAbsolute:
-        x: 1829.4882847054373
-        y: 509.4398749394069
+        x: 1550
+        y: 1257.9280379010254
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -761,7 +909,7 @@ workflow:
         prompt_template:
         - id: 0ab9ff86-4231-4e92-a33b-5e8015c3626b
           role: system
-          text: '1. 首先，阅读提供的标题<{{#1726291761984.title#}}>和内容<{{#1726291761984.text#}}>，理解研究的主要目的和内容。
+          text: '1. 首先，阅读提供的标题和内容<{{#1726906586993.rerank_result#}}>，理解研究的主要目的和内容。
 
             2. 根据以下类型定义，判断该研究属于哪一种类型：
 
@@ -783,17 +931,144 @@ workflow:
       height: 126
       id: '1727599031634'
       position:
-        x: 943.8218897929455
-        y: 49.88038470391379
+        x: 131.10830898010374
+        y: 1024.9086691382383
       positionAbsolute:
-        x: 943.8218897929455
-        y: 49.88038470391379
+        x: 131.10830898010374
+        y: 1024.9086691382383
       selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: 5b7370cb-80fd-4c92-b0f2-e6b078bbcf51
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1726291761984'
+            - files_upload
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 上传文档判断
+        type: if-else
+      height: 154
+      id: '1731247712339'
+      position:
+        x: 131.10830898010374
+        y: 517.7986987279872
+      positionAbsolute:
+        x: 131.10830898010374
+        y: 517.7986987279872
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文档提取器
+        type: document-extractor
+        variable_selector:
+        - '1726291761984'
+        - files_upload
+      height: 94
+      id: '1731247767667'
+      position:
+        x: 435.10830898010374
+        y: 517.7986987279872
+      positionAbsolute:
+        x: 435.10830898010374
+        y: 517.7986987279872
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1726291761984'
+          - title
+          variable: arg1
+      height: 82
+      id: '1731247778641'
+      position:
+        x: 435.10830898010374
+        y: 650.7986987279872
+      positionAbsolute:
+        x: 435.10830898010374
+        y: 650.7986987279872
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 模板转换
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 文档转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1731247767667'
+          - text
+          variable: arg1
+      height: 82
+      id: '1731247827449'
+      position:
+        x: 739.1083089801037
+        y: 517.7986987279872
+      positionAbsolute:
+        x: 739.1083089801037
+        y: 517.7986987279872
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 资料聚合
+        type: variable-aggregator
+        variables:
+        - - '1731247827449'
+          - output
+        - - '1731247778641'
+          - result
+      height: 167
+      id: '1731247873921'
+      position:
+        x: 1043.1083089801036
+        y: 517.7986987279872
+      positionAbsolute:
+        x: 1043.1083089801036
+        y: 517.7986987279872
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
     viewport:
-      x: -201.68224396592495
-      y: 252.62949505037193
-      zoom: 0.48886559344896857
+      x: -423.6375134375153
+      y: -164.7806655660595
+      zoom: 0.5248997777849241
