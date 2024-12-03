@@ -6,48 +6,72 @@ app:
   name: 论文全面助手
   use_icon_as_answer_icon: true
 kind: app
-version: 0.1.3
+version: 0.1.4
 workflow:
   conversation_variables:
   - description: ''
     id: d59741b2-4ab1-40b3-93fc-e5ea8c13c678
     name: paper_insight
+    selector:
+    - conversation
+    - paper_insight
     value: []
     value_type: array[string]
   - description: ''
     id: c21c4112-7457-4858-9c0c-281e56e9fd4a
     name: chat2_assistance
+    selector:
+    - conversation
+    - chat2_assistance
     value: ''
     value_type: string
   - description: ''
     id: b819e1ec-b786-44b3-a7ac-e632bd178e7c
     name: chat2_user
+    selector:
+    - conversation
+    - chat2_user
     value: ''
     value_type: string
   - description: ''
     id: 40bd6751-f164-48f9-a741-20ece9494ba9
     name: chat_stage
+    selector:
+    - conversation
+    - chat_stage
     value: ''
     value_type: string
   - description: ''
     id: 2a1ee4e6-963d-4a47-839f-c6991cc641b1
     name: paper
+    selector:
+    - conversation
+    - paper
     value: []
     value_type: array[string]
   - description: ''
     id: ce5c30ea-193b-460d-8650-53d4a4916bd4
     name: language
+    selector:
+    - conversation
+    - language
     value: ''
     value_type: string
   environment_variables:
   - description: ''
     id: bb1c3576-bb1e-4c29-b627-b07d79c59755
     name: chatX
+    selector:
+    - env
+    - chatX
     value: chatX
     value_type: string
   - description: ''
     id: 4a00036f-922e-43a1-bd35-2228490f7215
     name: chat2
+    selector:
+    - env
+    - chat2
     value: ready
     value_type: string
   features:

@@ -6,32 +6,47 @@ app:
   name: 复杂对话记忆测试
   use_icon_as_answer_icon: false
 kind: app
-version: 0.1.3
+version: 0.1.4
 workflow:
   conversation_variables:
   - description: 记忆固定，4次
     id: 3382aa05-3bb9-4299-9ce9-31b3709cf006
     name: mem_fix
+    selector:
+    - conversation
+    - mem_fix
     value: ''
     value_type: string
   - description: 记忆写入
     id: 20f7af84-519b-41d3-8c63-374c419baefb
     name: memory
+    selector:
+    - conversation
+    - memory
     value: []
     value_type: array[object]
   - description: ''
     id: 0bbeed08-3cda-46fe-bb8c-58257861f35e
     name: chat_history
+    selector:
+    - conversation
+    - chat_history
     value: ''
     value_type: string
   - description: 判断用户意图
     id: c97a3cfd-5d26-4688-b069-fff6d864bdbe
     name: user_intent
+    selector:
+    - conversation
+    - user_intent
     value: ''
     value_type: string
   - description: 判断是否处于第一轮对话
     id: a6e510f6-f7b0-4678-ab8d-db88e860bf8d
     name: is_first_message
+    selector:
+    - conversation
+    - is_first_message
     value: 1
     value_type: number
   environment_variables: []
@@ -1239,6 +1254,6 @@ workflow:
       type: custom
       width: 244
     viewport:
-      x: 479.07930358737445
-      y: -319.72910342735935
-      zoom: 0.5013238227466287
+      x: 564.8241791231492
+      y: -420.3409607515915
+      zoom: 0.7609189501393907
