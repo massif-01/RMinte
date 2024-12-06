@@ -57,18 +57,6 @@ workflow:
     edges:
     - data:
         isInIteration: false
-        sourceType: start
-        targetType: document-extractor
-      id: 1733131457397-source-1733227275361-target
-      selected: false
-      source: '1733131457397'
-      sourceHandle: source
-      target: '1733227275361'
-      targetHandle: target
-      type: custom
-      zIndex: 0
-    - data:
-        isInIteration: false
         sourceType: document-extractor
         targetType: llm
       id: 1733227275361-source-1733228444823-target
@@ -202,6 +190,160 @@ workflow:
       targetHandle: target
       type: custom
       zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1733131457397-source-1733300531323-target
+      source: '1733131457397'
+      sourceHandle: source
+      target: '1733300531323'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1733300531323-false-1733227275361-target
+      source: '1733300531323'
+      sourceHandle: 'false'
+      target: '1733227275361'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1733300531323-true-17333005782650-target
+      source: '1733300531323'
+      sourceHandle: 'true'
+      target: '17333005782650'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 17333005782650-source-17333011784030-target
+      source: '17333005782650'
+      sourceHandle: source
+      target: '17333011784030'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1733300531323-true-17333012130670-target
+      source: '1733300531323'
+      sourceHandle: 'true'
+      target: '17333012130670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: tool
+      id: 17333011784030-source-17333012634600-target
+      source: '17333011784030'
+      sourceHandle: source
+      target: '17333012634600'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 17333012634600-source-17333012851390-target
+      source: '17333012634600'
+      sourceHandle: source
+      target: '17333012851390'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 17333012851390-source-17333013296430-target
+      source: '17333012851390'
+      sourceHandle: source
+      target: '17333013296430'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 17333005782650-source-17333013435410-target
+      source: '17333005782650'
+      sourceHandle: source
+      target: '17333013435410'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 17333012130670-source-17333013296430-target
+      source: '17333012130670'
+      sourceHandle: source
+      target: '17333013296430'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 17333013435410-source-17333014287000-target
+      source: '17333013435410'
+      sourceHandle: source
+      target: '17333014287000'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17333013296430-source-17333014478090-target
+      source: '17333013296430'
+      sourceHandle: source
+      target: '17333014478090'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 17333014287000-source-17333014478090-target
+      source: '17333014287000'
+      sourceHandle: source
+      target: '17333014478090'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 17333014478090-source-1733301476376-target
+      source: '17333014478090'
+      sourceHandle: source
+      target: '1733301476376'
+      targetHandle: target
+      type: custom
+      zIndex: 0
     nodes:
     - data:
         desc: ''
@@ -220,15 +362,21 @@ workflow:
           required: false
           type: file
           variable: filesUpload
-      height: 90
+        - label: 公告填写
+          max_length: null
+          options: []
+          required: false
+          type: paragraph
+          variable: noticeIn
+      height: 116
       id: '1733131457397'
       position:
-        x: 178.86546639579075
-        y: 312
+        x: 263.2214483102362
+        y: -193.75582532152177
       positionAbsolute:
-        x: 178.86546639579075
-        y: 312
-      selected: false
+        x: 263.2214483102362
+        y: -193.75582532152177
+      selected: true
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -272,10 +420,10 @@ workflow:
       height: 126
       id: '1733221609379'
       position:
-        x: 1715.6444460212394
+        x: 1548.292782285959
         y: 198.77083519674528
       positionAbsolute:
-        x: 1715.6444460212394
+        x: 1548.292782285959
         y: 198.77083519674528
       selected: false
       sourcePosition: right
@@ -283,22 +431,22 @@ workflow:
       type: custom
       width: 244
     - data:
-        desc: ''
+        desc: 文档提取器
         is_array_file: false
         selected: false
-        title: 文档提取器
+        title: 内容提取
         type: document-extractor
         variable_selector:
         - '1733131457397'
         - filesUpload
-      height: 92
+      height: 120
       id: '1733227275361'
       position:
-        x: 523.8586959423047
-        y: 312
+        x: 835.6443710854654
+        y: 198.77083519674528
       positionAbsolute:
-        x: 523.8586959423047
-        y: 312
+        x: 835.6443710854654
+        y: 198.77083519674528
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -327,7 +475,7 @@ workflow:
             4. **市场反应**\n   - 4.1 实时行情数据：查看公司公告发布后，股价的波动情况，包括开盘价、最高价、最低价、收盘价等。\n \
             \  - 4.2 分析师观点：查找券商分析师对公司的最新评论，归纳其主要观点和建议。\n\n请确保输出内容符合以下要求：\n- 内容结构清晰，逻辑严谨。\n\
             - 不使用任何XML标签。\n- 语言流畅，专业术语准确。\n- 输出完成后立刻停止，不要总结自身工作。\n\n</instruction>"
-        selected: true
+        selected: false
         title: 资料分析
         type: llm
         variables: []
@@ -336,12 +484,12 @@ workflow:
       height: 126
       id: '1733228119942'
       position:
-        x: 2049.633437769929
-        y: 467.894729041702
+        x: 2208.2053360520013
+        y: 377.53788627747053
       positionAbsolute:
-        x: 2049.633437769929
-        y: 467.894729041702
-      selected: true
+        x: 2208.2053360520013
+        y: 377.53788627747053
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
@@ -420,11 +568,11 @@ workflow:
       height: 126
       id: '1733228444823'
       position:
-        x: 908.76379581161
-        y: 467.894729041702
+        x: 1185.1924455252886
+        y: 377.53788627747053
       positionAbsolute:
-        x: 908.76379581161
-        y: 467.894729041702
+        x: 1185.1924455252886
+        y: 377.53788627747053
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -460,10 +608,10 @@ workflow:
       height: 126
       id: '1733229187736'
       position:
-        x: 2501.203099433184
+        x: 2583.168109284712
         y: 198.77083519674528
       positionAbsolute:
-        x: 2501.203099433184
+        x: 2583.168109284712
         y: 198.77083519674528
       selected: false
       sourcePosition: right
@@ -505,11 +653,11 @@ workflow:
       height: 126
       id: '1733230907854'
       position:
-        x: 1552.292782285959
-        y: 935.8345400166506
+        x: 2208.2053360520013
+        y: 778.6922047745089
       positionAbsolute:
-        x: 1552.292782285959
-        y: 935.8345400166506
+        x: 2208.2053360520013
+        y: 778.6922047745089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -543,11 +691,11 @@ workflow:
       height: 352
       id: '1733231475710'
       position:
-        x: 1248.292782285959
-        y: 935.8345400166506
+        x: 1548.292782285959
+        y: 778.6922047745089
       positionAbsolute:
-        x: 1248.292782285959
-        y: 935.8345400166506
+        x: 1548.292782285959
+        y: 778.6922047745089
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -581,11 +729,11 @@ workflow:
       height: 352
       id: '1733231583622'
       position:
-        x: 1248.292782285959
-        y: 467.894729041702
+        x: 1548.292782285959
+        y: 377.53788627747053
       positionAbsolute:
-        x: 1248.292782285959
-        y: 467.894729041702
+        x: 1548.292782285959
+        y: 377.53788627747053
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -619,11 +767,11 @@ workflow:
       height: 352
       id: '1733231864800'
       position:
-        x: 1552.292782285959
-        y: 467.894729041702
+        x: 1852.292782285959
+        y: 377.53788627747053
       positionAbsolute:
-        x: 1552.292782285959
-        y: 467.894729041702
+        x: 1852.292782285959
+        y: 377.53788627747053
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -633,13 +781,13 @@ workflow:
         code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
           result\": arg1 + arg2,\n    }\n"
         code_language: python3
-        desc: ''
+        desc: 代码执行
         outputs:
           result:
             children: null
             type: string
         selected: false
-        title: 代码执行
+        title: 内容合并
         type: code
         variables:
         - value_selector:
@@ -650,14 +798,14 @@ workflow:
           - '1733230907854'
           - text
           variable: arg2
-      height: 54
+      height: 82
       id: '1733232046548'
       position:
-        x: 2916.1460918200682
-        y: 553.490689442323
+        x: 2899.897142145258
+        y: 377.53788627747053
       positionAbsolute:
-        x: 2916.1460918200682
-        y: 553.490689442323
+        x: 2899.897142145258
+        y: 377.53788627747053
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -676,16 +824,478 @@ workflow:
       height: 90
       id: '1733232065299'
       position:
-        x: 3220.1460918200682
-        y: 553.490689442323
+        x: 3203.897142145258
+        y: 377.53788627747053
       positionAbsolute:
-        x: 3220.1460918200682
-        y: 553.490689442323
+        x: 3203.897142145258
+        y: 377.53788627747053
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: ba6f44a8-8628-4bd1-913c-044ae70e3172
+            value: ''
+            varType: string
+            variable_selector:
+            - '1733131457397'
+            - noticeIn
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 126
+      id: '1733300531323'
+      position:
+        x: 263.2214483102362
+        y: -6.7698131246851005
+      positionAbsolute:
+        x: 263.2214483102362
+        y: -6.7698131246851005
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 22701d95-6a3d-45a4-acfd-23202e477d07
+          role: system
+          text: '<instruction>
+
+            根据提供的公告文本<{{#1733131457397.noticeIn#}}>，提取并输出该公告中公司的名称。请注意，输出结果不应包含任何XML标签，并且应直接提供公司的全名，而无需任何额外的说明或文本。
+
+            <steps>
+
+            1. 仔细阅读公告文本，识别公司名称的部分。
+
+            2. 确保提取的公司名称完整且准确，不包含任何额外的信息或标签。
+
+            3. 直接输出公司名称，没有其他任何文本或说明。
+
+            </steps>
+
+            </instruction>
+
+            <examples>
+
+            <example>
+
+            <input>
+
+            根据公告，内容如下：“本公司**阿里巴巴集团**（以下简称“公司”）今日宣布，将对旗下多个业务部门进行重组。重组计划旨在优化资源配置，提升效率。”
+
+            </input>
+
+            <output>
+
+            阿里巴巴集团
+
+            </output>
+
+            </example>
+
+            <example>
+
+            <input>
+
+            根据公告，内容如下：“**腾讯控股有限公司**（以下简称“公司”）发布公告，公司董事会决定任命张三为新的首席执行官。”
+
+            </input>
+
+            <output>
+
+            腾讯控股有限公司
+
+            </output>
+
+            </example>
+
+            </examples>'
+        selected: false
+        title: 公司名称提取
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17333005782650'
+      position:
+        x: 1185.1924455252886
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 1185.1924455252886
+        y: -299.9170652907108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: Tavily Search
+        provider_id: tavily
+        provider_name: tavily
+        provider_type: builtin
+        selected: false
+        title: 最新资讯
+        tool_configurations:
+          days: 3
+          exclude_domains: null
+          include_answer: 0
+          include_domains: null
+          include_image_descriptions: 0
+          include_images: 0
+          include_raw_content: 0
+          max_results: 5
+          search_depth: basic
+          topic: news
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#17333005782650.text#}}的最新资讯'
+        type: tool
+      height: 352
+      id: '17333011784030'
+      position:
+        x: 1548.292782285959
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 1548.292782285959
+        y: -299.9170652907108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 4fea44cb-cd56-4b02-951e-50af5785d382
+          role: system
+          text: "<instruction>\n请根据上市公司公告<{{#1733131457397.noticeIn#}}>撰写一篇关于上市公司股票的财经新闻报道。以下是具体的步骤和格式要求：\n\
+            \n1. **公告内容摘要**\n   - **核心要素**：明确事件的主题（投资、签约、并购等），包括金额、地点、规模等具体信息。\n \
+            \  - **直接引用**：通过“公告显示”“公司称”等表述，引用公告原文内容，保持客观性。\n\n2. **背景信息补充**\n   -\
+            \ **公司业务方向**：结合公开资料，介绍公司主营业务及发展战略。\n   - **行业动态**：解释项目与行业趋势或政策环境的关系。\n\
+            \n3. **数据与事实支持**\n   - **财务数据引用**：结合最新财报数据，描述公司的经营实力和投资可行性。\n   - **项目细节**：通过面积、规模、设备投入等具体信息，增强报道的可信度和画面感。\n\
+            \n4. **战略意义分析**\n   - **引出项目的战略目的**：如扩展业务线、提升研发能力、应对外部风险。\n   - **强调项目对公司可持续发展的潜在影响**。\n\
+            \n5. **财报总结**\n\n**步骤**：\n1. 阅读并理解上市公司公告的内容，提取公告的核心信息。\n2. 根据公告内容，撰写首段概述，确保核心要素清晰明了。\n\
+            3. 搜集公司主营业务和发展战略的相关资料，撰写背景信息补充部分。\n4. 查阅公司的最新财报，摘取关键财务数据，撰写数据与事实支持部分。\n\
+            5. 分析项目的战略意义，撰写战略意义分析部分。\n6. 撰写财报总结，提供支持投资决策的依据。\n7. 审核全文，确保语言简洁、逻辑清晰，避免夸张和情绪化表达。\n\
+            \n**注意**：输出的新闻报道中不应包含任何XML标签。\n\n作为一个资深的中国A股研究专家和财经新闻撰写专家，请根据上市公司公告<>和相关资料<>撰写一篇关于上市公司股票的财经新闻报道。\
+            \ \n要求：1. 首段概述公告核心内容（项目主题、金额、地点等）；2. 中段详细描述项目建设内容、公司主营业务与公告的战略意义；3. 后段引用财报数据补充公司财务状况与支持投资决策的依据；4.\
+            \ 语言简洁、逻辑清晰，财经新闻风格，避免夸张和情绪化表达。\n内容包含：\n1. 公告内容摘要\n1.1 核心要素：明确事件的主题（投资、签约、并购等），包括金额、地点、规模等具体信息。\n\
+            1.2 直接引用：通过“公告显示”“公司称”等表述，引用公告原文内容，保持客观性。\n2. 背景信息补充\n2.1 公司业务方向：结合公开资料，介绍公司主营业务及发展战略。\n\
+            2.2 行业动态：解释项目与行业趋势或政策环境的关系。\n3. 数据与事实支持\n3.1 财务数据引用：结合最新财报数据，描述公司的经营实力和投资可行性。\n\
+            3.2 项目细节：通过面积、规模、设备投入等具体信息，增强报道的可信度和画面感。\n4. 战略意义分析\n4.1 引出项目的战略目的（如扩展业务线、提升研发能力、应对外部风险）。\n\
+            4.2 强调项目对公司可持续发展的潜在影响。\n5. 财报总结\n\n</instruction>"
+        selected: false
+        title: 初步撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17333012130670'
+      position:
+        x: 1185.1924455252886
+        y: -915.8308104575914
+      positionAbsolute:
+        x: 1185.1924455252886
+        y: -915.8308104575914
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: Tavily Search
+        provider_id: tavily
+        provider_name: tavily
+        provider_type: builtin
+        selected: false
+        title: 股票资讯
+        tool_configurations:
+          days: 3
+          exclude_domains: null
+          include_answer: 0
+          include_domains: null
+          include_image_descriptions: 0
+          include_images: 0
+          include_raw_content: 0
+          max_results: 5
+          search_depth: basic
+          topic: general
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#17333005782650.text#}}股票的最新资讯'
+        type: tool
+      height: 352
+      id: '17333012634600'
+      position:
+        x: 1852.292782285959
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 1852.292782285959
+        y: -299.9170652907108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 1a5ede85-58b7-471c-80d8-67a0e11e5b5f
+          role: system
+          text: "<instruction>\n\n您将扮演一位资深的中国A股资料研究员，根据上市公司公告<{{#1733131457397.noticeIn#}}>、最新资讯<{{#17333011784030.text#}}>和股票资讯<{{#17333012634600.text#}}>，提取相关的公司信息、财务数据、行业背景及市场反应。请按照以下步骤进行操作：\n\
+            1. **公司信息**\n   - 1.1 主营业务与发展战略：通过查阅公司的年报、官网等公开资料，总结公司的主营业务和发展战略。\n  \
+            \ - 1.2 历史公告数据：搜集并分析公司过去类似项目的公告，包括项目内容、时间、规模以及市场表现。\n2. **财务数据**\n   -\
+            \ 2.1 财报中关键指标：提取公司最新财报中的关键财务指标，如营收、净利润、现金流等，并简要分析这些指标对公司投资能力的支持。\n   -\
+            \ 2.2 行业内同类企业的财务数据对比：选择几家行业内主要竞争对手，对比其财务数据，突出公司在这方面的竞争优势。\n3. **行业背景**\n\
+            \   - 3.1 政策动态：搜集并总结近期政府对相关行业的政策支持或补贴信息。\n   - 3.2 市场趋势：分析行业内的市场趋势，如市场需求增长率、技术创新等。\n\
+            4. **市场反应**\n   - 4.1 实时行情数据：查看公司公告发布后，股价的波动情况，包括开盘价、最高价、最低价、收盘价等。\n \
+            \  - 4.2 分析师观点：查找券商分析师对公司的最新评论，归纳其主要观点和建议。\n\n请确保输出内容符合以下要求：\n- 内容结构清晰，逻辑严谨。\n\
+            - 不使用任何XML标签。\n- 语言流畅，专业术语准确。\n- 输出完成后立刻停止，不要总结自身工作。\n\n</instruction>"
+        selected: false
+        title: 资料分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17333012851390'
+      position:
+        x: 2208.2053360520013
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 2208.2053360520013
+        y: -299.9170652907108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: Qwen2.5
+          provider: openai_api_compatible
+        prompt_template:
+        - id: b010700e-c401-4d87-8213-43e0432ad065
+          role: system
+          text: "<instruction>\n        1. 阅读并理解提供的财经新闻初稿<{{#17333012130670.text#}}>和补充信息<{{#17333012851390.text#}}>。\n\
+            \        2. 根据任务描述的要求，对财经新闻进行修改和补充，确保最终版本符合以下标准：\n    - 数据驱动：引用公告中的具体数据，如投资金额、项目规模、产品类型，同时结合公司的财务数据，如营收、净利润、现金流，用具体数字增强新闻的说服力。\n\
+            \    - 客观中立：避免使用情绪化的表达，如“重大突破”、“空前成功”等词，保持逻辑严谨，通过清晰的因果关系说明项目背景和潜在影响。\n\
+            \    - 逻辑清晰：采用“金字塔结构”撰写，先概述核心信息，快速吸引读者，然后详细展开项目细节和公告中的背景描述，最后补充财务和行业信息，分析项目的意义。\n\
+            \    - 财经新闻语言风格：使用专业的财经术语，如“归母净利润”、“加权净资产收益率”等，避免冗长句子，保持语言简洁，信息密度高，适当使用公开资料增加权威性。\n\
+            \    - 文章不要使用小标题，每个自然段尽量充盈，饱满。\n        3. 完成修改和补充后，输出最终版本的财经新闻，确保不包含任何XML标签，输出完成后立刻停止，不要总结自身工作。\n\
+            </instruction>"
+        selected: false
+        title: 反思与修改
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17333013296430'
+      position:
+        x: 2583.168109284712
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 2583.168109284712
+        y: -299.9170652907108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: Tavily Search
+        provider_id: tavily
+        provider_name: tavily
+        provider_type: builtin
+        selected: false
+        title: 公司财报
+        tool_configurations:
+          days: 3
+          exclude_domains: null
+          include_answer: 0
+          include_domains: null
+          include_image_descriptions: 0
+          include_images: 0
+          include_raw_content: 0
+          max_results: 5
+          search_depth: basic
+          topic: general
+        tool_label: Tavily Search
+        tool_name: tavily_search
+        tool_parameters:
+          query:
+            type: mixed
+            value: '{{#17333005782650.text#}}的最新财报'
+        type: tool
+      height: 352
+      id: '17333013435410'
+      position:
+        x: 1548.292782285959
+        y: -700.9191172288893
+      positionAbsolute:
+        x: 1548.292782285959
+        y: -700.9191172288893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 29d9a4bf-8348-4adb-890e-447c93d8d785
+          role: system
+          text: "<instruction>\n    1. 读取并理解提供的上市公司财报数据<{{#17333013435410.text#}}>。\n\
+            \    2. 根据财报数据，撰写一份财报总结。总结应包括但不限于以下内容：\n       - 公司基本信息（名称、股票代码等）\n  \
+            \     - 财报时间范围\n       - 主要财务指标（如营业收入、净利润、每股收益等）\n       - 业绩变动情况（如同比、环比变化）\n\
+            \    3. 确保总结内容准确、逻辑清晰、语言流畅，文章简洁精练，不超过200字。\n    4. 输出的总结中不应包含任何XML标签。\n\
+            \  </instruction>\n    <example>\n      <input>\n        公司名称：贵州茅台\n \
+            \       股票代码：600519\n        财报时间范围：2023年第一季度\n        主要财务指标：\n     \
+            \   - 营业收入：112.1亿元\n        - 净利润：57.3亿元\n        - 每股收益：4.56元\n     \
+            \   业绩变动情况：\n        - 营业收入同比增长15%\n        - 净利润同比增长18%\n        业务亮点和挑战：\n\
+            \        - 亮点：高端白酒市场需求持续旺盛，产品结构优化带动盈利提升\n        - 挑战：市场竞争加剧，原材料成本上涨\n\
+            \        未来展望：\n        - 持续加大市场开拓力度，提升品牌影响力\n        - 优化产品结构，提高高端产品占比\n\
+            \      </input>\n      <output>\n        财报显示，贵州茅台前三季度实现营业收入16.77亿元，同比增长30.20%；归母净利润1.68亿元，同比增长52.92%；扣非净利润1.25亿元，同比增长23.19%；经营活动产生的现金流量净额为1.25亿元，加权平均净资产收益率为8.61%。\n\
+            \      </output>\n    </example>"
+        selected: false
+        title: 财报撰写
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '17333014287000'
+      position:
+        x: 2208.2053360520013
+        y: -700.9191172288893
+      positionAbsolute:
+        x: 2208.2053360520013
+        y: -700.9191172288893
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(arg1: str, arg2: str) -> dict:\n    return {\n        \"\
+          result\": arg1 + arg2,\n    }\n"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 内容合并
+        type: code
+        variables:
+        - value_selector:
+          - '17333013296430'
+          - text
+          variable: arg1
+        - value_selector:
+          - '17333014287000'
+          - text
+          variable: arg2
+      height: 82
+      id: '17333014478090'
+      position:
+        x: 2899.897142145258
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 2899.897142145258
+        y: -299.9170652907108
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '17333014478090'
+          - result
+          variable: output
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1733301476376'
+      position:
+        x: 3203.897142145258
+        y: -299.9170652907108
+      positionAbsolute:
+        x: 3203.897142145258
+        y: -299.9170652907108
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 244
     viewport:
-      x: 100.03815692880949
-      y: 223.81281890644982
-      zoom: 0.5090925998823131
+      x: 176.91464647614362
+      y: 555.9266592382064
+      zoom: 0.4117955086337878
