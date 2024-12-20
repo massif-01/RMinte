@@ -1,0 +1,660 @@
+app:
+  description: 帮您润色公文
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: 公文润色助手
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: if-else
+      id: 1734684935636-source-1734685118263-target
+      source: '1734684935636'
+      sourceHandle: source
+      target: '1734685118263'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: document-extractor
+      id: 1734685118263-true-1734685149823-target
+      source: '1734685118263'
+      sourceHandle: 'true'
+      target: '1734685149823'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: document-extractor
+        targetType: template-transform
+      id: 1734685149823-source-1734685158309-target
+      source: '1734685149823'
+      sourceHandle: source
+      target: '1734685158309'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: code
+      id: 1734685118263-false-1734685200628-target
+      source: '1734685118263'
+      sourceHandle: 'false'
+      target: '1734685200628'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: template-transform
+        targetType: variable-aggregator
+      id: 1734685158309-source-1734685225563-target
+      source: '1734685158309'
+      sourceHandle: source
+      target: '1734685225563'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: variable-aggregator
+      id: 1734685200628-source-1734685225563-target
+      source: '1734685200628'
+      sourceHandle: source
+      target: '1734685225563'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734684935636-source-1734685283684-target
+      source: '1734684935636'
+      sourceHandle: source
+      target: '1734685283684'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: 1734685283684-source-1734686230216-target
+      source: '1734685283684'
+      sourceHandle: source
+      target: '1734686230216'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1734686230216-source-1734686811263-target
+      source: '1734686230216'
+      sourceHandle: source
+      target: '1734686811263'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: variable-aggregator
+        targetType: llm
+      id: 1734685225563-source-1734687510811-target
+      source: '1734685225563'
+      sourceHandle: source
+      target: '1734687510811'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: llm
+      id: 1734687510811-source-1734686811263-target
+      source: '1734687510811'
+      sourceHandle: source
+      target: '1734686811263'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: code
+        targetType: end
+      id: 1734688328377-source-1734687977733-target
+      source: '1734688328377'
+      sourceHandle: source
+      target: '1734687977733'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: code
+      id: 1734686811263-source-1734688328377-target
+      source: '1734686811263'
+      sourceHandle: source
+      target: '1734688328377'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 原文输入
+          max_length: null
+          options: []
+          required: true
+          type: paragraph
+          variable: originalText
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - document
+          allowed_file_upload_methods:
+          - local_file
+          label: 参考文章
+          max_length: 10
+          options: []
+          required: false
+          type: file-list
+          variable: referenceArticle
+      height: 116
+      id: '1734684935636'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: not empty
+            id: c014014f-dad1-4c43-9745-89f0c552f6bc
+            value: ''
+            varType: array[file]
+            variable_selector:
+            - '1734684935636'
+            - referenceArticle
+          id: 'true'
+          logical_operator: and
+        desc: 条件分支
+        selected: false
+        title: 参考文章处理
+        type: if-else
+      height: 154
+      id: '1734685118263'
+      position:
+        x: 463
+        y: 181
+      positionAbsolute:
+        x: 463
+        y: 181
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_array_file: true
+        selected: false
+        title: 文章提取器
+        type: document-extractor
+        variable_selector:
+        - '1734684935636'
+        - referenceArticle
+      height: 92
+      id: '1734685149823'
+      position:
+        x: 778.6274321655932
+        y: 181
+      positionAbsolute:
+        x: 778.6274321655932
+        y: 181
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        selected: false
+        template: '{{ arg1 | join("\n") }}'
+        title: 模板转换
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1734685149823'
+          - text
+          variable: arg1
+      height: 54
+      id: '1734685158309'
+      position:
+        x: 1069.2097200853889
+        y: 181
+      positionAbsolute:
+        x: 1069.2097200853889
+        y: 181
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {'result': '无'}"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 跳过上传
+        type: code
+        variables:
+        - value_selector:
+          - '1734684935636'
+          - originalText
+          variable: arg1
+      height: 82
+      id: '1734685200628'
+      position:
+        x: 778.6274321655932
+        y: 337.92
+      positionAbsolute:
+        x: 778.6274321655932
+        y: 337.92
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: 变量聚合器
+        output_type: string
+        selected: false
+        title: 数据聚合
+        type: variable-aggregator
+        variables:
+        - - '1734685158309'
+          - output
+        - - '1734685200628'
+          - result
+      height: 159
+      id: '1734685225563'
+      position:
+        x: 1069.2097200853889
+        y: 337.92
+      positionAbsolute:
+        x: 1069.2097200853889
+        y: 337.92
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        default_value:
+        - key: text
+          type: string
+          value: 模型运行出现了一点小问题，请再试一次
+        desc: LLM
+        error_strategy: default-value
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5-72B-Jetson
+          provider: openai_api_compatible
+        prompt_template:
+        - id: fd813ab5-5fa1-43b8-8e9d-14f33f82dc11
+          role: system
+          text: "```xml\n<instruction>\n    <instructions>\n        你在接收到输入的公文<{{#1734684935636.originalText#}}>后，需要分析此公文的内容描写了以下哪些方面：写部署、写担当、写学习、写调研实践、写信念、写落实、写反思、写发展、写重点、写精准、写成果、写实干、写形势、写群众、写状态、写评价、写表态、写综治、写人类、写推进、写组织、写责任、写定位、写廉洁、写其他、写带“新”字的词组、写常用动词两字词组、写常用名词两字词组、写常用排比。你仅能在以上方面中判断，且判断相关度最高的前十个。判断完成后，输出描写方面的中文名称，每个方面之间用逗号间隔。输出完成后立即停止，不要进行任何额外的总结或评价，且输出中不应包含任何XML标签。\n\
+            \    </instructions>\n    <example>\n        <input>\n        为了进一步推进公司的廉洁文化建设，我们加强了廉洁教育，提高了员工的廉洁意识，同时落实了一系列新的廉洁制度，确保公司在发展的道路上不偏离正轨。\n\
+            \        </input>\n        <output>\n        写推进，写廉洁，写落实，写发展\n       \
+            \ </output>\n    </example>\n</instruction>\n```"
+        selected: false
+        title: 原文分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 162
+      id: '1734685283684'
+      position:
+        x: 463
+        y: 629.9848641094502
+      positionAbsolute:
+        x: 463
+        y: 629.9848641094502
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - b00c3f13-dd0a-4995-9d27-e0d7c5180737
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: reranking_model
+          reranking_model:
+            model: bce-reranker-base_v1
+            provider: xinference
+          score_threshold: null
+          top_k: 10
+        query_variable_selector:
+        - '1734685283684'
+        - text
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 92
+      id: '1734686230216'
+      position:
+        x: 778.6274321655932
+        y: 629.9848641094502
+      positionAbsolute:
+        x: 778.6274321655932
+        y: 629.9848641094502
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1734686230216'
+          - result
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0.3
+          mode: chat
+          name: Qwen2.5-72B-Jetson
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 95294468-7e95-4e31-a761-b640f850af5d
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            你是一个极具文采和逻辑的公文润色写手，你的任务是按照以下步骤完成润色工作：
+
+            1. 仔细阅读用户提供的原文<{{#1734684935636.originalText#}}>，并注意用户提供的精华词汇<{{#context#}}>。这些词汇是专门用于提升原文文采的，你需要合理适量地将这些词汇加入或替换到原文合适的位置，确保每个词汇只出现一次，以增加文章的文采。新增或替换的词汇需要高亮加粗。
+
+            2. 在用户提供了写作参考<{{#1734687510811.text#}}>的情况下，你需要在完成第一步的基础上，根据写作参考，进一步润色原文，使文章更加流畅和精致。请注意，此时不能删除或替换第一步中加入的任何精华词汇，只能新增内容。新增的内容需要高亮加粗。
+
+            3. 确保最终的润色版本必须保持原文的称谓、重点、结构、内容、意图、风格、开头结尾致谢，同时提升文章的整体质量和可读性。
+
+            4. 输出结果不应包含任何XML标签，输出完成后立刻停止，不要总结自身工作。
+
+            </instruction>
+
+            <example>
+
+            <original>
+
+            科学技术是第一生产力，这一点毋庸置疑。在当今社会，科技创新的重要性日益凸显。
+
+            </original>
+
+            <essence_words>
+
+            核心驱动力 显著增强
+
+            </essence_words>
+
+            <reference>
+
+            科技是社会进步的核心驱动力，它显著增强了国家的竞争力，推动了经济的快速发展。
+
+            </reference>
+
+            <expected_output>
+
+            科学技术是第一生产力，这一点毋庸置疑。在当今社会，科技作为核心驱动力，其重要性日益凸显，显著增强了社会的生产力。
+
+            </expected_output>
+
+            </example>
+
+            ```'
+        selected: false
+        title: 润色
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1734686811263'
+      position:
+        x: 1730.5485461060493
+        y: 629.9848641094502
+      positionAbsolute:
+        x: 1730.5485461060493
+        y: 629.9848641094502
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: LLM
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: Qwen2.5-72B-Jetson
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 1fabd02d-4e89-42af-ba15-ed0d2768782f
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            根据提供的原文<{{#1734685225563.output#}}>，您需要完成以下四个任务：
+
+            1. 分析原文的写作手法，并输出100字以内的写作概述。
+
+            2. 提炼原文中不超过20个的精彩词汇并输出。
+
+            3. 提炼原文中所有的文章主题和要点，并分别以逗号隔开输出，每个主题或要点不超过30字。
+
+            4. 提炼原文中的倡议或口号类的内容，并直接输出，不加以任何修改和提炼。
+
+
+            请按照以下步骤进行：
+
+            1. 仔细阅读原文，理解其背景、内容和目的。如果原文内容是“无”，则直接输出“无”，如果原文内容不是，则继续下面的步骤。
+
+            2. 分析作者的写作手法，如使用的修辞技巧、段落结构、逻辑线索等，撰写100字以内的写作概述。
+
+            3. 从文中挑选出不超过20个具有代表性的精彩词汇。
+
+            4. 细读原文，提炼出文章的主要主题和要点，每个主题或要点不超过30字，使用逗号隔开。
+
+            5. 找出文中所有的倡议或口号类的内容，直接输出，不做任何修改或提炼。
+
+            6. 确保输出内容中不包含任何XML标签，输出完成后立刻停止，不要总结自身工作。。
+
+
+            <example>
+
+            原文:
+
+            为了实现我们的目标，我们必须采取行动。首先，我们需要增强团队的凝聚力，其次是提升工作效率。在此过程中，我们每个成员都需要扮演好自己的角色，坚定信念，共同努力。
+
+
+            输出:
+
+            1. 本文采用直截了当的表述手法，明确提出了实现目标所需的行动和团队角色。
+
+            2. 实现, 目标, 行动, 增强, 凝聚力, 提升, 工作效率, 角色, 坚定, 信念, 努力
+
+            3. 实现目标, 增强团队凝聚力, 提升工作效率, 每个成员角色, 坚定信念, 共同努力
+
+            4. 为了实现我们的目标，我们必须采取行动
+
+            </example>
+
+            ```'
+        selected: false
+        title: 范文分析
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 126
+      id: '1734687510811'
+      position:
+        x: 1373.3823050737624
+        y: 337.92
+      positionAbsolute:
+        x: 1373.3823050737624
+        y: 337.92
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734688328377'
+          - article_result
+          variable: output
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734687977733'
+      position:
+        x: 2380.1388431746273
+        y: 629.9848641094502
+      positionAbsolute:
+        x: 2380.1388431746273
+        y: 629.9848641094502
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(arg1: str) -> dict:\n    return {\n        \"article_result\"\
+          : arg1,\n    }"
+        code_language: python3
+        desc: 代码执行
+        outputs:
+          article_result:
+            children: null
+            type: string
+        selected: false
+        title: 数据整合
+        type: code
+        variables:
+        - value_selector:
+          - '1734686811263'
+          - text
+          variable: arg1
+      height: 82
+      id: '1734688328377'
+      position:
+        x: 2058.1754155834255
+        y: 629.9848641094502
+      positionAbsolute:
+        x: 2058.1754155834255
+        y: 629.9848641094502
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -953.5756075487608
+      y: 169.71337342819697
+      zoom: 0.5463628092733106
