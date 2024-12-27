@@ -1,0 +1,200 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#FBE8FF'
+  mode: workflow
+  name: 邀请书
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734506862203-source-1734506908348-target
+      source: '1734506862203'
+      sourceHandle: source
+      target: '1734506908348'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734506908348-source-1734508597765-target
+      source: '1734506908348'
+      sourceHandle: source
+      target: '1734508597765'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 受邀称呼
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: invited
+        - label: 活动名称
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: activity
+        - label: 时间
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: time
+        - label: 地点
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: location
+        - label: 落款单位
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: host
+        - label: 落款日期
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: date
+      height: 220
+      id: '1734506862203'
+      position:
+        x: 83
+        y: 142.63629135903787
+      positionAbsolute:
+        x: 83
+        y: 142.63629135903787
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 359a7fec-cb3e-4d68-aa8d-a432644419f5
+          role: system
+          text: "根据用户提供的信息{{#1734506862203.invited#}}{{#1734506862203.activity#}}{{#1734506862203.time#}}{{#1734506862203.location#}}{{#1734506862203.host#}}{{#1734506862203.date#}}，帮助用户书写邀请书。\n\
+            邀请书由以下几部分构成：\n1. 标题。一般有两种构成方式：单独以“邀请书”组成；或如《关于出席XX会议的邀请函》\n2. 称谓。写明受邀对象的称呼。\n\
+            3. 正文。要求写出举办活动的内容、目的以及时间地点等。\n4. 结尾。结尾处写上礼节性的问候语，如“恳请光临”等\n5.落款：要署上发文单位名称或单位领导的姓名、职务，并署上发文日期，同时要加盖公章。\n\
+            参考以下例子。要含有尊敬之意\n<example>\n邀请函\n尊敬的XX女士/先生：\n  过往的一年，感谢您的支持。\n  为了感谢您对我们的大力支持，我们特于xx年xx月xx日14:00在xx地点举办XX答谢会。\n\
+            \  期待您的光临！让我们共叙友谊！\n\nxx单位\nxx年xx月xx日\n</example>"
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734506908348'
+      position:
+        x: 83
+        y: 383.12575717421686
+      positionAbsolute:
+        x: 83
+        y: 383.12575717421686
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734506908348'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734508597765'
+      position:
+        x: 83
+        y: 529.6161847552154
+      positionAbsolute:
+        x: 83
+        y: 529.6161847552154
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 257.2310642972237
+      y: -95.5198311696007
+      zoom: 1.1470227794009267

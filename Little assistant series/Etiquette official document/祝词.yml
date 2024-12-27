@@ -1,0 +1,192 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#FEF7C3'
+  mode: workflow
+  name: 祝词
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734508863019-source-1734510306248-target
+      source: '1734508863019'
+      sourceHandle: source
+      target: '1734510306248'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734510306248-source-1734510309768-target
+      source: '1734510306248'
+      sourceHandle: source
+      target: '1734510309768'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 发言人职位
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: position
+        - label: 祝贺事由
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+      height: 116
+      id: '1734508863019'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: d28af211-7ae1-47c0-bdcb-c2a341c2e771
+          role: system
+          text: '根据用户提供的信息{{#1734508863019.position#}}{{#1734508863019.reason#}}，你帮助用户写祝词。篇幅1000字左右。
+
+            祝愿性是祝词的基本特征。行文需要直陈心愿，感情充沛。
+
+            祝词的写作格式一服由标题、称呼、正文、结束语和落数五部分组成。
+
+            1.标题。有两种写法：一是直接写“祝词”，二是写出具体祝贺的内容，如“xx市长在xx市xx晚宴上的祝词”。
+
+            2.称呼。对人的称呼按照书信写作的要求来写即可；祝事业的直呼单位或部门名称即可，要注意称呼的先后顺序和亲切感。
+
+            3.正文。应包含下面几层意思：首先应向受祝贺的单位或人员表示祝贺、感谢或问候，或者说明写祝词的理由或原因：其次常常对受祝方做出的成就进行适当评价或指出其意义；最后写表示祝愿、希望、祝贺之语，也可以给被祝者以鼓励。
+
+            4.结束语。正文结束后常用一句礼节性的祝颂语结束全文。
+
+            5.落款。最后在正文的右下方署祝者的名称（单位或个人）以及发祝词的年、月、日。
+
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可
+
+            '
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734510306248'
+      position:
+        x: 116
+        y: 449
+      positionAbsolute:
+        x: 116
+        y: 449
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734510306248'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734510309768'
+      position:
+        x: 80
+        y: 595
+      positionAbsolute:
+        x: 80
+        y: 595
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 850
+      y: -14
+      zoom: 1

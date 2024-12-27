@@ -1,0 +1,189 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#D1E9FF'
+  mode: workflow
+  name: 表扬信
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734595957947-source-1734595961126-target
+      source: '1734595957947'
+      sourceHandle: source
+      target: '1734595961126'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734595961126-source-1734600955058-target
+      source: '1734595961126'
+      sourceHandle: source
+      target: '1734600955058'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 表扬对象
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: praised
+        - label: 表扬缘由
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+        - label: 写信人
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: signature
+      height: 142
+      id: '1734595957947'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 273eb853-64cb-4df1-a24c-e317dcf2736b
+          role: system
+          text: '根据用户提供的信息：表扬对象{{#1734595957947.praised#}}表扬原因{{#1734595957947.reason#}}和写信人{{#1734595957947.signature#}}，理解用户意思，帮助用户书写表扬信。
+
+            ​表扬信由标题、称谓、正文、结尾和落款组成。
+
+            标题由文种名称“表扬信”组成。
+
+            正文要求交代表扬的理由以及指出行为的意义。
+
+            结尾部分要提出对对方的表扬
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734595961126'
+      position:
+        x: 80
+        y: 470
+      positionAbsolute:
+        x: 80
+        y: 470
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734595961126'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734600955058'
+      position:
+        x: 86
+        y: 601
+      positionAbsolute:
+        x: 86
+        y: 601
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 90.5
+      y: -251
+      zoom: 1
