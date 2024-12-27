@@ -1,0 +1,213 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#D5D9EB'
+  mode: workflow
+  name: 唁电
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1735114525757-source-1735114527522-target
+      source: '1735114525757'
+      sourceHandle: source
+      target: '1735114527522'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735114527522-source-1735114529451-target
+      source: '1735114527522'
+      sourceHandle: source
+      target: '1735114529451'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 吊唁对象
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: object
+        - label: 落款单位/人
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: person
+        - label: 吊唁对象成就或功绩
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: achievement
+      height: 142
+      id: '1735114525757'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.1
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - edition_type: basic
+          id: 1687700d-e435-4f61-bbb7-e59975339f6f
+          role: system
+          text: '根据用户提供的信息：吊唁对象（逝者）{{#1735114525757.object#}}及其成就{{#1735114525757.achievement#}}，和落款{{#1735114525757.person#}}，理解用户意思，帮助用户书写唁电。
+
+
+            唁电分个人唁电、单位唁电、国与国之间拍发的唁电三类。
+
+            1. 个人唁电。唁电的发电者同逝者生前往往是志同道合的朋友，有过密切交往或深受其教诲、关怀、帮助等。以唁电表示悼念之情。
+
+            2. 单位唁电。领导机关、单位团体向丧家发的唁电。这种唁电的致哀对象多是原机关或单位团体的重要领导人或在革命和建设中曾作出较大贡献的人物。
+
+            3.国与国之间拍发的唁电。唁电一般发给对方的国家政府机关或其他相应的重要国家政府机关。逝世者一般为重要的国家领导人或为两国之间的和睦关系、经济发展作出过巨大贡献的重要人物。这样，一方发去唁电以表示对逝者方的哀悼。
+
+            无论哪种类型的唁电，一般而言，都由标题、开头、正文、结尾和落款五部分构成。
+
+            1.标题。唁电标题的构成有两种形式。一种直接由文种名称构成“唁电”二字。另一种由逝者{{#1735114525757.object#}}亲属姓名或单位名称和文种名共同构成，如《致xxx女士的唁电》。
+
+            2.开头。唁电开头是收唁电方（逝者）的单位或逝者家属的称呼。收唁电方是家属的，一般应在姓名后边加“同志”“先生”“女士”“夫人”等相应称呼。
+
+            3.正文。正文要另起一行，空两格再写。正文通常由以下几项内容构成:
+
+            (1)直接抒写噩耗传来之后的悲恸心情，话无须多。
+
+            (2)以沉痛的心情，简述双方在交往中逝者生前所表现的优秀品德及功绩
+
+            (3)表达致电单位或个人对逝者遗志的继承和决心，或表达要在逝者优秀品德或精神的感召下奋勇前进等。
+
+            (4)向逝者家属表示亲切的问候和安慰。
+
+            4.结尾。唁电结尾一般写上“肃此电达”“特电慰问”等字样
+
+            5.落款。落款写在右下方，要写明拍发唁电的单位名称或个人姓名，在此下面还要署上发电时间:xxxx年xx月xx日。
+
+            6.输出完成后立刻停止，不要总结自身工作。
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735114527522'
+      position:
+        x: 80
+        y: 460
+      positionAbsolute:
+        x: 80
+        y: 460
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1735114527522'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1735114529451'
+      position:
+        x: 80
+        y: 595
+      positionAbsolute:
+        x: 80
+        y: 595
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 512
+      y: -755.5
+      zoom: 2

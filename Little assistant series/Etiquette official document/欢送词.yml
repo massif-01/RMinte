@@ -1,0 +1,194 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#D1E0FF'
+  mode: workflow
+  name: 欢送词
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1735110197659-source-1735110200038-target
+      source: '1735110197659'
+      sourceHandle: source
+      target: '1735110200038'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735110200038-source-1735110202258-target
+      source: '1735110200038'
+      sourceHandle: source
+      target: '1735110202258'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 欢送对象
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: recipient
+        - label: 场合
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: situation
+        - label: 致辞人
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: person
+        - label: 交流和活动成果总结
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: summary
+      height: 168
+      id: '1735110197659'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: bc15172f-a67e-4523-b98f-a29c00c7e3ba
+          role: system
+          text: '根据用户提供的信息：欢送对象{{#1735110197659.recipient#}}，场景或原因{{#1735110197659.situation#}}{{#1735110197659.summary#}}和致辞人{{#1735110197659.person#}}，理解用户意思，帮助用户书写欢送词。欢送词是正式场合中，客人告别主人时表示送别客人的致辞，如会议闭幕，学生毕业等都要表示热烈欢送。
+
+
+            欢送词具有惜别性。
+
+            欢送词一般由标题、称谓、正文和结尾四部分组成。
+
+            正文应根据实际情况表达不同的内容。一般写明对宾客离去表示热忱欢送之意，追叙宾客访问期间的活动情况和收获，对活动成果进行概括和总结，表达进一步加强交往和合作的意愿。
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735110200038'
+      position:
+        x: 80
+        y: 498
+      positionAbsolute:
+        x: 80
+        y: 498
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1735110200038'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1735110202258'
+      position:
+        x: 80
+        y: 648
+      positionAbsolute:
+        x: 80
+        y: 648
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 723.3817429960586
+      y: -136.31411932540266
+      zoom: 0.9535557277422837

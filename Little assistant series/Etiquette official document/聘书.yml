@@ -1,0 +1,195 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#D5D9EB'
+  mode: workflow
+  name: 聘书
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734503927391-source-1734505822504-target
+      source: '1734503927391'
+      sourceHandle: source
+      target: '1734505822504'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734505822504-source-1734506490112-target
+      source: '1734505822504'
+      sourceHandle: source
+      target: '1734506490112'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 被聘请者姓名
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: hired
+        - label: 职位
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: position
+        - label: 聘请单位
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: Hiringunit
+        - label: 落款日期
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: date
+        - label: 受任期限
+          max_length: 48
+          options: []
+          required: false
+          type: text-input
+          variable: term
+      height: 194
+      id: '1734503927391'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 56ec7517-1967-4a9c-8006-41ef7e558987
+          role: system
+          text: "根据用户提供的信息{{#1734503927391.hired#}}{{#1734503927391.position#}}{{#1734503927391.Hiringunit#}}{{#1734503927391.date#}}{{#1734503927391.term#}}，帮助用户书写聘书。\n\
+            完整的聘书格式由以下几部分构成：\n1. 标题。\n2. 称谓。正文中写明受聘人的姓名称呼。常见的印制好的聘书则大都在第一行空两格写“兹聘请⋯⋯”\n\
+            3. 正文。首先，交代聘请的原因和请去所干的工作，或所要担任的职务。其次，写明聘任期限，聘任待遇，也可另附详尽的聘约或公函写明具体的待遇，这要视情况而定。\n\
+            4.结尾。聘书的结尾一般写上表示敬意和祝颂的结束用语。如“此致”“敬礼”“此聘”等。\n5. 落款。落款要署上发文单位名称或单位领导的姓名、职务，并署上发文日期，同时要加盖公章。\n\
+            参考以下例子。\n<example>\n聘请书\n  为提高我院的科研水平，本院成立了科研项目评估委员会，特聘请×XX教授为该委员会学术顾问，指导我院的科研工作。聘期自XXXX年XX月XX日至XXXX年XX月XX日，聘任期间享受委员会学术顾问全额工资待遇。\n\
+            \  此致\n 敬礼！\n\nxx单位\nxx年xx月xx日\n</example>"
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734505822504'
+      position:
+        x: 354.01106033581186
+        y: 282
+      positionAbsolute:
+        x: 354.01106033581186
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734505822504'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734506490112'
+      position:
+        x: 646
+        y: 282
+      positionAbsolute:
+        x: 646
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -134.05898926801945
+      y: 294.9846491007261
+      zoom: 0.8379674339427337

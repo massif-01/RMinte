@@ -1,0 +1,211 @@
+app:
+  description: 编辑证明信
+  icon: right_anger_bubble
+  icon_background: '#ECE9FE'
+  mode: workflow
+  name: 证明信
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734425640779-source-1734426178494-target
+      source: '1734425640779'
+      sourceHandle: source
+      target: '1734426178494'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734426178494-source-1734426220491-target
+      source: '1734426178494'
+      sourceHandle: source
+      target: '1734426220491'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 受文单位或受文个人称呼
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: name
+        - label: 被证明人姓名
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: name1
+        - label: 性别
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: xingbie
+        - label: 政治面貌
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: zhengzhi
+        - label: 身份证号
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: id
+        - label: 证明事由
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: shiyou
+        - label: 落款单位或个人称呼
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: luokuan
+        - label: 落款日期
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: date
+      height: 272
+      id: '1734425640779'
+      position:
+        x: 75.99861274428866
+        y: 282
+      positionAbsolute:
+        x: 75.99861274428866
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 58f97d95-f3de-4b28-a3a9-de303ff47db1
+          role: system
+          text: "你帮助用户书写证明信。证明信的写法采用书信体格式，参考以下例子。根据用户提供的{{#1734425640779.shiyou#}}润色，要求简洁明了。\n\
+            <example>\n介绍信\n{{#1734425640779.name#}}：\n  {{#1734425640779.name1#}}同志，性别{{#1734425640779.xingbie#}}，政治面貌{{#1734425640779.zhengzhi#}}，身份证号：{{#1734425640779.id#}}。{{#1734425640779.shiyou#}}于XX年XX月XX日至XX年XX月XX日在我司从事XX工作，工作积极，团结同事，各方面表现优秀。我单位对本证明真实性负责。\n\
+            \  特此证明。\n单位名称：{{#1734425640779.luokuan#}}（盖章）\n{{#1734425640779.date#}}\n\
+            </example>"
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734426178494'
+      position:
+        x: 417
+        y: 282
+      positionAbsolute:
+        x: 417
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734426178494'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734426220491'
+      position:
+        x: 774
+        y: 282
+      positionAbsolute:
+        x: 774
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 205.24125917347783
+      y: 234.45300418496356
+      zoom: 0.9986146661010291

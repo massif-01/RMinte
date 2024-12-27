@@ -1,0 +1,198 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#ECE9FE'
+  mode: workflow
+  name: 公开信
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1735029525217-source-1735029828287-target
+      source: '1735029525217'
+      sourceHandle: source
+      target: '1735029828287'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735029828287-source-1735030928048-target
+      source: '1735029828287'
+      sourceHandle: source
+      target: '1735030928048'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 发文单位/人
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: person
+        - label: 接受单位/人
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: recipient
+        - label: 发信原因
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+      height: 142
+      id: '1735029525217'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 7d70cdd0-a24b-47e1-9b61-9170ff2c9812
+          role: system
+          text: '根据用户提供的信息：发文对象{{#1735029525217.recipient#}}发文原因{{#1735029525217.reason#}}和写信人{{#1735029525217.person#}}，理解用户意思并分别是何种类型的公开信，帮助用户书写公开信。
+
+
+            公开信由标题、称呼、正文、结尾、落款组成。
+
+            不同类型的公开信，其内容与写法有很大不同。
+
+            1、重大节日针对相关人群的公开信：
+
+            标题一般由发文双方名称和发文原因共同组成，如《共青团中央关于提倡婚事新办给全国共青团、青年朋友们的一封信》；正文应写些表示关怀、问候和祝愿的话；真情实意地赞颂收信人的品德、成绩、贡献机器影响；发文机关或单位进一步提出勉励和希望、要求，使收信人可以不骄不躁，打样有事；以饱满、热烈的感情发出号召。再交表达真挚的祝福和希望。
+
+            2、针对有具体问题的公开信：
+
+            标题通常也由发信双方及发信事由与文种名称构成，如“xxx关于xx给xx的一封信”。正文内容要说明公开信的发文原因；简略叙述问题存在的一些情况，若是某一现象，则要指明这是什么现象，有什么危害，会造成何种结果；发文这对这一问题的真实态度，是赞扬还是批评反复；提出希望或提出解决问题的意见及建议。
+
+            3、私人信件公开发表：
+
+            通常这类信件分为两种情况：寄给报社以求对方联系的公开信和私人信件的直接公开。寄给报社的这类需要在正问着清楚的叙述情况，使编辑了解实情；私人信件的公开发表一般发表后可以起到很大的思想教育意义。
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735029828287'
+      position:
+        x: 80
+        y: 448
+      positionAbsolute:
+        x: 80
+        y: 448
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1735029828287'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1735030928048'
+      position:
+        x: 80
+        y: 581
+      positionAbsolute:
+        x: 80
+        y: 581
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 714
+      y: -101.5
+      zoom: 1

@@ -1,0 +1,195 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#D1E9FF'
+  mode: workflow
+  name: 倡议书
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1735031279936-source-1735105866782-target
+      source: '1735031279936'
+      sourceHandle: source
+      target: '1735105866782'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735105866782-source-1735106377579-target
+      source: '1735105866782'
+      sourceHandle: source
+      target: '1735106377579'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 发文对象
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: Receipe
+        - label: 发文原因
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+        - label: 倡议人
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: person
+      height: 142
+      id: '1735031279936'
+      position:
+        x: 80
+        y: 283
+      positionAbsolute:
+        x: 80
+        y: 283
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: a61b2b14-238b-41c1-9a4f-60bbc9062a35
+          role: system
+          text: '根据用户提供的信息：发文对象{{#1735031279936.Receipe#}}发文原因{{#1735031279936.reason#}}和倡议人{{#1735031279936.person#}}，理解用户意思，帮助用户书写倡议书。
+
+
+            倡议书是某一组织或社团拟定、就某事向社会提出建议或提议社会成员共同去做某事的书面文章。倡议书具有鼓动性、群众性和公开性的特点。
+
+            倡议书在写法上应该目的清洗，表达明确；内容真切，短小精悍。
+
+
+            公开信由标题、称呼、正文、结尾、落款组成。
+
+            标题可直接写“倡议书”，或由倡议内容和文种名共同组成，如“号召全社会共同植树造林的倡议书”
+
+            正文应写明倡议书的背景、原因和目的；具体内容和要求。
+
+            结尾要表达倡议者的决心和希望，或写出某种建议。倡议书一般不在结尾写表示敬意或祝愿的话。
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735105866782'
+      position:
+        x: 80
+        y: 453
+      positionAbsolute:
+        x: 80
+        y: 453
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1735105866782'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1735106377579'
+      position:
+        x: 84
+        y: 610
+      positionAbsolute:
+        x: 84
+        y: 610
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 710
+      y: -130.5
+      zoom: 1

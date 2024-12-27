@@ -1,0 +1,234 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#D5D9EB'
+  mode: workflow
+  name: 讣告
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1735119466929-source-1735119475330-target
+      source: '1735119466929'
+      sourceHandle: source
+      target: '1735119475330'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1735119475330-source-1735119476905-target
+      source: '1735119475330'
+      sourceHandle: source
+      target: '1735119476905'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 逝者姓名
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: name
+        - label: 逝世时间
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: date
+        - label: 逝世原因
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+        - label: 终年岁数
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: age
+        - label: 生平事迹
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: story
+        - label: 追悼会时间
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: date2
+        - label: 追悼会地点
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: location
+        - label: 发文单位
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: signature
+      height: 272
+      id: '1735119466929'
+      position:
+        x: 80
+        y: 281.25370591221525
+      positionAbsolute:
+        x: 80
+        y: 281.25370591221525
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 58f40d18-5735-418a-ae7e-7170e7d9a853
+          role: system
+          text: '根据用户提供的信息：逝者名称{{#1735119466929.name#}}，何种原因{{#1735119466929.reason#}}，逝世时间{{#1735119466929.date#}}，终年岁数{{#1735119466929.age#}}，逝者生平简介{{#1735119466929.story#}}以及追悼会的时间{{#1735119466929.date2#}}及地点{{#1735119466929.location#}}，帮助用户书写讣告。用词庄重严肃
+
+
+            讣告有以下三种形式:
+
+            1.一般式讣告。这种讣告是人们常用的讣告。它的写法是:
+
+            (1)在开头一行中间写“讣告”二字，或在“讣告”前冠上死者的姓名，如“xxx讣告”。
+
+            (2)写明死者的姓名，身份，因何逝世，逝世的日期、地点、终(享)年岁数。
+
+            (3)简要介绍死者生平，着重介绍死者生前具有代表性的经历。
+
+            (4)通知吊唁、开追悼会的时间、地点。
+
+            (5)署明发讣告的团体或个人的名称，以及发讣告的时间。
+
+            2.公告、宣告式讣告。公告、宣告式讣告的写法为:
+
+            (1)标出发公告或宣告的单位名称和死者的姓名，如“中共中央、全国人大常委会、国务院”“xxx同志逝世”。
+
+            (2)标明文种“公告”“宣告”“讣告”。
+
+            (3)正文写公告或宣告内容:公布死者逝世的消息，如死者的职务姓名、逝世原因、时间、地点以及终年岁数，简要介绍死者生平和对死者的评价，以及对死者表示哀悼之词，署明公告或宣告时间。
+
+
+            无需给用户区分表示标题、正文等，按照正式行文的方式输出即可'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1735119475330'
+      position:
+        x: 80
+        y: 600.7314704389238
+      positionAbsolute:
+        x: 80
+        y: 600.7314704389238
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1735119475330'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1735119476905'
+      position:
+        x: 80
+        y: 730.2537059122152
+      positionAbsolute:
+        x: 80
+        y: 730.2537059122152
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 204.82922381899175
+      y: -542.3045659230813
+      zoom: 1.339954337529744

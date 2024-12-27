@@ -1,0 +1,199 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#FFE4E8'
+  mode: workflow
+  name: 慰问信
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734593410522-source-1734593609581-target
+      source: '1734593410522'
+      sourceHandle: source
+      target: '1734593609581'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734593609581-source-1734593616392-target
+      source: '1734593609581'
+      sourceHandle: source
+      target: '1734593616392'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 慰问单位/人的称呼
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: Condolence
+        - label: 慰问事由
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+        - label: 发信单位名称
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: signature
+      height: 142
+      id: '1734593410522'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: 6e0a62a3-a246-4274-8243-4606be290556
+          role: system
+          text: '根据用户提供的信息慰问人：{{#1734593410522.Condolence#}}慰问原因：{{#1734593410522.reason#}}以及落款单位{{#1734593410522.signature#}}，理解用户意思，帮助用户书写慰问信。
+
+            慰间信可分为以下几种：
+
+            1.表示同情安慰。如向遭受巨大损失和困难的个人或群体表示同情、安慰，鼓励他们战胜困难、改变现状。
+
+            2.表示节日问候。这类慰问信多是上级单位写给有关人员的，所以正文内容要强调节日意义，赞扬有关人员所取得的成绩。
+
+            3.表彰慰问。对作出突出贡献的单位和个人进行表彰及慰问。
+
+            一般慰问信的基本结构包括标题、抬头、正文及落款四部分。
+
+            标题可以只写“慰问信”三字，也可以同时写上慰问对象，有些还要写上发信单位名称，亦可以写成“XXXX致XXXX的慰问信”。
+
+            抬头即致信对象，写清被慰问对象的单位名称或个人姓名，个人姓名后要加上称呼，称谓应表示尊敬。清楚。
+
+            正文。慰问信的正文要将发文目的、慰问缘由或慰问事项等表述清楚
+
+            在写作上，慰问信要明确慰问对象和目的。慰问有功者，侧重赞扬、激励；慰问有难者，侧重同情、安慰；节日慰问，侧重肯定、鼓励。
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734593609581'
+      position:
+        x: 80
+        y: 465
+      positionAbsolute:
+        x: 80
+        y: 465
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734593609581'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734593616392'
+      position:
+        x: 80
+        y: 567
+      positionAbsolute:
+        x: 80
+        y: 567
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 79
+      y: -92.5
+      zoom: 1

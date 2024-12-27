@@ -1,0 +1,195 @@
+app:
+  description: ''
+  icon: right_anger_bubble
+  icon_background: '#E4FBCC'
+  mode: workflow
+  name: 贺信
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 200
+        image_file_size_limit: 100
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1734511398517-source-1734511418529-target
+      source: '1734511398517'
+      sourceHandle: source
+      target: '1734511418529'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1734511418529-source-1734511422649-target
+      source: '1734511418529'
+      sourceHandle: source
+      target: '1734511422649'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: 被贺方
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: Congratulations
+        - label: 恭贺缘由
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: reason
+        - label: 祝贺方
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: oneself
+      height: 142
+      id: '1734511398517'
+      position:
+        x: 80
+        y: 283
+      positionAbsolute:
+        x: 80
+        y: 283
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.5
+          mode: chat
+          name: Qwen2.5-A6000NVLink
+          provider: openai_api_compatible
+        prompt_template:
+        - id: b184d68e-8b1c-4a24-ad59-a42aa5727951
+          role: system
+          text: '根据用户提供的信息：被贺方<{{#1734511398517.Congratulations#}}>,恭贺缘由<{{#1734511398517.reason#}}>,祝贺方<{{#1734511398517.oneself#}}>，帮助用户书写贺信。
+
+            贺信是一种表彰、赞扬、庆贺对方在某方面所做贡献的常用形式。由标题、称谓、正文、结尾和落款五部分物成。
+
+            贺信的正文要交代清楚以下几项内容：
+
+            （1）结合当前的形势状况，说明对方取得成绩的大音景，或者某个重要会议召开的历史条件等。
+
+            （2）概括说明对方都在哪些方面取得了成绩，分析其成功的主现、客观原因。贺寿的贺信要概括说明对方的贡献及其宝贵品质。
+
+            （3）表示热烈的祝贺。要写出自己祝贺的心情，由衷地表达自己真诚的慰问和祝福。要写些鼓励的话，提出希望和共同理想。
+
+            结尾要写上祝愿的话。
+
+            落款写明发文的单位名称或个人的姓名，并暑上成文的时间。
+
+
+            无需给用户区分表示标题、正文等，按照平时写信的方式输出即可'
+        selected: true
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 98
+      id: '1734511418529'
+      position:
+        x: 80
+        y: 440.4238050814737
+      positionAbsolute:
+        x: 80
+        y: 440.4238050814737
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1734511418529'
+          - text
+          variable: text
+        selected: false
+        title: 结束
+        type: end
+      height: 90
+      id: '1734511422649'
+      position:
+        x: 80
+        y: 552.5235614924036
+      positionAbsolute:
+        x: 80
+        y: 552.5235614924036
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: 716.2280101170659
+      y: -66.43302416472864
+      zoom: 0.9889702469452182
