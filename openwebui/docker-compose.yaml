@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - "80:8080"
+    volumes:
+      - open-webui-data:/app/backend/data
+    environment:
+      - HF_HUB_OFFLINE=1  # 禁用在线模型下载，适合离线环境
+    restart: always
+    # 如果 API 端点在本地（如 LMStudio），可取消注释以下行
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+    # 如果需要直接访问主机网络，可取消注释以下行
+    # network_mode: host
+
+volumes:
+  open-webui-data:
